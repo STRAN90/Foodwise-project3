@@ -21,7 +21,49 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-        return "Hello World ... again!"
+    return render_template("home.html")
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
+@app.route("/login")
+def sign_in():
+    return render_template("login.html")
+
+
+@app.route("/profile")
+def account():
+    return render_template("profile.html")
+
+
+@app.route("/recipes")
+def recipes():
+    return render_template("recipes.html")
+
+
+@app.route("/add_recipe")
+def add_recipe():
+    return render_template("add_recipe.html")
+
+
+@app.route("/edit_recipe")
+def edit_recipe():
+    return render_template("edit_recipe.html")
+
+@app.route("/categories")
+def categories():
+    return render_template("categories.html")
+
+@app.route("/add_category")
+def add_category():
+    return render_template("add_category.html")
+
+
+@app.route("/edit_category")
+def edit_category():
+    return render_template("edit_category.html")
 
 
 if __name__ == "__main__":
