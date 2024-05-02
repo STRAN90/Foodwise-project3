@@ -1,4 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
+<h3 class="center-align teal-text text-darken-4">Recipes</h3>
 
+{% for recipe in recipes %}
+<div class="row">
+    <div class="col s12 m6 l4">
+        <div class="card">
+            <div class="card-image">
+                <div class="image-height">
+                    <div class="image-height ">
+                        <img src="static/images/pasta_dish.jpg" alt="Tomatoe pasta dish">
+                    <span class="card-title">{{ recipe.name }}</span>
+                </div>
+                {% if 'user' in session %}
+                <a class="btn-floating halfway-fab waves-effect waves-light teal darken-4">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </a>
+                {% else %}
+                <div class="btn-floating halfway-fab waves-effect waves-light teal darken-4">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </div>
+                {% endif %}
+            </div>
+            <div class="card-content">
+                <p>{{ recipe.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

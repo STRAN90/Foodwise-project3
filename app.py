@@ -162,7 +162,13 @@ def profile():
 
 @app.route("/recipes")
 def recipes():
-    return render_template("recipes.html")
+    recipes = mongo.db.recipes.find()
+    # adds current user if signed in
+    if "user" in session:
+        user = mongo.db.users.find_one({"user_id": session["user"]})
+        return render_template("recipes.html", recipes=recipes, user=user)
+
+    return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/add_recipe")
