@@ -104,17 +104,17 @@ def login():
         if existing_user:
             # Ensure password matches user input
             if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("email")
-                flash("Welcome, {}".format(request.form.get("email")))
-                return redirect(url_for("profile"), username=session["user"])
-            else:
-                # Invalid password match
-                flash("Incorrect Email and/or Password")
-                return redirect(url_for("login"))
-        else:
-            # Email doesn't exist
+                session["user"] = existing_user["email"]  # Storing email for simplicity
+                flash("Welcome, {}".format(existing_user["email"]))
+                return redirect(url_for("profile"))  # Redirect to profile without passing username
+
+            # Invalid password match
             flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
+
+        # Email doesn't exist
+        flash("Incorrect Email and/or Password")
+        return redirect(url_for("login"))
 
     # Check if user is signed in
     if "user" in session:
@@ -128,10 +128,16 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
-    flash("You have been logged out")
-    session.pop("user")
+    # Check if "user" key exists in the session
+    if "user" in session:
+        # Remove user from session cookie
+        session.pop("user")
+        flash("You have been logged out")
+    else:
+        flash("You are not logged in")
+
     return redirect(url_for("login"))
+
 
 @app.route("/profile")
 def profile():
@@ -140,16 +146,18 @@ def profile():
         flash("Please log in to view this page")
         return redirect(url_for("login"))
 
-    # Pull current user from database using id from session cookie
+    # Get user_id from session
     user_id = session["user"]
+
+    # Query database to fetch user information based on user_id
     user = mongo.db.users.find_one({"user_id": user_id})
 
     if user:
+        # Render profile page with user information
         return render_template("profile.html", user=user)
     else:
         flash("User not found")
         return redirect(url_for("login"))
-
 
 
 @app.route("/recipes")
