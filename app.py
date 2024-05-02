@@ -30,26 +30,68 @@ def home():
 
     return render_template("home.html", recipes=recipes)
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # check if username already exists in db
+    
+        # check if username already exists in db and reloads page until user info is all valid
+    
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username")})
+        existing_email = mongo.db.users.find_one(
+            {"email": request.form.get("email")})
 
-        if existing_user:
+        if existing_user and existing_email:
+            flash("Username and email already exist")
+            return redirect(url_for("register"))
+        elif existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
+        elif existing_email:
+            flash("Email already exists")
+            return redirect(url_for("register"))
+        elif request.form.get("password") != request.form.get(
+                "password_check"):
+            flash("Passwords do not match")
+            return redirect(url_for("register"))
+        else:
+            
+            # unique id to new user 
+            user_id = 1
+            existing_id = True
+            while existing_id:
+                if user_id not in mongo.db.used_ids.find_one({
+                        "name": "used_ids"})["ids"]:
+                    existing_id = False
+                    break
+                else:
+                    user_id += 1
 
-        register = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        mongo.db.users.insert_one(register)
+            mongo.db.used_ids.update_one({"name": "used_ids"}, {
+                "$push": {"ids": user_id}})
 
-        # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+            # builds new user dict with default superuser and admin permissions
+            new_user = {
+                "user_id": user_id,
+                "f_name": request.form.get("f_name").capitalize(),
+                "l_name": request.form.get("l_name").capitalize(),
+                "email": request.form.get("email"),
+                "username": request.form.get("username").lower(),
+                "password": generate_password_hash(
+                    request.form.get("password")),
+                "is_super": False,
+                "is_admin": False}
+            mongo.db.users.insert_one(new_user)
+
+            # puts new user id into session cookie
+            session["user"] = user_id
+            flash("Successfully Registered!")
+            return redirect(url_for("profile"))
+
+
+    if "user" in session:
+        flash("You are already registered")
+        return redirect(url_for("profile"))
 
     return render_template("register.html")
 
