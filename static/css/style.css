@@ -33,3 +33,14 @@ body {
     font-weight: bolder;
 }
 
+.row {
+    margin-top: 20px;
+}
+
+.col .row {
+    margin: 0%;
+}
+
+.btn-large {
+    background-color: red;
+}

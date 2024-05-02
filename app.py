@@ -23,6 +23,11 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     recipes = list(mongo.db.recipes.find())
+    # adds current user if signed in
+    if session:
+        user = mongo.db.users.find_one({"user_id": session["user"]})
+        return render_template("home.html", recipes=recipes, user=user)
+
     return render_template("home.html", recipes=recipes)
 
 @app.route("/register")
@@ -74,9 +79,8 @@ def login():
 
     return render_template("login.html")
 
-
 @app.route("/profile")
-def account():
+def profile():
     return render_template("profile.html")
 
 
