@@ -180,9 +180,27 @@ def add_recipe():
 def edit_recipe():
     return render_template("edit_recipe.html")
 
+@app.route("/recipe_description/<recipe_id>", methods=["GET", "POST"])
+def recipe_description(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    if "user" in session:
+        user = mongo.db.users.find_one({"user_id": session["user"]})
+        return render_template("recipe_description.html", recipe=recipe, user=user)
+
+    return render_template("recipe_description.html", recipe=recipe)
+    
+
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    categories = mongo.db.categories.find()
+    if "user" in session:
+        user = get_user(session["user"])
+        return render_template(
+            "categories.html", 
+            categories=categories, 
+            user=user)
+
+    return render_template("categories.html", categories=categories)
 
 @app.route("/add_category")
 def add_category():

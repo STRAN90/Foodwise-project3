@@ -9,8 +9,9 @@
             <div class="card-image">
                 <div class="image-height">
                     <div class="image-height ">
-                        <img src="static/images/pasta_dish.jpg" alt="Tomatoe pasta dish">
+                        <img src="static/images/pasta_dish.jpg" alt="Tomato pasta dish">
                     <span class="card-title">{{ recipe.name }}</span>
+                    <a class="card-title" href="{{ url_for('recipe_description', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
                 </div>
                 {% if 'user' in session %}
                 <a class="btn-floating halfway-fab waves-effect waves-light teal darken-4">
