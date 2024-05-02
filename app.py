@@ -60,8 +60,7 @@ def register():
             user_id = 1
             existing_id = True
             while existing_id:
-                if user_id not in mongo.db.used_ids.find_one({
-                        "name": "used_ids"})["ids"]:
+                if user_id not in mongo.db.used_ids.find_one({"name": "used_ids"})["ids"]:
                     existing_id = False
                     break
                 else:
@@ -101,25 +100,35 @@ def login():
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"email": request.form.get("email")})
 
         if existing_user:
-            # ensure hashed password matches user input
+            # ensure password matches user input
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
+                    session["user"] = existing_user["user_id"]
+                    flash("Welcome, {}".format(existing_user["username"]))
+                    return redirect(url_for(
+                        "profile"))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Email and/or Password")
                 return redirect(url_for("login"))
 
         else:
-            # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            # email doesn't exist
+            flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
 
+# Check if user is signed in
+    if "user" in session:
+        # Redirect to profile page if signed in
+        flash("You are already signed in")
+        return redirect(url_for("profile"))
+
+    # Render the login page if not signed in
     return render_template("login.html")
+
 
 @app.route("/profile")
 def profile():
