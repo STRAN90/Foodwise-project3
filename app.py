@@ -98,29 +98,25 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        # check if username exists in db
-        existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email")})
+        # Check if email exists in db
+        existing_user = mongo.db.users.find_one({"email": request.form.get("email")})
 
         if existing_user:
-            # ensure password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = existing_user["user_id"]
-                    flash("Welcome, {}".format(existing_user["username"]))
-                    return redirect(url_for(
-                        "profile"))
+            # Ensure password matches user input
+            if check_password_hash(existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("email")
+                flash("Welcome, {}".format(request.form.get("email")))
+                return redirect(url_for("profile"), username=session["user"])
             else:
-                # invalid password match
+                # Invalid password match
                 flash("Incorrect Email and/or Password")
                 return redirect(url_for("login"))
-
         else:
-            # email doesn't exist
+            # Email doesn't exist
             flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
 
-# Check if user is signed in
+    # Check if user is signed in
     if "user" in session:
         # Redirect to profile page if signed in
         flash("You are already signed in")
@@ -130,9 +126,30 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    # Check if user is logged in
+    if "user" not in session:
+        flash("Please log in to view this page")
+        return redirect(url_for("login"))
+
+    # Pull current user from database using id from session cookie
+    user_id = session["user"]
+    user = mongo.db.users.find_one({"user_id": user_id})
+
+    if user:
+        return render_template("profile.html", user=user)
+    else:
+        flash("User not found")
+        return redirect(url_for("login"))
+
 
 
 @app.route("/recipes")
