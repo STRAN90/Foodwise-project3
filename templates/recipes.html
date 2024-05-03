@@ -1,33 +1,76 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="center-align teal-text text-darken-4">Recipes</h3>
-
-{% for recipe in recipes %}
-<div class="row">
-    <div class="col s12 m6 l4">
-        <div class="card">
-            <div class="card-image">
-                <div class="image-height">
-                    <div class="image-height ">
-                        <img src="static/images/pasta_dish.jpg" alt="Tomato pasta dish">
-                    <span class="card-title">{{ recipe.name }}</span>
-                    <a class="card-title" href="{{ url_for('recipe_description', recipe_id=recipe._id) }}">{{ recipe.name }}</a>
+<div class="container wrapper bg-dark radius">
+    <h1 class="yellow-text yellow-darken-4 center-align rock-font">Your Recipies</h1>
+    <div class="row">
+        <div class="col s12 col m6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/pasta_dish.jpg" alt="Tomato pasta dish">
                 </div>
-                {% if 'user' in session %}
-                <a class="btn-floating halfway-fab waves-effect waves-light teal darken-4">
-                    <i class="fa-solid fa-circle-plus"></i>
-                </a>
-                {% else %}
-                <div class="btn-floating halfway-fab waves-effect waves-light teal darken-4">
-                    <i class="fa-solid fa-circle-plus"></i>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title <i
+                            class="fa-solid fa-ellipsis right"></i></span>
+                    <p><a href="#">This is a link</a></p>
                 </div>
-                {% endif %}
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title
+                        <i class="fa-solid fa-xmark right"></i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
             </div>
-            <div class="card-content">
-                <p>{{ recipe.description }}</p>
+        </div>
+        <div class="col s12 col m6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/pasta.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title <i
+                            class="fa-solid fa-ellipsis right"></i></span>
+                    <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title
+                        <i class="fa-solid fa-xmark right"></i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 col m6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/pasta.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title <i
+                            class="fa-solid fa-ellipsis right"></i></span>
+                    <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title
+                        <i class="fa-solid fa-xmark right"></i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 col m6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/pasta.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Card Title <i
+                            class="fa-solid fa-ellipsis right"></i></span>
+                    <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Card Title
+                        <i class="fa-solid fa-xmark right"></i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-{% endfor %}
 {% endblock %}
