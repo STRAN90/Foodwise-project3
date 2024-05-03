@@ -206,9 +206,21 @@ def categories():
         return render_template("categories.html", categories=categories, user=None)
 
 
-@app.route("/add_category")
+@app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    return render_template("add_category.html")
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name"),
+            "category_description": request.form.get("category_description"),
+            "category_color": request.form.get("category_color")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("New category added!")
+        return redirect(url_for("categories"))
+    if "user" in session:
+        user = ""
+
+        return render_template("add_category.html")
 
 
 @app.route("/edit_category")

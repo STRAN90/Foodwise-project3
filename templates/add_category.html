@@ -1,4 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3 class="center-align teal-text text-darken-4">Add Category</h3>
+    <div class="container wrapper bg-dark radius">
+        <h1 class="center-align teal-text text-darken-4">Add Category</h1>
+        <div class="row">
+            <div class="col s12 m8 offset-m2 card-panel grey lighten-3 radius">
+                <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
+                    <!-- Category name -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fa-solid fa-folder-open prefix"></i>
+                            <input id="category_name" name="category_name" minlength="3" maxlength="30" type="text" class="validate" required>
+                            <label for="category_name">Category Name</label>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
+                    <div class="row form">
+                        <button type="submit"
+                            class="col s6 offset-s3 col m4 offset-m4 waves-effect waves-yellow black-text btn my-btn text-shadow">Add Category
+                            <i class="fa-solid fa-square-plus right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
