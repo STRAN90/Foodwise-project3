@@ -1,4 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div class="container wrapper bg-dark radius">
+    <h1 class="yellow-text yellow-darken-4 center-align rock-font">Edit Category</h1>
+    <div class="row">
+        <div class="col s12 m8 offset-m2 card-panel grey lighten-3 radius">
+            <form class="col s12" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
+                <!-- Category name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-folder-open prefix"></i>
+                        <input id="category_name" name="category_name" value="{{ category.category_name }}" minlength="3" maxlength="30" type="text" class="validate" required>
+                        <label for="category_name">Category Name</label>
+                    </div>
+                </div>
+                <!-- Category description -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-key prefix"></i>
+                        <textarea id="category_description" name="category_description" minlength="5" maxlength="250" class="materialize-textarea validate" required>{{ category.category_description }}</textarea>
+                        <label for="category_description">Category Description</label>
+                    </div>
+                </div>
+                <!-- Category color -->
+                <div class="row">
+                    <div class="col s12">
+                        <label>Select Category Color</label>
+                        <!-- You can use radio buttons or other input types here based on your design -->
+                        <input type="text" id="category_color" name="category_color" value="{{ category.category_color }}" class="validate" required>
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <div class="row form">
+                    <button type="submit" class="col s6 offset-s3 col m4 offset-m4 waves-effect waves-yellow black-text btn my-btn text-shadow">Edit Category
+                        <i class="fa-solid fa-edit right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

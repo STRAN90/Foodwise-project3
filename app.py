@@ -223,9 +223,36 @@ def add_category():
         return render_template("add_category.html")
 
 
-@app.route("/edit_category")
-def edit_category():
-    return render_template("edit_category.html")
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if request.method == "POST":
+        # Updates the category in the db
+        edit = {
+            "category_name": request.form.get("category_name"),
+            "category_description": request.form.get("category_description"),
+            "category_color": request.form.get("category_color")
+        }
+        mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {
+            "$set": edit})
+        # Updates the category on all applicable recipes in recipe db
+        query = {
+            "categories._id": ObjectId(category_id)
+        }
+        update = {"$set": {
+                "categories.$.category_name":
+                    request.form.get("category_name"),
+                "categories.$.category_color":
+                    request.form.get("category_color")}}
+        mongo.db.tasks.update_many(query, update)
+
+        flash("Category successfully updated")
+        return redirect(url_for("categories"))
+
+    if "user" in session:
+        user = get_user(session["user"])
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        return render_template("edit_category.html", category=category, user=user)
+    return render_template("edit_category.html", category=category)
 
 
 if __name__ == "__main__":

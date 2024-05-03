@@ -19,7 +19,7 @@
                     <h5 class="card-title">{{ category.category_name }}</h5>
                 </div>
                 <div class="card-action">
-                    <a href="#"
+                    <a href="{{ url_for('edit_category', category_id=category._id) }}"
                         class="waves-effect waves-green black-text btn edit-btn text-shadow">Edit</a>
                         <a class="waves-effect waves-red black-text btn delete-btn text-shadow modal-trigger" href="#">Delete</a>
                 </div>
