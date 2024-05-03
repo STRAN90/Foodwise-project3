@@ -15,7 +15,7 @@
         {% for category in categories %}
         <div class="col s12 m6 l3">
             <div class="card-panel grey lighten-3 radius center-align">
-                <div class="card-content black-text">
+                <div class="card-content black-text {{ category.category_color }}">
                     <h5 class="card-title">{{ category.category_name }}</h5>
                     <p>{{ category.category_description }}</p>
                 </div>

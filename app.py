@@ -205,7 +205,6 @@ def categories():
         # Handle case where user is not logged in
         return render_template("categories.html", categories=categories, user=None)
 
-
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
@@ -217,10 +216,12 @@ def add_category():
         mongo.db.categories.insert_one(category)
         flash("New category added!")
         return redirect(url_for("categories"))
-    if "user" in session:
-        user = ""
 
-        return render_template("add_category.html")
+    if "user" in session:
+        user = get_user(session["user"])
+        return render_template("add_category.html", user=user)
+
+    return render_template("add_category.html")
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
@@ -237,13 +238,16 @@ def edit_category(category_id):
         # Updates the category on all applicable recipes in recipe db
         query = {
             "categories._id": ObjectId(category_id)
-        }
+            }
         update = {"$set": {
                 "categories.$.category_name":
-                    request.form.get("category_name"),
+                request.form.get("category_name"),
+                "categories.$.category_description":
+                request.form.get("category_description"), 
                 "categories.$.category_color":
-                    request.form.get("category_color")}}
-        mongo.db.tasks.update_many(query, update)
+                request.form.get("category_color")}}
+
+        mongo.db.recipe.update_many(query, update)
 
         flash("Category successfully updated")
         return redirect(url_for("categories"))
@@ -252,7 +256,8 @@ def edit_category(category_id):
         user = get_user(session["user"])
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
         return render_template("edit_category.html", category=category, user=user)
-    return render_template("edit_category.html", category=category)
+
+    return render_template("edit_category.html")
 
 
 if __name__ == "__main__":
