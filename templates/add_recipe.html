@@ -1,4 +1,61 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container wrapper bg-dark radius">
+    <h3 class="yellow-text yellow-darken-4 center-align rock-font">Add Recipe</h3>
+    <div class="row">
+        <div class="col s12 m8 offset-m2 card-panel grey lighten-3 radius">
+            <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+                <!-- Select category -->
+
+                <!-- Recipe name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-pencil prefix"></i>
+                        <input id="recipe_name" name="recipe_name" minlength="3" maxlength="30" type="text"
+                            class="validate" required>
+                        <label for="recipe_name">Recipe Name</label>
+                    </div>
+                </div>
+                <!-- Recipe description -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-align-left prefix"></i>
+                        <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
+                            required></textarea>
+                        <label for="recipe_description">Description</label>
+                    </div>
+                </div>
+                <!-- Ingredients -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-apple-whole prefix"></i>
+                        <textarea id="ingredients" name="ingredients" class="materialize-textarea" required></textarea>
+                        <label for="ingredients">Ingredients</label>
+                    </div>
+                </div>
+                <!-- Preparation -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-book-open prefix"></i>
+                        <textarea id="preparation" name="preparation" class="materialize-textarea" required></textarea>
+                        <label for="preparation">Preparation</label>
+                    </div>
+                </div>
+                <!-- Cook time -->
+                <p class="range-field">
+                    <input type="range" id="test5" min="0" max="100" />
+                </p>
+                <!-- Image -->
+                <!-- Submit button -->
+                <div class="row form">
+                    <button type="submit"
+                        class="col s6 offset-s3 col m4 offset-m4 waves-effect waves-yellow black-text btn my-btn text-shadow">Add Recipe
+                        <i class="fa-solid fa-square-plus right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

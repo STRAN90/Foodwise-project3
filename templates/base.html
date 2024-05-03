@@ -24,7 +24,7 @@
 					<li><a href="{{ url_for('profile') }}">Profile</a></li>
                     <li><a href="{{ url_for('categories') }}">Categories</a></li>
 					<li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-					<li><a href="#">Manage Recipes</a></li>
+					<li><a href="{{ url_for('add_recipe') }}">Manage Recipes</a></li>
 					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% endif %}
 					<li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -41,7 +41,7 @@
             <li><a href="{{ url_for('profile') }}">Profile</a></li>
             <li><a href="{{ url_for('categories') }}">Categories</a></li>
             <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
-            <li><a href="#">Manage Recipes</a></li>
+            <li><a href="{{ url_for('add_recipe') }}">Manage Recipes</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% endif %}
             <li><a href="{{ url_for('login') }}">Log In</a></li>

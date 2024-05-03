@@ -176,9 +176,69 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-@app.route("/add_recipe")
+from flask import request, redirect, url_for, session, flash
+from datetime import datetime
+
+from flask import request, redirect, url_for, session, flash
+from datetime import datetime
+
+@app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    return render_template("add_recipe.html")
+    if "user" in session:
+        user = get_user(session["user"])
+
+        if request.method == "POST":
+            # Get form data
+            recipe_name = request.form.get("recipe_name")
+            selected_categories = request.form.getlist("category_name")
+            recipe_description = request.form.get("recipe_description")
+            ingredients = request.form.getlist("ingredient")
+            preparation = request.form.getlist("instructions")
+            serves = int(request.form.get("serves"))
+            cook_time = int(request.form.get("cook_time"))
+            image_url = request.form.get("image_url")
+
+            # Fetch category objects from DB based on selected categories
+            recipe_categories = []
+            for category in selected_categories:
+                category_object = mongo.db.categories.find_one({"category_name": category})
+                if category_object:
+                    recipe_categories.append(category_object)
+
+            # Create recipe object
+            recipe = {
+                "categories": recipe_categories,
+                "recipe_name": recipe_name,
+                "ingredients": ingredients,
+                "instructions": instructions,
+                "recipe_description": recipe_description,
+                "created_by": {
+                    "username": user["username"],
+                    "user_id": user["user_id"]
+                },
+                "serves": serves,
+                "prep_time": prep_time,
+                "cook_time": cook_time,
+                "photo_url": photo_url,
+                "likes": {"count": 0, "id": []},
+                "created_date": datetime.now()
+            }
+
+            # Insert the recipe into the database
+            result = mongo.db.recipes.insert_one(recipe)
+            if result.inserted_id:
+                flash("Recipe successfully added", "success")
+                return redirect(url_for("recipe_details", recipe_id=result.inserted_id))
+            else:
+                flash("Failed to add the recipe. Please try again.", "error")
+                return redirect(url_for("add_recipe"))
+
+        # Fetch categories for the form
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("add_recipe.html", categories=categories, user=user)
+
+    flash("You are not signed in. Please log in to continue.", "error")
+    return redirect(url_for("login"))
 
 
 @app.route("/edit_recipe")
