@@ -19,6 +19,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def get_user(user_id):
+    # Function to retrieve user information from the database based on user_id
+    user = mongo.db.users.find_one({"user_id": user_id})
+    return user
+
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -191,7 +197,14 @@ def recipe_description(recipe_id):
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    categories = mongo.db.categories.find()
+    if "user" in session:
+        user = get_user(session["user"])
+        return render_template("categories.html", categories=categories, user=user)
+    else:
+        # Handle case where user is not logged in
+        return render_template("categories.html", categories=categories, user=None)
+
 
 @app.route("/add_category")
 def add_category():
