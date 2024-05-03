@@ -101,6 +101,7 @@ def register():
     return render_template("register.html")
 
 
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -111,21 +112,21 @@ def login():
             # Ensure password matches user input
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = existing_user["email"]  # Storing email for simplicity
-                flash("Welcome, {}".format(existing_user["email"]))
+                flash("Welcome, {}".format(existing_user["email"]), "success")
                 return redirect(url_for("profile"))  # Redirect to profile without passing username
 
             # Invalid password match
-            flash("Incorrect Email and/or Password")
+            flash("Incorrect Email and/or Password", "error")
             return redirect(url_for("login"))
 
         # Email doesn't exist
-        flash("Incorrect Email and/or Password")
+        flash("Incorrect Email and/or Password", "error")
         return redirect(url_for("login"))
 
     # Check if user is signed in
     if "user" in session:
         # Redirect to profile page if signed in
-        flash("You are already signed in")
+        flash("You are already signed in", "info")
         return redirect(url_for("profile"))
 
     # Render the login page if not signed in
@@ -138,31 +139,29 @@ def logout():
     if "user" in session:
         # Remove user from session cookie
         session.pop("user")
-        flash("You have been logged out")
+        flash("You have been logged out", "info")
     else:
-        flash("You are not logged in")
+        flash("You are not logged in", "error")
 
     return redirect(url_for("login"))
 
 
 @app.route("/profile")
 def profile():
-    # Check if user is logged in
-    if "user" not in session:
-        flash("Please log in to view this page")
-        return redirect(url_for("login"))
+    # Check if "user" key exists in the session
+    if "user" in session:
+        # Get user data from the database based on the email stored in the session
+        user_email = session["user"]
+        user = mongo.db.users.find_one({"email": user_email})
 
-    # Get user_id from session
-    user_id = session["user"]
-
-    # Query database to fetch user information based on user_id
-    user = mongo.db.users.find_one({"user_id": user_id})
-
-    if user:
-        # Render profile page with user information
-        return render_template("profile.html", user=user)
+        if user:
+            # Render the profile template and pass the user data
+            return render_template("profile.html", user=user)
+        else:
+            flash("User not found", "error")
+            return redirect(url_for("login"))
     else:
-        flash("User not found")
+        flash("Please log in to view this page", "error")
         return redirect(url_for("login"))
 
 

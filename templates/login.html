@@ -1,43 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container wrapper bg-dark">
-        <h3 class="green-text darken-3 center-align rock-font">Login</h3>
-        <div class="row">
-            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
-                <div class="card-panel">
-                    <!-- Email -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="prefix black-text"></i>
-                            <input id="email" name="email" type="text" class="validate" required>
-                            <label for="email"> Email</label>
-                        </div>
-                    </div>
-                    <!--  Password -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="prefix black-text"></i>
-                            <input id="password" name="password" type="password" class="validate" required>
-                            <label for="password">Password</label>
-                        </div>
+<div class="container wrapper bg-dark">
+    <h3 class="green-text darken-3 center-align rock-font">Login</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
+            <div class="card-panel">
+                <!-- Email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-regular fa-envelope prefix"></i>
+                        <input id="email" name="email" type="text" class="validate" required>
+                        <label for="email"> Email</label>
                     </div>
                 </div>
-            </form>
-        </div>
-        <!--  Login button -->
-        <div class="row form">
-            <button type="submit"
-                class="col s6 offset-s3 col m4 offset-m4 waves-effect waves-yellow btn my-btn text-shadow">LogIn
-            </button>
-        </div>
+                <!--  Password -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-user-lock prefix"></i>
+                        <input id="password" name="password" type="password" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <!-- Login button -->
+                <div class="row form">
+                    <button type="submit" class="col s6 offset-s3 col m4 offset-m4 waves-effect waves-yellow btn my-btn text-shadow">Log In</button>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col s12">
-            <p class="center-align">
-                New Here?
-                <a href="{{ url_for('register') }}" class="black-text text-darken-4">Register Account</a>
-            </p>
-        </div>
+<div class="row">
+    <div class="col s12">
+        <p class="center-align">
+            New Here? <a href="{{ url_for('register') }}" class="black-text text-darken-4">Register Account</a>
+        </p>
     </div>
+</div>
 {% endblock %}
