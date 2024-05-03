@@ -7,4 +7,5 @@ $(document).ready(function(){
             // Update the class of the card content div dynamically
             $('.category-color-{{ category._id }}').removeClass().addClass('card-content black-text category-color-{{ category._id }} ' + newColor);
         });
+    $('select').formSelect();
   });
