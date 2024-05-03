@@ -188,19 +188,10 @@ def recipe_description(recipe_id):
         return render_template("recipe_description.html", recipe=recipe, user=user)
 
     return render_template("recipe_description.html", recipe=recipe)
-    
 
 @app.route("/categories")
 def categories():
-    categories = mongo.db.categories.find()
-    if "user" in session:
-        user = get_user(session["user"])
-        return render_template(
-            "categories.html", 
-            categories=categories, 
-            user=user)
-
-    return render_template("categories.html", categories=categories)
+    return render_template("categories.html")
 
 @app.route("/add_category")
 def add_category():

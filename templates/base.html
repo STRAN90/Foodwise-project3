@@ -20,11 +20,13 @@
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{ url_for('home') }}">Home</a></li>
+                    {% if session.user %}
 					<li><a href="{{ url_for('profile') }}">Profile</a></li>
                     <li><a href="#">Categories</a></li>
 					<li><a href="{{ url_for('recipes') }}">Recipes</a></li>
 					<li><a href="#">Manage Recipes</a></li>
 					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% endif %}
 					<li><a href="{{ url_for('login') }}">Log In</a></li>
 					<li><a href="{{ url_for('register') }}">Register</a></li>
 				</ul>
@@ -35,11 +37,13 @@
 		<ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align green lighten-3 text-darken 4">Foodwise</h4></li>
             <li><a href="{{ url_for('home') }}">Home</a></li>
+            {% if session.user %}
             <li><a href="{{ url_for('profile') }}">Profile</a></li>
             <li><a href="#">Categories</a></li>
             <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
             <li><a href="#">Manage Recipes</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% endif %}
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
 		</ul>
