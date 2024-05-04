@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container wrapper bg-dark radius">
-    <h3 class="yellow-text yellow-darken-4 center-align rock-font">Categories</h3>
+    <h3 class="teal-text darken-4 center-align rock-font">Categories</h3>
     <div class="row form">
         <!-- Add category button -->
         <div class="col s12 center-align">
             <a href="{{ url_for('add_category') }}"
-                class="waves-effect waves-yellow black-text btn my-btn text-shadow">Add
+                class="waves-effect waves-green white-text btn my-btn">Add
                 Category <i class="fa-solid fa-plus"></i></a>
         </div>
     </div>
@@ -21,21 +21,9 @@
                 </div>
                 <div class="card-action">
                     <a href="{{ url_for('edit_category', category_id=category._id) }}"
-                        class="waves-effect waves-green black-text btn edit-btn text-shadow">Edit</a>
-                        <a class="waves-effect waves-red black-text btn delete-btn text-shadow modal-trigger" href="#">Delete</a>
+                        class="waves-effect waves-green white-text btn my-btn">Edit</a>
+                        <a class="waves-effect waves-green black-text btn delete-btn modal-trigger" href="{{ url_for('delete_category', category_id=category._id) }}">Delete</a>
                 </div>
-            </div>
-        </div>
-        <!-- Modal Structure -->
-        <div class="modal wrapper" aria-hidden="true">
-            <div class="modal-content center-align grey lighten-1">
-                <h4 class="yellow-text yellow-darken-4 rock-font">Delete Category</h4>
-                <p>Are you sure you want to delete this category?</p>
-                <small>This will delete also all recipies associated with this category. This cannot be undone</small>
-            </div>
-            <div class="modal-footer grey lighten-1">
-                <a href="#" class="waves-effect waves-red black-text btn delete-btn text-shadow">Delete</a>
-                <a href="{{ url_for('categories') }}" class="waves-effect waves-green black-text btn edit-btn text-shadow">No!</a>
             </div>
         </div>
         {% endfor %}

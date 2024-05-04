@@ -96,3 +96,18 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     margin-right: 90%;
     margin-bottom: 2%;
 }
+
+.btn-large {
+    line-height: normal;
+    height: fit-content;
+}
+
+.login {
+    font-size: xx-large;
+}
+
+.btn {
+background-color: #227191;
+color: antiquewhite;
+line-height: inherit;
+}
