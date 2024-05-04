@@ -44,3 +44,12 @@ body {
 .btn-large {
     background-color: red;
 }
+
+.card .card-image {
+    position: absolute;
+}
+
+.card-image {
+    height:  -webkit-fill-available;
+
+}

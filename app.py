@@ -182,35 +182,45 @@ def add_recipe():
         user = get_user(session["user"])
 
         if request.method == "POST":
-            recipe = {
-                "recipe_name": request.form.get("recipe_name"), 
-                "recipe_description": request.form.get("recipe_description"), 
-                "ingredients": request.form.getlist("ingredients"),
-                "preparation": request.form.getlist("preparation"),
-                "serves_str": request.form.get("serves"),
-                "cook_time_str": request.form.get("cook_time"),
-                "created_by": session["user"]
-            }
+            # Get form data
+            recipe_name = request.form.get("recipe_name")
+            recipe_description = request.form.get("recipe_description")
+            ingredients = request.form.getlist("ingredients")
+            preparation = request.form.getlist("preparation")
+            serves_str = request.form.get("serves")
+            cook_time_str = request.form.get("cook_time")
 
             # Check for empty or invalid fields
-            if not recipe["recipe_name"] or not recipe["recipe_description"] or \
-                    not recipe["ingredients"] or not recipe["preparation"] or \
-                    not recipe["serves_str"] or not recipe["cook_time_str"]:
+            if not recipe_name or not recipe_description or not ingredients \
+                    or not preparation or not serves_str or not cook_time_str:
                 flash("All fields are required.", "error")
             else:
                 # All fields are filled, proceed with conversion and database insertion
-                serves = int(recipe["serves_str"])
-                cook_time = int(recipe["cook_time_str"])
+                serves = int(serves_str)
+                cook_time = int(cook_time_str)
 
+                # Create recipe object
+                recipe = {
+                    "recipe_name": recipe_name,
+                    "recipe_description": recipe_description,
+                    "ingredients": ingredients,
+                    "preparation": preparation,
+                    "serves": serves,
+                    "cook_time": cook_time,
+                    "created_by": session["user"]
+                }
 
                 # Insert the recipe into the database
                 mongo.db.recipes.insert_one(recipe)
-                new_recipe_id = mongo.db.recipes.find_one(recipe)["_id"]
-                flash("Recipe successfully added")
-                return redirect(url_for("recipes", recipe_id=new_recipe_id))
+                flash("Recipe successfully added", "success")
+                return redirect(url_for("recipes"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recipe.html", categories=categories, user=user)
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("add_recipe.html", categories=categories, user=user)
+
+    flash("You are not signed in. Please log in to continue.", "error")
+    return redirect(url_for("login"))
+
 
 
 @app.route("/edit_recipe")
