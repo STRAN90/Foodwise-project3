@@ -1,85 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container wrapper bg-dark radius">
-    <h3 class="yellow-text yellow-darken-4 center-align rock-font">Add Recipe</h3>
-    <div class="row row-pad">
-        <div class="col s12 m8 offset-m2 card-panel grey lighten-3 radius">
-            <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
-                <!-- Recipe name -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-pencil prefix"></i>
-                        <input id="recipe_name" name="recipe_name" minlength="3" maxlength="30" type="text"
-                            class="validate" required>
-                        <label for="recipe_name">Recipe Name</label>
-                    </div>
-                </div>
-                <!-- Recipe description -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-align-left prefix"></i>
-                        <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
-                            required></textarea>
-                        <label for="recipe_description">Description</label>
-                    </div>
-                </div>
-                <!-- Select category -->
-                <div class="row">
-                    {% for category in categories %}
-                    <div class="col s12 m6 l4 center-align">
-                        <div class="row">
-                            <label class="btn col s10 offset-s1 center-align {{ category.category_color }} white-text">
-                                <input type="checkbox" name="category_name" value="{{ category.category_name }}">
-                                <span>{{ category.category_name }}</span>
-                            </label>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <!-- Ingredients -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-apple-whole prefix"></i>
-                        <textarea id="ingredients" name="ingredients" class="materialize-textarea" required></textarea>
-                        <label for="ingredients">Ingredients</label>
-                    </div>
-                </div>
-                <!-- Preparation -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-book-open prefix"></i>
-                        <textarea id="preparation" name="preparation" class="materialize-textarea" required></textarea>
-                        <label for="preparation">Preparation</label>
-                    </div>
-                </div>
-                <!-- Serve Time -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-book-open prefix"></i>
-                        <input id="serve" name="serve" type="number" class="validate" required>
-                        <label for="serve">Serves (people)</label>
-                    </div>
-                </div>                
-                <!-- Cook time -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-lock prefix"></i>
-                        <input id="cook_time" name="cook_time" type="number" class="validate" required>
-                        <label for="cook_time" class="black-text">Cook Time (in minutes)</label>
-                    </div>
-                </div>
-                <!-- Submit button -->
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <button type="submit"
-                            class="btn-large green darken-3">Add Recipe
-                            <i class="fa-solid fa-square-plus right"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+    <h1>Add Recipe</h1>
+    <form method="POST" action="{{ url_for('add_recipe') }}">
+        <label for="recipe_name">Recipe Name:</label><br>
+        <input type="text" id="recipe_name" name="recipe_name" required><br>
 
+        <label for="recipe_description">Description:</label><br>
+        <textarea id="recipe_description" name="recipe_description" required></textarea><br>
+
+        <label for="ingredients">Ingredients (one per line):</label><br>
+        <textarea id="ingredients" name="ingredients" required></textarea><br>
+
+        <label for="preparation">Preparation Steps (one per line):</label><br>
+        <textarea id="preparation" name="preparation" required></textarea><br>
+
+        <label for="serve">Serves (people):</label><br>
+        <input type="number" id="serve" name="serve" required><br>
+
+        <label for="cook_time">Cook Time (minutes):</label><br>
+        <input type="number" id="cook_time" name="cook_time" required><br>
+
+        <button type="submit">Add Recipe</button>
+    </form>
 {% endblock %}
