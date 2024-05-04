@@ -187,7 +187,7 @@ def add_recipe():
             recipe_description = request.form.get("recipe_description")
             ingredients = request.form.getlist("ingredients")
             preparation = request.form.getlist("preparation")
-            serves = int(request.form.get("serve"))
+            serves = int(request.form.get("serves"))
             cook_time = int(request.form.get("cook_time"))
 
             # Check for empty or invalid fields
@@ -212,9 +212,42 @@ def add_recipe():
         return render_template("add_recipe.html")
 
 
-@app.route("/edit_recipe")
-def edit_recipe():
-    return render_template("edit_recipe.html")
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    if not recipe:
+        flash("Recipe not found.", "error")
+        return redirect(url_for("recipes"))
+
+    if request.method == "POST":
+        # Get form data
+        recipe_name = request.form.get("recipe_name")
+        recipe_description = request.form.get("recipe_description")
+        ingredients = request.form.getlist("ingredients")
+        preparation = request.form.getlist("preparation")
+        serves = int(request.form.get("serve"))
+        cook_time = int(request.form.get("cook_time"))
+
+        # Check for empty or invalid fields
+        if not recipe_name or not recipe_description or not ingredients or not preparation:
+            flash("All fields are required.", "error")
+        else:
+            # Update recipe object
+            updated_recipe = {
+                "recipe_name": recipe_name,
+                "recipe_description": recipe_description,
+                "ingredients": ingredients,
+                "preparation": preparation,
+                "serves": serves,
+                "cook_time": cook_time,
+            }
+
+            # Update the recipe in the database
+            mongo.db.recipes.update_one({"_id": recipe["_id"]}, {"$set": updated_recipe})
+            flash("Recipe updated successfully.", "success")
+            return redirect(url_for("recipes"))  # Redirect to recipe list page
+
+    return render_template("edit_recipe.html", recipe=recipe)
 
 
 @app.route("/delete_recipe/<recipe_id>")
