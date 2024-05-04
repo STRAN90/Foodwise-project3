@@ -185,8 +185,8 @@ def add_recipe():
             # Get form data
             recipe_name = request.form.get("recipe_name")
             recipe_description = request.form.get("recipe_description")
-            ingredients = request.form.get("ingredients")
-            preparation = request.form.get("preparation")
+            ingredients = request.form.getlist("ingredients")
+            preparation = request.form.getlist("preparation")
             serves = int(request.form.get("serve"))
             cook_time = int(request.form.get("cook_time"))
 
@@ -198,8 +198,8 @@ def add_recipe():
                 recipe = {
                     "recipe_name": recipe_name,
                     "recipe_description": recipe_description,
-                    "ingredients": ingredients.split("\n"),
-                    "preparation": preparation.split("\n"),
+                    "ingredients": ingredients,
+                    "preparation": preparation,
                     "serves": serves,
                     "cook_time": cook_time,
                 }
