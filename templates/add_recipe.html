@@ -5,6 +5,18 @@
     <div class="row row-pad">
         <div class="col s12 m8 offset-m2 card-panel grey lighten-3 radius">
             <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+                <!-- Select category -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-arrow-pointer prefix"></i>
+                        <select name="category_id" id="category_id" class="validate" required>
+                            <option value="" class="disabled selected black-text">Select category</option>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}" class="black-text">{{ category.category_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
                 <!-- Recipe name -->
                 <div class="row">
                     <div class="input-field col s12">
