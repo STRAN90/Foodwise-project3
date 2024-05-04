@@ -8,11 +8,11 @@
                 <!-- Select category -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-arrow-pointer prefix"></i>
-                        <select name="category_id" id="category_id" class="validate" required>
+                        <i class="fa-solid fa-folder-open prefix"></i>
+                        <select name="category_name" id="category_name" class="validate" required>
                             <option value="" class="disabled selected black-text">Select category</option>
                             {% for category in categories %}
-                            <option value="{{ category.id }}" class="black-text">{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}" class="black-text">{{ category.category_name }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -51,21 +51,30 @@
                         <label for="preparation">Preparation</label>
                     </div>
                 </div>
+                <!-- Serve Time -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-solid fa-book-open prefix"></i>
+                        <input id="serve_str" name="serve_str" type="number" class="validate" required>
+                        <label for="serve_str">Serves (people)</label>
+                    </div>
+                </div>                
                 <!-- Cook time -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-clock prefix"></i>
-                        <input id="cook_time" name="cook_time" type="number" class="validate" required>
-                        <label for="cook_time" class="black-text">Cook Time (in minutes)</label>
+                        <i class="fa-solid fa-lock prefix"></i>
+                        <input id="cook_time_str" name="cook_time_str" type="number" class="validate" required>
+                        <label for="cook_time_str" class="black-text">Cook Time (in minutes)</label>
                     </div>
                 </div>
                 <!-- Submit button -->
-                <div class="row form">
-                    <button type="submit"
-                        class="col s6 offset-s3 col m4 offset-m4 waves-effect waves-yellow black-text btn my-btn text-shadow">Add
-                        Recipe
-                        <i class="fa-solid fa-square-plus right"></i>
-                    </button>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit"
+                            class="btn-large green darken-3">Add Recipe
+                            <i class="fa-solid fa-square-plus right"></i>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>

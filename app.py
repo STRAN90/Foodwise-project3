@@ -202,13 +202,15 @@ def add_recipe():
                 serves = int(recipe["serves_str"])
                 cook_time = int(recipe["cook_time_str"])
 
+
                 # Insert the recipe into the database
                 mongo.db.recipes.insert_one(recipe)
+                new_recipe_id = mongo.db.recipes.find_one(recipe)["_id"]
                 flash("Recipe successfully added")
-                return redirect(url_for("recipes"))
+                return redirect(url_for("recipes", recipe_id=new_recipe_id))
 
-    categories = mongo.db.categories.find()
-    return render_template("add_recipe.html", categories=categories)
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_recipe.html", categories=categories, user=user)
 
 
 @app.route("/edit_recipe")
