@@ -222,7 +222,6 @@ def add_recipe():
     return redirect(url_for("login"))
 
 
-
 @app.route("/edit_recipe")
 def edit_recipe():
     return render_template("edit_recipe.html")

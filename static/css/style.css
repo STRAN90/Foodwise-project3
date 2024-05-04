@@ -53,3 +53,7 @@ body {
     height:  -webkit-fill-available;
 
 }
+
+.row .col {
+    padding: 1%;
+}
