@@ -36,67 +36,42 @@ def home():
 
     return render_template("home.html", recipes=recipes)
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == "POST":
-    
-        # check if username already exists in db and reloads page until user info is all valid
-    
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username")})
-        existing_email = mongo.db.users.find_one(
-            {"email": request.form.get("email")})
-
-        if existing_user and existing_email:
-            flash("Username and email already exist")
-            return redirect(url_for("register"))
-        elif existing_user:
-            flash("Username already exists")
-            return redirect(url_for("register"))
-        elif existing_email:
-            flash("Email already exists")
-            return redirect(url_for("register"))
-        elif request.form.get("password") != request.form.get(
-                "password_check"):
-            flash("Passwords do not match")
-            return redirect(url_for("register"))
-        else:
-            
-            # unique id to new user 
-            user_id = 1
-            existing_id = True
-            while existing_id:
-                if user_id not in mongo.db.used_ids.find_one({"name": "used_ids"})["ids"]:
-                    existing_id = False
-                    break
-                else:
-                    user_id += 1
-
-            mongo.db.used_ids.update_one({"name": "used_ids"}, {
-                "$push": {"ids": user_id}})
-
-            # builds new user dict with default superuser and admin permissions
-            new_user = {
-                "user_id": user_id,
-                "f_name": request.form.get("f_name").capitalize(),
-                "l_name": request.form.get("l_name").capitalize(),
-                "email": request.form.get("email"),
-                "username": request.form.get("username").lower(),
-                "password": generate_password_hash(
-                    request.form.get("password")),
-                "is_super": False,
-                "is_admin": False}
-            mongo.db.users.insert_one(new_user)
-
-            # puts new user id into session cookie
-            session["user"] = user_id
-            flash("Successfully Registered!")
-            return redirect(url_for("profile"))
-
-
     if "user" in session:
-        flash("You are already registered")
+        flash("You are already registered and signed in.", "info")
         return redirect(url_for("profile"))
+
+    if request.method == "POST":
+        f_name = request.form.get("f_name")
+        l_name = request.form.get("l_name")
+        email = request.form.get("email")
+        username = request.form.get("username")
+        password = request.form.get("password")
+        password_check = request.form.get("password_check")
+
+        existing_user = mongo.db.users.find_one({"username": username})
+        existing_email = mongo.db.users.find_one({"email": email})
+
+        if existing_user or existing_email:
+            flash("Username or email already exists", "error")
+            return redirect(url_for("register"))  # Redirect back to registration page
+        elif password != password_check:
+            flash("Passwords do not match", "error")
+            return redirect(url_for("register"))  # Redirect back to registration page
+        else:
+            hashed_password = generate_password_hash(password)
+            user_data = {
+                "f_name": f_name,
+                "l_name": l_name,
+                "email": email,
+                "username": username,
+                "password": hashed_password
+            }
+            mongo.db.users.insert_one(user_data)
+            flash("Registration successful!", "success")
+            return redirect(url_for("login"))  # Redirect to login page after successful registration
 
     return render_template("register.html")
 
@@ -107,7 +82,7 @@ def login():
         # Retrieve email and password from the form
         email = request.form.get("email")
         password = request.form.get("password")
-        
+
         # Check if email exists in db
         existing_user = mongo.db.users.find_one({"email": request.form.get("email")})
 
