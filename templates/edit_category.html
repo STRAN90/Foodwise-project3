@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container wrapper bg-dark radius">
-    <h1 class="yellow-text yellow-darken-4 center-align rock-font">Edit Category</h1>
+    <h1>Edit Category</h1>
     <div class="row">
         <div class="col s12 m8 offset-m2 card-panel grey lighten-3 radius">
             <form class="col s12" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
@@ -31,7 +31,8 @@
                 </div>
                 <!-- Submit button -->
                 <div class="row form">
-                    <button type="submit" class="col s6 offset-s3 col m4 offset-m4 waves-effect waves-yellow black-text btn my-btn text-shadow">Edit Category
+                    <div class="col s12 center-align">
+                    <button type="submit" class="waves-effect waves-yellow btn-large pink accent-2">Edit Category
                         <i class="fa-solid fa-edit right"></i>
                     </button>
                 </div>
