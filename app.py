@@ -40,7 +40,7 @@ def home():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if "user" in session:
-        flash("You are already registered and signed in.", "info")
+        flash("You are already registered and signed in.")
         return redirect(url_for("profile"))
 
     if request.method == "POST":
@@ -55,11 +55,11 @@ def register():
         existing_email = mongo.db.users.find_one({"email": email})
 
         if existing_user or existing_email:
-            flash("Username or email already exists", "error")
-            return redirect(url_for("register"))  # Redirect back to registration page
+            flash("Username or email already exists")
+            return redirect(url_for("register")) 
         elif password != password_check:
-            flash("Passwords do not match", "error")
-            return redirect(url_for("register"))  # Redirect back to registration page
+            flash("Passwords do not match")
+            return redirect(url_for("register")) 
         else:
             hashed_password = generate_password_hash(password)
             user_data = {
