@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url("../images/hero.jpg")
 }
 
 .text-shadow {
@@ -47,9 +48,9 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .row {
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -20px;
 }
 
 .col .row {
@@ -100,6 +101,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .btn-large {
     line-height: normal;
     height: fit-content;
+    margin-top: 0%;
 }
 
 .login {
@@ -110,4 +112,30 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 background-color: #227191;
 color: antiquewhite;
 line-height: inherit;
+}
+
+.info {
+    background-color: #8b3747;
+    color: #fbfbfb;
+}
+
+a {
+    color: #ffb732;
+}
+
+.col .row {
+    margin: 2%;
+}
+
+.row .col.s6 {
+    width: 50%;
+    margin-left: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    left: auto;
+    right: auto;
+}
+
+.row .register {
+    margin: 0;
 }
