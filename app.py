@@ -187,7 +187,7 @@ def add_recipe():
             recipe_description = request.form.get("recipe_description")
             ingredients = request.form.getlist("ingredients")
             preparation = request.form.getlist("preparation")
-            serves = int(request.form.get("serves"))
+            serves = int(request.form.get("serve"))
             cook_time = int(request.form.get("cook_time"))
 
             # Check for empty or invalid fields
