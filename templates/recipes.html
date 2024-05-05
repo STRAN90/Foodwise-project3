@@ -22,7 +22,7 @@
                     <p><a href="#">This is a link</a></p>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title
+                    <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}
                         <i class="fa-solid fa-xmark right"></i></span>
                         {% for category in categories %}
                         {% if category.id == recipe.category_id |int %}
@@ -35,7 +35,9 @@
                     <h5>Ingredients</h5>
                         <p>{{ recipe.ingredients }}</p>
                     <h5>Preparation</h5>
-                        <p>{{ recipe.preparation }}</p>
+                        <p>{{ recipe.preparation }}</p>]
+                    <h5>Serves</h5>
+                        <p>{{ recipe.serves }} mins</p>
                     <h5>Cooking time</h5>
                         <p>{{ recipe.cook_time }} mins</p>
                 </div>
