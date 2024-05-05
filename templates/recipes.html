@@ -40,6 +40,9 @@
                         <p>{{ recipe.cook_time }} mins</p>
                 </div>
                 <div class="col s3 center-align">
+                    <a href="{{ url_for('add_recipe', recipe_id=recipe._id) }}" class="btn-floating btn-large green left-align"><i class="fa-solid fa-plus"></i></a>
+                </div>
+                <div class="col s3 center-align">
                     <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-floating btn-large red left-align"><i class="fa-solid fa-trash"></i></a>
                 </div>
                 <div class="col s3 center-align">
