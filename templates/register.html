@@ -48,7 +48,7 @@
             </div>
         </div>
         <!-- password_check -->
-        <div class="row input-container">
+        <div class="row">
           <div class="input-field col s12">
             <i class="fa-solid fa-lock prefix"></i>
               <input id="password_check" name="password_check" type="password" pattern="^^[a-zA-Z0-9!&$?@#_\-]{8,}$" 
@@ -59,11 +59,11 @@
       </div>
       <div class="row">
         <!-- Cancel -->
-        <a class="col s6 deep-red btn-large center-align" href="{{ url_for('home') }}">
+        <a class="col s6 deep-red btn-large center-align" id="password" href="{{ url_for('home') }}">
           Cancel
           <i class="fa-solid fa-ban prefix"></i></a>
         <!-- Register -->
-        <button type="submit" class="col s6 btn-large green darken-2 text-shadow">
+        <button type="submit" class="col s6 btn-large green darken-2 text-shadow" id="password">
           Register
           <i class="fas fa-sign-in-alt"></i>
         </button>

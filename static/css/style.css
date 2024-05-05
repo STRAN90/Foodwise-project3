@@ -43,7 +43,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .hero-text {
     font-family: 'Roboto', sans serif;
-    text-align: right;
     font-weight: bolder;
 }
 
@@ -101,7 +100,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .btn-large {
     line-height: normal;
     height: fit-content;
-    margin-top: 0%;
 }
 
 .login {
@@ -138,4 +136,14 @@ a {
 
 .row .register {
     margin: 0;
+}
+
+#login-button {
+    margin: 0%;
+    margin-left: 25%;
+}
+
+#password {
+    margin-bottom: inherit;
+    margin-top: auto;
 }
