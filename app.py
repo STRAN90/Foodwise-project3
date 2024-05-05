@@ -101,10 +101,13 @@ def register():
     return render_template("register.html")
 
 
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
+        # Retrieve email and password from the form
+        email = request.form.get("email")
+        password = request.form.get("password")
+        
         # Check if email exists in db
         existing_user = mongo.db.users.find_one({"email": request.form.get("email")})
 
