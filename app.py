@@ -163,6 +163,7 @@ def add_recipe():
 
     user_email = session["user"]
     user = mongo.db.users.find_one({"email": user_email})
+    username = user["username"]
     
     categories = mongo.db.categories.find()
     
@@ -186,7 +187,7 @@ def add_recipe():
                 "serves": serves,
                 "cook_time": cook_time,
                 "category_name": category_name,
-                "created_by": session["user"]
+                "created_by": username
             }
 
             try:
