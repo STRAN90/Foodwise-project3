@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 
 def get_user(user_id):
     # Function to retrieve user information from the database based on user_id
-    user = mongo.db.users.find_one({"user_id": user_id})
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     return user
 
 
@@ -157,16 +157,16 @@ def recipes():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    # Allows only logged-in users to add a recipe
     if "user" not in session:
         flash("You need to be logged in to add a recipe")
         return redirect(url_for("login"))
+
+    user_email = session["user"]
+    user = mongo.db.users.find_one({"email": user_email})
     
-    # Fetch categories from the database
     categories = mongo.db.categories.find()
     
     if request.method == "POST":
-        # Get form data
         recipe_name = request.form.get("recipe_name")
         recipe_description = request.form.get("recipe_description")
         ingredients = request.form.getlist("ingredients")
@@ -175,11 +175,9 @@ def add_recipe():
         cook_time = int(request.form.get("cook_time"))
         category_name = request.form.get("category_name")
 
-        # Check for empty or invalid fields
         if not recipe_name or not recipe_description or not ingredients or not preparation:
             flash("All fields are required.", "error")
         else:
-            # Create recipe object
             recipe = {
                 "recipe_name": recipe_name,
                 "recipe_description": recipe_description,
@@ -188,13 +186,16 @@ def add_recipe():
                 "serves": serves,
                 "cook_time": cook_time,
                 "category_name": category_name,
+                "created_by": session["user"]
             }
 
-            # Insert the recipe into the database
-            mongo.db.recipes.insert_one(recipe)
-            flash("Recipe added successfully.", "success")
-            return redirect(url_for("recipes"))  # Redirect to recipe list page
-            
+            try:
+                mongo.db.recipes.insert_one(recipe)
+                flash("Recipe added successfully.", "success")
+                return redirect(url_for("recipes"))
+            except Exception as e:
+                flash(f"An error occurred: {e}", "error")
+
     return render_template("add_recipe.html", categories=categories)
 
 
