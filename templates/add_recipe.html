@@ -2,54 +2,55 @@
 {% block content %}
 <div class="row col s12 m8 offset-m2 card-panel grey lighten-3 radius">
     <h1>Add Recipe</h1>
-    <form method="POST" action="{{ url_for('add_recipe') }}">
-        <div class="input-field col s12">
-            <i class="fa-solid fa-folder-open prefix"></i>
-            <select id="category_name" name="category_name" class="validate" multiple required>
-                <option value="" disabled selected>Choose category</option>
-                {% for category in categories %}
-                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                {% endfor %}
-            </select>
-            <label for="category_name">Select Category</label>
-        </div>
-        <!-- Recipe name -->
+    <form method="POST" enctype="multipart/form-data">
+        <!-- Recipe Name -->
         <div class="input-field col s12">
             <i class="fa-solid fa-pencil prefix"></i>
-            <label for="recipe_name">Recipe Name:</label>
-            <input minlength="3" maxlength="30" type="text" id="recipe_name" name="recipe_name" required>
+            <label for="recipe_name">Recipe Name</label>
+            <input type="text" id="recipe_name" name="recipe_name" minlength="3" maxlength="30" class="validate" required>
         </div>
-        <!-- Recipe description -->
+        <!-- Recipe Description -->
         <div class="input-field col s12">
-            <i class="fa-solid fa-align-left prefix"></i>
-            <label for="recipe_description">Description:</label>
-            <textarea class="textarea" id="recipe_description" name="recipe_description" required></textarea>
+        	<i class="fa-solid fa-align-left prefix"></i>
+        	<label for="recipe_description">Description</label>
+        	<textarea id="recipe_description" name="recipe_description" class="materialize-textarea validate" required></textarea>
         </div>
         <!-- Ingredients -->
         <div class="input-field col s12">
-            <i class="fa-solid fa-apple-whole prefix"></i>
-            <label for="ingredients">Ingredients:</label>
-            <textarea class="textarea" id="ingredients" name="ingredients" required></textarea>
+        	<i class="fa-solid fa-apple-whole prefix"></i>
+            <label for="ingredients">Ingredients</label>
+             <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
         </div>
         <!-- Preparation -->
         <div class="input-field col s12">
             <i class="fa-solid fa-book-open prefix"></i>
-            <label for="preparation">Preparation Steps:</label>
-            <textarea class="textarea" id="preparation" name="preparation" required></textarea>
+            <label for="preparation">Preparation Steps</label>
+          	<textarea id="preparation" name="preparation" class="materialize-textarea validate" required></textarea>
         </div>
         <!-- Serve Time -->
         <div class="input-field col s12">
             <i class="fa-solid fa-user-group prefix"></i>
             <label for="serve">Serves (people):</label>
-            <input type="number" id="serve" name="serve" required>
+            <input type="number" id="serve" name="serve" class="validate" required>
         </div>
-         <!-- Cook time -->
+        <!-- Cook Time -->
         <div class="input-field col s12">
-            <i class="fa-regular fa-clock prefix"></i>
-            <label for="cook_time">Cook Time (minutes):</label>
-            <input type="number" id="cook_time" name="cook_time" required>
+            <i class="fa-solid fa-user-group prefix"></i>
+        	<label for="cook_time">Cook Time (minutes)</label>
+            <input type="number" id="cook_time" name="cook_time" class="validate" required>
         </div>
-        <!-- Submit button -->
+        <!-- Category Selection -->
+        <div class="input-field col s12">
+            <i class="fa-solid fa-folder-open prefix"></i>
+            <label for="category_id">Category</label>
+            <select id="category_id" name="category_id" class="validate" required>
+                <option value="" disabled selected>Select Category</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>            
+        </div>
+        <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
                 <!-- Cancel -->

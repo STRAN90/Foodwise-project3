@@ -145,6 +145,7 @@ def profile():
 
 @app.route("/recipes")
 def recipes():
+
     recipes = mongo.db.recipes.find()
     # adds current user if signed in
     if "user" in session:
@@ -156,38 +157,45 @@ def recipes():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-       if "user" in session:
-        user = get_user(session["user"])
-        
-        if request.method == "POST":
-            # Get form data
-            recipe_name = request.form.get("recipe_name")
-            recipe_description = request.form.get("recipe_description")
-            ingredients = request.form.getlist("ingredients")
-            preparation = request.form.getlist("preparation")
-            serves = int(request.form.get("serve"))
-            cook_time = int(request.form.get("cook_time"))
+    # Allows only logged-in users to add a recipe
+    if "user" not in session:
+        flash("You need to be logged in to add a recipe")
+        return redirect(url_for("login"))
+    
+    # Fetch categories from the database
+    categories = mongo.db.categories.find()
+    
+    if request.method == "POST":
+        # Get form data
+        recipe_name = request.form.get("recipe_name")
+        recipe_description = request.form.get("recipe_description")
+        ingredients = request.form.getlist("ingredients")
+        preparation = request.form.getlist("preparation")
+        serves = int(request.form.get("serve"))
+        cook_time = int(request.form.get("cook_time"))
+        category_name = request.form.get("category_name")
 
-            # Check for empty or invalid fields
-            if not recipe_name or not recipe_description or not ingredients or not preparation:
-                flash("All fields are required.", "error")
-            else:
-                # Create recipe object
-                recipe = {
-                    "recipe_name": recipe_name,
-                    "recipe_description": recipe_description,
-                    "ingredients": ingredients,
-                    "preparation": preparation,
-                    "serves": serves,
-                    "cook_time": cook_time,
-                }
+        # Check for empty or invalid fields
+        if not recipe_name or not recipe_description or not ingredients or not preparation:
+            flash("All fields are required.", "error")
+        else:
+            # Create recipe object
+            recipe = {
+                "recipe_name": recipe_name,
+                "recipe_description": recipe_description,
+                "ingredients": ingredients,
+                "preparation": preparation,
+                "serves": serves,
+                "cook_time": cook_time,
+                "category_name": category_name,
+            }
 
-                # Insert the recipe into the database
-                mongo.db.recipes.insert_one(recipe)
-                flash("Recipe added successfully.", "success")
-                return redirect(url_for("recipes"))  # Redirect to recipe list page
-                
-        return render_template("add_recipe.html")
+            # Insert the recipe into the database
+            mongo.db.recipes.insert_one(recipe)
+            flash("Recipe added successfully.", "success")
+            return redirect(url_for("recipes"))  # Redirect to recipe list page
+            
+    return render_template("add_recipe.html", categories=categories)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
