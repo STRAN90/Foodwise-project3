@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container wrapper bg-dark radius">
-    <h1 class="yellow-text yellow-darken-4 center-align rock-font">Recipies</h1>
+    <h1>Recipies</h1>
     <!-- Display all alvailable recipes -->
     {% for recipe in recipes %}
     <div class="col s12 col m6">
@@ -14,7 +14,7 @@
             <div class="card-content">
                 <h4 class="card-title activator grey-text text-darken-4">{{ recipe.recipe_name }} <i
                         class="fa-solid fa-ellipsis right"></i></h4>
-                        <p><a href="{{ url_for('recipe_description') }}">This is a link</a></p>
+                        <p><a href="#">This is a link</a></p>
             </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}
