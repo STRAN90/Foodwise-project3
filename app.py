@@ -200,6 +200,7 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
+
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -213,14 +214,15 @@ def edit_recipe(recipe_id):
         recipe_description = request.form.get("recipe_description")
         ingredients = request.form.getlist("ingredients")
         preparation = request.form.getlist("preparation")
-        serves = int(request.form.get("serve"))
-        cook_time = int(request.form.get("cook_time"))
+        serves = request.form.get("serve")
+        cook_time = request.form.get("cook_time")
         category_name = request.form.get("category_name")
 
-
         # Check for empty or invalid fields
-        if not recipe_name or not recipe_description or not ingredients or not preparation:
+        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time]):
             flash("All fields are required.", "error")
+        elif not serves.isdigit() or not cook_time.isdigit():
+            flash("Serves and Cook Time must be valid numbers.", "error")
         else:
             # Update recipe object
             updated_recipe = {
@@ -228,16 +230,15 @@ def edit_recipe(recipe_id):
                 "recipe_description": recipe_description,
                 "ingredients": ingredients,
                 "preparation": preparation,
-                "serves": serves,
-                "cook_time": cook_time,
-		        "category_name": category_name,
+                "serves": int(serves),
+                "cook_time": int(cook_time),
+                "category_name": category_name,
             }
 
             # Update the recipe in the database
-            mongo.db.recipes.update_one({"_id": recipe["_id"]}, {"$set": updated_recipe})
+            mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": updated_recipe})
             flash("Recipe updated successfully.", "success")
             return redirect(url_for("recipes"))  # Redirect to recipe list page
-            
 
     return render_template("edit_recipe.html", recipe=recipe)
 
