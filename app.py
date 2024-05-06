@@ -202,6 +202,11 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+
+    user_email = session["user"]
+    user = mongo.db.users.find_one({"email": user_email})
+    username = user["username"]
+    
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     if not recipe:
         flash("Recipe not found.", "error")
