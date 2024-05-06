@@ -3,6 +3,16 @@
 <div class="row col s12 m8 offset-m2 card-panel grey lighten-3 radius">
     <h1>Add Recipe</h1>
     <form method="POST" action="{{ url_for('add_recipe') }}">
+        <div class="input-field col s12">
+            <i class="fa-solid fa-folder-open prefix"></i>
+            <select id="category_name" name="category_name" class="validate" multiple required>
+                <option value="" disabled selected>Choose category</option>
+                {% for category in categories %}
+                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
+            <label for="category_name">Select Category</label>
+        </div>
         <!-- Recipe name -->
         <div class="input-field col s12">
             <i class="fa-solid fa-pencil prefix"></i>
