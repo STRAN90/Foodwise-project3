@@ -6,21 +6,16 @@
     {% for recipe in recipes %}
     <div class="col s12 col m6">
         <div class="card">
+            <!-- Recipe image -->        
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="#" alt="">
+            </div>
             <!-- Recipe Title -->
             <div class="card-content">
                 <h4 class="card-title activator grey-text text-darken-4">{{ recipe.recipe_name }} <i
                         class="fa-solid fa-ellipsis right"></i></h4>
+                        <p><a href="{{ url_for('recipe_description') }}">This is a link</a></p>
             </div>
-    <!-- Recipe image -->        
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="static/images/pasta_dish.jpg" alt="Tomato pasta dish">
-                </div>
-                <!-- Recipe Title-->
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ recipe.recipe_name }} <i
-                            class="fa-solid fa-ellipsis right"></i></span>
-                    <p><a href="#">This is a link</a></p>
-                </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}
                         <i class="fa-solid fa-xmark right"></i></span>

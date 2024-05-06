@@ -247,12 +247,29 @@ def delete_recipe(recipe_id):
 
 @app.route("/recipe_description/<recipe_id>", methods=["GET", "POST"])
 def recipe_description(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    if "user" in session:
-        user = mongo.db.users.find_one({"user_id": session["user"]})
-        return render_template("recipe_description.html", recipe=recipe, user=user)
+    try:
+        recipe_obj_id = ObjectId(recipe_id)
+    except Exception as e:
+        flash(f"Invalid recipe ID: {e}", "error")
+        return redirect(url_for("some_redirect_route"))  # Redirect to an appropriate route
 
-    return render_template("recipe_description.html", recipe=recipe)
+    recipe = mongo.db.recipes.find_one({"_id": recipe_obj_id})
+
+    if not recipe:
+        flash("Recipe not found", "error")
+        return redirect(url_for("some_redirect_route"))  # Redirect to an appropriate route
+
+    user = None
+    if "user" in session:
+        user = mongo.db.users.find_one({"email": session["user"]})
+    
+    return render_recipe_description(recipe, user)
+
+def render_recipe_description(recipe, user):
+    if user:
+        return render_template("recipe_description.html", recipe=recipe, user=user)
+    else:
+        return render_template("recipe_description.html", recipe=recipe)
 
 @app.route("/categories")
 def categories():
