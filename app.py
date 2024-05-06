@@ -202,11 +202,6 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-
-    user_email = session["user"]
-    user = mongo.db.users.find_one({"email": user_email})
-    username = user["username"]
-    
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     if not recipe:
         flash("Recipe not found.", "error")
@@ -220,6 +215,8 @@ def edit_recipe(recipe_id):
         preparation = request.form.getlist("preparation")
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
+        category_name = request.form.get("category_name")
+
 
         # Check for empty or invalid fields
         if not recipe_name or not recipe_description or not ingredients or not preparation:
@@ -233,12 +230,14 @@ def edit_recipe(recipe_id):
                 "preparation": preparation,
                 "serves": serves,
                 "cook_time": cook_time,
+		        "category_name": category_name,
             }
 
             # Update the recipe in the database
             mongo.db.recipes.update_one({"_id": recipe["_id"]}, {"$set": updated_recipe})
             flash("Recipe updated successfully.", "success")
             return redirect(url_for("recipes"))  # Redirect to recipe list page
+            
 
     return render_template("edit_recipe.html", recipe=recipe)
 
