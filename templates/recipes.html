@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container wrapper bg-dark radius">
+<div class="col s12 m8 offset-m2 wrapper bg-dark radius">
     <h1>Recipes <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large green"><i class="fa-solid fa-plus"></i></a></h1>
 
     <!-- Display all available recipes -->
@@ -20,11 +20,7 @@
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fa-solid fa-xmark right"></i></span>
-            {% for category in categories %}
-            {% if category.id == recipe.category_id | int %}
-            <p>{{ category.category_name }}</p>
-            {% endif %}
-            {% endfor %}
+
             <h6>Posted by: {{ recipe.created_by }}</h6>
             <h5>Description</h5>
             <p class="recipe-info">{{ recipe.recipe_description }}</p>
@@ -32,6 +28,12 @@
             <p class="recipe-info">{{ recipe.serves }} mins</p>
             <h5>Cooking time</h5>
             <p class="recipe-info">{{ recipe.cook_time }} mins</p>
+            <h5>Category</h5>
+            {% for category in categories %}
+            {% if category.id == recipe.category_id | int %}
+            <p class="recipe-info">{{ category.category_name }}</p>
+            {% endif %}
+            {% endfor %}
         </div>
         <div class="row-btn">
             <div class="col s3 center-align">
