@@ -216,10 +216,10 @@ def edit_recipe(recipe_id):
         preparation = request.form.getlist("preparation")
         serves = request.form.get("serve")
         cook_time = request.form.get("cook_time")
-        category_name = request.form.get("category_name")
+        #category_name = request.form.get("category_name")
 
         # Check for empty or invalid fields
-        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time]):
+        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time]): #category_name]):
             flash("All fields are required.", "error")
         elif not serves.isdigit() or not cook_time.isdigit():
             flash("Serves and Cook Time must be valid numbers.", "error")
@@ -232,7 +232,7 @@ def edit_recipe(recipe_id):
                 "preparation": preparation,
                 "serves": int(serves),
                 "cook_time": int(cook_time),
-                "category_name": category_name,
+                #"category_name": category_name,
             }
 
             # Update the recipe in the database
