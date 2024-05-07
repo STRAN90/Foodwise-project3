@@ -244,14 +244,20 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", categories=categories, recipe=recipe)
 
 
-
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+    try:
+        # Attempt to delete the recipe
+        result = mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+        if result.deleted_count == 1:
+            flash("Recipe successfully deleted", "success")
+        else:
+            flash("Recipe not found for deletion", "error")
+    except Exception as e:
+        flash(f"Error deleting recipe: {str(e)}", "error")
 
-    flash("Recipe successfully deleted")
     return redirect(url_for("recipes"))
-
+    
 @app.route("/recipe_description/<recipe_id>", methods=["GET", "POST"])
 def recipe_description(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
