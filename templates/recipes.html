@@ -1,61 +1,63 @@
 {% extends "base.html" %}
+
 {% block content %}
 <div class="container wrapper bg-dark radius">
-    <h1>Recipes <a href="{{ url_for('add_recipe')}}" class="btn-floating btn-large green"><i class="fa-solid fa-plus"></i></a></h1>
-    <!-- Display all alvailable recipes -->
+    <h1>Recipes <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large green"><i class="fa-solid fa-plus"></i></a></h1>
+    
+    <!-- Display all available recipes -->
     {% for recipe in recipes %}
-    <div class="col s12 col m6" >
-        <div class="card" id="recipe-card">
-            <!-- Recipe image -->        
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="#" alt="">
-            </div>
-            <!-- Recipe Title -->
-            <div class="card-content">
-                <h4 class="card-title activator grey-text text-darken-4">{{ recipe.recipe_name }} <i
-                        class="fa-solid fa-ellipsis right"></i></h4>
-                        <p><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link">Click to enlarge</a></p>
-            </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}
-                        <i class="fa-solid fa-xmark right"></i></span>
-                        {% for category in categories %}
-                        {% if category.id == recipe.category_id |int %}
-                            <p>{{ category.category_name }}</p>
-                        {% endif %}
-                    {% endfor %}
-                    <h6>Posted by: {{ recipe.created_by }}</h6>
-                    <h5>Description</h5>    
-                        <p class="recipe-info">{{ recipe.recipe_description }}</p>
-                    <h5>Ingredients</h5>
-                        <p class="recipe-info">{{ recipe.ingredients }}</p>
-                    <h5>Preparation</h5>
-                        <p class="recipe-info">{{ recipe.preparation }}</p>
-                    <h5>Serves</h5>
-                        <p class="recipe-info">{{ recipe.serves }} mins</p>
-                    <h5>Cooking time</h5>
-                        <p class="recipe-info">{{ recipe.cook_time }} mins</p>
-                </div>
-                <div class="row-btn">
-                    <div class="col s3 center-align">
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn" class="btn-floating btn-large yellow"><i class="fa-regular fa-pen-to-square"></i></i></a>
-                    </div>
-                    <!-- Modal Trigger -->
-                    <a href="#modal1" id="delete-btn" class="waves-effect waves-light btn-floating btn-large modal-trigger" ><i class="fa-solid fa-trash"></i></a>
-
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>{{ recipe.recipe_name }}</h4>
-                        <p>Please confirm you are sure you want to delete "{{ recipe.recipe_name }}"? This action cannot be undone.</p>
-                    </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
-                </div>
+    <div class="card" id="recipe-card">
+        <!-- Recipe image -->
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="static/images/pasta_dish.jpg">
+        </div>
+        <!-- Recipe Title -->
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+                <h4>{{ recipe.recipe_name }}<i class="fa-solid fa-ellipsis right"></i></h4>
+            </span>
+            <p><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link">Click to enlarge</a></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fa-solid fa-xmark right"></i></span>
+            {% for category in categories %}
+                {% if category.id == recipe.category_id | int %}
+                    <p>{{ category.category_name }}</p>
+                {% endif %}
+            {% endfor %}
+            <h6>Posted by: {{ recipe.created_by }}</h6>
+            <h5>Description</h5>
+            <p class="recipe-info">{{ recipe.recipe_description }}</p>
+            <h5>Ingredients</h5>
+            <p class="recipe-info">{{ recipe.ingredients }}</p>
+            <h5>Preparation</h5>
+            <p class="recipe-info">{{ recipe.preparation }}</p>
+            <h5>Serves</h5>
+            <p class="recipe-info">{{ recipe.serves }} mins</p>
+            <h5>Cooking time</h5>
+            <p class="recipe-info">{{ recipe.cook_time }} mins</p>
+        </div>
+        <div class="row-btn">
+            <div class="col s3 center-align">
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn" class="btn-floating btn-large yellow"><i class="fa-regular fa-pen-to-square"></i></a>
             </div>
         </div>
-    {% endfor %}
+        <!-- Modal Trigger -->
+        <a href="#modal1" id="delete-btn" class="waves-effect waves-light btn-floating btn-large modal-trigger" ><i class="fa-solid fa-trash"></i></a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>{{ recipe.recipe_name }}</h4>
+            <p>Please confirm you are sure you want to delete "{{ recipe.recipe_name }}"? This action cannot be undone.</p>
+        </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
     </div>
+</div>
+</div>        
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}

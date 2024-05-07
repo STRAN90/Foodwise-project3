@@ -7,7 +7,6 @@
             <!-- Recipe name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-pencil prefix"></i>
                     <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipe.recipe_name }}" required>
                     <label for="recipe_name">Recipe Name</label>
                 </div>
@@ -15,7 +14,6 @@
             <!-- Recipe description -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-align-left prefix"></i>
                     <textarea id="recipe_description" name="recipe_description" class="materialize-textarea" required>{{ recipe.recipe_description }}</textarea>
                     <label for="recipe_description">Description</label>
                 </div>
@@ -23,7 +21,6 @@
             <!-- Ingredients -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-apple-whole prefix"></i>
                     <textarea id="ingredients" name="ingredients" class="materialize-textarea" required>{{ recipe.ingredients }}</textarea>
                     <label for="ingredients">Ingredients</label>
                 </div>
@@ -31,7 +28,6 @@
             <!-- Preparation -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-book-open prefix"></i>
                     <textarea id="preparation" name="preparation" class="materialize-textarea" required>{{ recipe.preparation }}</textarea>
                     <label for="preparation">Preparation</label>
                 </div>
@@ -39,7 +35,6 @@
             <!-- Serve Time -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-user-group prefix"></i>
                     <input id="serve" name="serve" type="number" class="validate" value="{{ recipe.serves }}" required>
                     <label for="serve">Serves (people)</label>
                 </div>
@@ -47,7 +42,6 @@
             <!-- Cook time -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-user-group prefix"></i>
                     <input id="cook_time" name="cook_time" type="number" class="validate" value="{{ recipe.cook_time }}" required>
                     <label for="cook_time">Cook Time (in minutes)</label>
                 </div>
@@ -55,26 +49,19 @@
             <!-- Category Selection -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-folder-open prefix"></i>
                     <label for="category_id">Category</label>
                     <select id="category_id" name="category_id" class="validate" required>
-                        <option value="" disabled selected>Select Category</option>
+                        <option value="" disabled>Select Category</option>
                         {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.category_name }}</option>
+                            <option value="{{ category.id }}" {% if category.id == recipe.category_id %} selected {% endif %}>{{ category.category_name }}</option>
                         {% endfor %}
                     </select>            
                 </div>
             </div>
             <div class="row">
                 <div class="col s12 center-align">
-                <!-- Cancel -->
-                <a class="col s6 deep-red btn-large center-align" href="{{ url_for('recipes') }}">Cancel
-                    <i class="fa-solid fa-ban prefix"></i></a>
-                <!-- Submit Button -->
-                <button type="submit" class="col s6 btn-large green darken-3">
-                    Add Recipe
-                    <i class="fa-solid fa-square-plus right"></i>
-                </button>
+                    <a class="col s6 deep-red btn-large center-align" href="{{ url_for('recipes') }}">Cancel</a>
+                    <button type="submit" class="col s6 btn-large green darken-3">Update Recipe</button>
                 </div>
             </div>
         </form>

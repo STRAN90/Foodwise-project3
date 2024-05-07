@@ -203,27 +203,21 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    if not recipe:
-        flash("Recipe not found.", "error")
-        return redirect(url_for("recipes"))
-
     categories = mongo.db.categories.find()
 
     if request.method == "POST":
         # Get form data
         recipe_name = request.form.get("recipe_name")
         recipe_description = request.form.get("recipe_description")
-        ingredients = request.form.getlist("ingredients")
-        preparation = request.form.getlist("preparation")
-        serves = request.form.get("serve")
-        cook_time = request.form.get("cook_time")
-        category_name = request.form.get("category_name")
+        ingredients = request.form.get("ingredients")
+        preparation = request.form.get("preparation")
+        serves = int(request.form.get("serve"))
+        cook_time = int(request.form.get("cook_time"))
+        category_id = request.form.get("category_id")
 
         # Check for empty or invalid fields
-        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time, category_name]):
+        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time, category_id]):
             flash("All fields are required.", "error")
-        elif not serves.isdigit() or not cook_time.isdigit():
-            flash("Serves and Cook Time must be valid numbers.", "error")
         else:
             # Update recipe object
             updated_recipe = {
@@ -231,9 +225,9 @@ def edit_recipe(recipe_id):
                 "recipe_description": recipe_description,
                 "ingredients": ingredients,
                 "preparation": preparation,
-                "serves": int(serves),
-                "cook_time": int(cook_time),
-                "category_name": category_name,
+                "serves": serves,
+                "cook_time": cook_time,
+                "category_id": ObjectId(category_id)  
             }
 
             # Update the recipe in the database

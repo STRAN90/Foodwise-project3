@@ -77,66 +77,6 @@ nav ul a {
     font-size: 5rem;
 }
 
-/* categories.html*/
-
-.row-category {
-    margin-bottom: 5%;
-}
-
-/* recipe */
-
-#r-descript {
-    padding: 5%;
-    padding-top: 1%;
-}
-
-.card-content {
-    
-}
-
-
-.row {
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #eee;
-}
-
-.col .row {
-    margin: 0%;
-}
-
-.card .card-image {
-    position: absolute;
-}
-
-.card-image {
-    height:  -webkit-fill-available;
-
-}
-
-.row .col {
-    padding: 1%;
-}
-
-.materialize-textarea {
-
-    font-family: roboto;
-    font-size: x-large;
-    color: rgb(37, 46, 36);
-}
-
-#recipe {
-    align-self: center;
-}
-
-.textarea {
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
 /* buttons */
 #edit-btn{
     display: block;
@@ -156,108 +96,17 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     color: antiquewhite;
 }
 
-.login {
-    font-size: xx-large;
-}
+/* categories.html*/
 
-.info {
-    background-color: #8b3747;
-    color: #fbfbfb;
-}
-
-a {
-    color: #ffb732;
-}
-
-.col .row {
-    margin: 2%;
-}
-
-.row .col.s6 {
-    width: 50%;
-    margin-left: auto;
-    margin-top: 5%;
+.row-category {
     margin-bottom: 5%;
-    left: auto;
-    right: auto;
 }
 
-.row .register {
-    margin: 0;
-}
-
-#login-button {
-    margin: 0%;
-    margin-left: 25%;
-}
-
-#password {
-    margin-bottom: inherit;
-    margin-top: auto;
-}
-
-/* card-panel*/
-
-.card-panel {
-background-color: #eee;
-}
-
-.card {
-    background-color: #eee;
-}
-
-.card .card-title {
-    font-weight: 400;
-    font-size: xxx-large;
-}
-
-.card .card-reveal {
-    height: 66%;
-}
-
-label {
-    font-size: 1.5rem;
-    color: #9e9e9e;
-}
-
-.input-field>label {
-    font-size: 1.5rem;
-}
-
-.input-field>label {
-    color: #9e9e9e;
-    position: static;
-}
-
-.description {
-    font-size: x-large;
-}
-
-/* Modal */
-#delete-btn {
-    color: #fff;
-    background-color: red;
-    margin-bottom: inherit;
-    margin-top: 2%;
-    margin-right: 65%;
-    margin-left: 2%;
-}
-
-/* Recipe page */
+/* recipes.html */
 
 .link {
     color: #e63253;
     font-size: larger;
 }
 
-strong {
-    font-weight: 700;
-}
 
-#recipe-card {
-    
-}
-
-.row-btn {
-
-}
