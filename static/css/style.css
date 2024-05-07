@@ -109,4 +109,16 @@ nav ul a {
     font-size: larger;
 }
 
+.card .card-image {
+    position: relative;
+    height: 500px;
+}
 
+.row-btn {
+    padding-bottom: 2%;
+}
+
+#delete-btn {
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
