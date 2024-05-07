@@ -183,3 +183,11 @@ label {
 .description {
     font-size: x-large;
 }
+
+/* Modal */
+#delete-btn {
+    color: #fff;
+    background-color: red;
+    margin-bottom: inherit;
+    margin-left: 2%;
+}
