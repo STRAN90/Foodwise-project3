@@ -200,13 +200,14 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
-
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     if not recipe:
         flash("Recipe not found.", "error")
         return redirect(url_for("recipes"))
+
+    categories = mongo.db.categories.find()
 
     if request.method == "POST":
         # Get form data
@@ -216,10 +217,10 @@ def edit_recipe(recipe_id):
         preparation = request.form.getlist("preparation")
         serves = request.form.get("serve")
         cook_time = request.form.get("cook_time")
-        #category_name = request.form.get("category_name")
+        category_name = request.form.get("category_name")
 
         # Check for empty or invalid fields
-        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time]): #category_name]):
+        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time, category_name]):
             flash("All fields are required.", "error")
         elif not serves.isdigit() or not cook_time.isdigit():
             flash("Serves and Cook Time must be valid numbers.", "error")
@@ -232,7 +233,7 @@ def edit_recipe(recipe_id):
                 "preparation": preparation,
                 "serves": int(serves),
                 "cook_time": int(cook_time),
-                #"category_name": category_name,
+                "category_name": category_name,
             }
 
             # Update the recipe in the database
@@ -240,7 +241,8 @@ def edit_recipe(recipe_id):
             flash("Recipe updated successfully.", "success")
             return redirect(url_for("recipes"))  # Redirect to recipe list page
 
-    return render_template("edit_recipe.html", recipe=recipe)
+    return render_template("edit_recipe.html", categories=categories, recipe=recipe)
+
 
 
 @app.route("/delete_recipe/<recipe_id>")
