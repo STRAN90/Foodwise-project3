@@ -4,8 +4,8 @@
     <h1>Recipes <a href="{{ url_for('add_recipe')}}" class="btn-floating btn-large green"><i class="fa-solid fa-plus"></i></a></h1>
     <!-- Display all alvailable recipes -->
     {% for recipe in recipes %}
-    <div class="col s12 col m6" id="recipe-card">
-        <div class="card">
+    <div class="col s12 col m6" >
+        <div class="card" id="recipe-card">
             <!-- Recipe image -->        
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="#" alt="">
@@ -36,7 +36,7 @@
                     <h5>Cooking time</h5>
                         <p class="recipe-info">{{ recipe.cook_time }} mins</p>
                 </div>
-                <div class="row">
+                <div class="row-btn">
                     <div class="col s3 center-align">
                         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn" class="btn-floating btn-large yellow"><i class="fa-regular fa-pen-to-square"></i></i></a>
                     </div>
