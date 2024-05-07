@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container wrapper bg-dark radius">
-    <h1>Recipies</h1>
+    <h1>Recipes <a href="{{ url_for('add_recipe')}}" class="btn-floating btn-large green"><i class="fa-solid fa-plus"></i></a></h1>
     <!-- Display all alvailable recipes -->
     {% for recipe in recipes %}
     <div class="col s12 col m6" id="recipe-card">
@@ -37,7 +37,7 @@
                         <p>{{ recipe.cook_time }} mins</p>
                 </div>
                 <div class="col s3 center-align">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating btn-large yellow left-align"><i class="fa-regular fa-pen-to-square"></i></i></a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn" class="btn-floating btn-large yellow"><i class="fa-regular fa-pen-to-square"></i></i></a>
                 </div>
                 <!-- Modal Trigger -->
                 <a href="#modal1" id="delete-btn" class="waves-effect waves-light btn-floating btn-large modal-trigger" ><i class="fa-solid fa-trash"></i></a>

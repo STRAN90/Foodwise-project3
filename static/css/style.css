@@ -100,9 +100,9 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 /* buttons */
-.btn-floating.btn-large {
-    margin-right: 90%;
-    margin-bottom: 2%;
+#edit-btn{
+    display: block;
+    margin-left: 4%;
 }
 
 .btn-large {
@@ -189,5 +189,6 @@ label {
     color: #fff;
     background-color: red;
     margin-bottom: inherit;
-    margin-left: 2%;
+    margin-left: 4%;
+    margin-top: 5%;
 }
