@@ -103,15 +103,32 @@ nav ul a {
 }
 
 /* recipes.html */
+/* Adjust card and card-image styles */
 
 .link {
     color: #e63253;
     font-size: larger;
 }
 
+.card {
+    width: 100%;
+    margin-bottom: 20px; /* Adjust margin as needed */
+    /* Add other styles specific to your cards */
+}
+
 .card .card-image {
-    position: relative;
-    height: 500px;
+    height: 300px; /* Set a fixed height for consistency */
+    overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+/* Optional: Adjust card-content styles */
+.card .card-content {
+    padding: 15px; /* Adjust padding as needed */
+}
+
+/* Adjust button styles */
+#delete-btn, #edit-btn {
+    margin-top: 10px;
 }
 
 .row-btn {
@@ -121,4 +138,18 @@ nav ul a {
 #delete-btn {
     margin-left: 2%;
     margin-bottom: 2%;
+}
+
+/* add_recipe.html */
+.input-field>label {
+    font-size: 1.5rem;
+}
+
+.input-field>label {
+    color: #000000;
+    position: static;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    background-color: white;
 }
