@@ -16,17 +16,9 @@
                 <!-- Category description -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-key prefix"></i>
+                        <i class="fa-solid fa-align-left prefix"></i>
                         <textarea id="category_description" name="category_description" minlength="5" maxlength="250" class="materialize-textarea validate" required>{{ category.category_description }}</textarea>
                         <label for="category_description">Category Description</label>
-                    </div>
-                </div>
-                <!-- Category color -->
-                <div class="row">
-                    <div class="col s12">
-                        <label>Select Category Color</label>
-                        <!-- You can use radio buttons or other input types here based on your design -->
-                        <input type="text" id="category_color" name="category_color" value="{{ category.category_color }}" class="validate" required>
                     </div>
                 </div>
                 <!-- Submit button -->

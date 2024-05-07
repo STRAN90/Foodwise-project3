@@ -13,11 +13,19 @@
                             <label for="category_name">Category Name</label>
                         </div>
                     </div>
+                    <!-- Category description -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fa-solid fa-align-left prefix"></i>
+                            <textarea id="category_description" name="category_description" minlength="5" maxlength="250" class="materialize-textarea validate" required></textarea>
+                            <label for="category_description">Category Description</label>
+                        </div>
+                    </div>
                     <!-- Submit button -->
                     <div class="row">
                         <!-- Cancel -->
                         <a class="col s6 deep-red btn-large center-align" href="{{ url_for('categories') }}">Cancel
-                        <i class="fa-solid fa-ban prefix"></i></a>
+                            <i class="fa-solid fa-ban prefix"></i></a>
                         <!-- Add Category -->
                         <button type="submit" class="col s6 amber accent-1 black-text btn-large">Add Category
                             <i class="fa-solid fa-square-plus right"></i>
