@@ -16,7 +16,7 @@
             <span class="card-title activator grey-text text-darken-4">
                 <h4>{{ recipe.recipe_name }}<i class="fa-solid fa-ellipsis right"></i></h4>
             </span>
-            <p><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link">Click to enlarge</a></p>
+            <p><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link">Click for recipe</a></p>
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fa-solid fa-xmark right"></i></span>
@@ -28,10 +28,6 @@
             <h6>Posted by: {{ recipe.created_by }}</h6>
             <h5>Description</h5>
             <p class="recipe-info">{{ recipe.recipe_description }}</p>
-            <h5>Ingredients</h5>
-            <p class="recipe-info">{{ recipe.ingredients }}</p>
-            <h5>Preparation</h5>
-            <p class="recipe-info">{{ recipe.preparation }}</p>
             <h5>Serves</h5>
             <p class="recipe-info">{{ recipe.serves }} mins</p>
             <h5>Cooking time</h5>
