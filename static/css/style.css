@@ -18,6 +18,10 @@ h1 {
     color: rgb(85, 107, 47);
 }
 
+h4 {
+
+}
+
 h5 {
     background-color: #8b3747e3;
     color: white;
@@ -158,12 +162,19 @@ a {
     margin-top: auto;
 }
 
+/* card-panel*/
+
 .card-panel {
 background-color: #eee;
 }
 
 .card {
     background-color: #eee;
+}
+
+.card .card-title {
+    font-weight: 400;
+    font-size: xxx-large;
 }
 
 label {
@@ -192,4 +203,15 @@ label {
     margin-top: 2%;
     margin-right: 65%;
     margin-left: 2%;
+}
+
+/* Recipe page */
+
+.link {
+    color: #e63253;
+    font-size: larger;
+}
+
+.recipe-info {
+    
 }
