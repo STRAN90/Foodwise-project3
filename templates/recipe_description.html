@@ -4,27 +4,26 @@
 <div class="container">
     <h3 class="center-align teal-text text-darken-4">Recipe Description</h3>
     <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">{{ recipe.recipe_name }}</span>
-                    <p><strong>Description:</strong> {{ recipe.recipe_description }}</p>
-                    <p><strong>Ingredients:</strong></p>
+        <div class="col s12" id="r-descript">
+            <div class="card-content">
+                    <h2>{{ recipe.recipe_name }}</h2>
+                    <p class="description"><strong>Description:</strong> {{ recipe.recipe_description }}</p>
+                    <p class="description"><strong>Ingredients:</strong></p>
                     <ul>
                         {% for ingredient in recipe.ingredients %}
                         <li>{{ ingredient }}</li>
                         {% endfor %}
                     </ul>
-                    <p><strong>Preparation:</strong></p>
+                    <p class="description"><strong>Preparation:</strong></p>
                     <ol>
                         {% for step in recipe.preparation %}
                         <li>{{ step }}</li>
                         {% endfor %}
                     </ol>
-                    <p><strong>Serves:</strong> {{ recipe.serves }}</p>
-                    <p><strong>Cooking Time:</strong> {{ recipe.cook_time }} mins</p>
-                    <p><strong>Category:</strong> {{ recipe.category_name }}</p>
-                    <p><strong>Posted By:</strong> {{ recipe.created_by }}</p>
+                    <p class="description"><strong>Serves:</strong> {{ recipe.serves }}</p>
+                    <p class="description"><strong>Cooking Time:</strong> {{ recipe.cook_time }} mins</p>
+                    <p class="description"><strong>Category:</strong> {{ recipe.category_name }}</p>
+                    <p class="description"><strong>Posted By:</strong> {{ recipe.created_by }}</p>
                 </div>
             </div>
         </div>

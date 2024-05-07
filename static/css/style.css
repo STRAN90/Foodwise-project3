@@ -18,6 +18,11 @@ h1 {
     color: rgb(85, 107, 47);
 }
 
+h2 {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 h4 {
     font-size: xxx-large;
 }
@@ -77,6 +82,18 @@ nav ul a {
 .row-category {
     margin-bottom: 5%;
 }
+
+/* recipe */
+
+#r-descript {
+    padding: 5%;
+    padding-top: 1%;
+}
+
+.card-content {
+    
+}
+
 
 .row {
     margin-left: auto;
@@ -231,6 +248,10 @@ label {
 .link {
     color: #e63253;
     font-size: larger;
+}
+
+strong {
+    font-weight: 700;
 }
 
 #recipe-card {
