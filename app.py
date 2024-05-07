@@ -213,10 +213,10 @@ def edit_recipe(recipe_id):
         preparation = request.form.get("preparation")
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
-        category_id = request.form.get("category_id")
+        category_name = request.form.get("category_name")
 
         # Check for empty or invalid fields
-        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time, category_id]):
+        if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time,]):
             flash("All fields are required.", "error")
         else:
             # Update recipe object
@@ -227,7 +227,7 @@ def edit_recipe(recipe_id):
                 "preparation": preparation,
                 "serves": serves,
                 "cook_time": cook_time,
-                "category_id": ObjectId(category_id)  
+                "category_name": category_name  
             }
 
             # Update the recipe in the database
