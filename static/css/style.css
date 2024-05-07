@@ -46,6 +46,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .container {
     margin-block: 4.5px;
     margin-top: 2%;
+    width: auto;
 }
 
 .hero {
@@ -157,4 +158,42 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 /* edit_recipe.html */
 #edit-container {
     background: #eee;
+}
+
+/* recipe_description.html*/
+#r-descript {
+    background: #eee;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.description {
+    text-align: left;
+    font-size: x-large;
+    color: #e63253;
+}
+
+#text {
+    font-size: larger;
+
+}
+ul:not(.browser-default)>li {
+    font-size: large;
+    text-align: left;
+}
+
+.recipe-one {
+    color: #000000;
+    font-size: large;
+    text-align: left;
+
+}
+.recipe-info {
+    color: #000000;
+    font-size: small;
+    text-align: left;
+}
+
+.card-content {
+
 }
