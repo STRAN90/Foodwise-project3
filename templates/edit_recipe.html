@@ -57,7 +57,7 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-folder-open prefix"></i>
                     <label for="category_id">Category</label>
-                    <select id="category_id" name="category_id" class="validate" required>
+                    <select multiple id="category_id" name="category_id" class="validate" required>
                         <option value="" disabled>Select Category</option>
                         {% for category in categories %}
                             <option value="{{ category.id }}" {% if category.id == recipe.category_id %} selected {% endif %}>{{ category.category_name }}</option>
