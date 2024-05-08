@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container wrapper bg-dark radius">
+<div class="col s12 offset-m2 wrapper bg-dark radius">
     <h1>Categories</h1>
     <div class="row-category">
         <!-- Add category button -->
@@ -12,7 +12,7 @@
     <!-- Available categories -->
     <div class="row-one">
         {% for category in categories %}
-        <div class="col s12 m6 l3">
+        <div class="col s12 m6 l4">
             <div class="card-panel grey lighten-3 radius center-align">
                     <h4 class="card-title">{{ category.category_name }}</h4>
                     <p class="description">{{ category.category_description }}</p>
