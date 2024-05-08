@@ -102,6 +102,10 @@ nav ul a {
 
 #profile-info {
     font-size: xxx-large;
+    margin-right: 10%;
+    margin-left: 10%;
+    box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
+    border: 5px solid #424242;
 }
 
 .teal-text.text-darken-4 {
@@ -177,6 +181,10 @@ nav ul a {
     height: auto;
 }
 
+.row-one .col .s12 {
+    position: relative;
+}
+
 /* recipes.html */
 /* Adjust card and card-image styles */
 
@@ -188,13 +196,12 @@ nav ul a {
 /* Adjust card-content styles */
 .card {
     width: 100%;
-    margin-bottom: 20px; /* Adjust margin as needed */
-    /* Add other styles specific to your cards */
+    margin-bottom: 20px; 
 }
 
 .card .card-image {
-    height: 300px; /* Set a fixed height for consistency */
-    overflow: hidden; /* Ensure image doesn't overflow */
+    height: 300px; 
+    overflow: hidden; 
 }
 
 .card-title {
@@ -203,16 +210,15 @@ nav ul a {
 
 .card-panel {
     border-radius: 30px;
-    margin-bottom: 20px;
 }
 
 .card .card-content {
-    padding: 15px; /* Adjust padding as needed */
+    padding: 15px; 
 }
 
 .wrapper {
     border: 5px solid #424242;
-    box-shadow: 1rem 1rem 1.4rem #bcbfc2, 1rem 1rem 1.4rem #fff;
+    box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
     background: lavenderblush;
     height: 140vh;
     width: fit-content;
@@ -272,19 +278,14 @@ ul:not(.browser-default)>li {
     text-align: left;
 }
 
-.row-one {
-
-}
-
 .row-one .col {
-    margin: 0.5%;
-    float: left;
-    padding-left: 0.5%;
+    margin: 0.4%;
+    box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
 }
 
-.row-one .col .s12 {
-    margin: 10%;
-
+.row-one {
+    margin: 0 auto;
+    display: ruby;
 }
 
 .col .s12 .m6 .l4 {
