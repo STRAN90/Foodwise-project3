@@ -8,15 +8,16 @@
     {% for recipe in recipes %}
     <div class="card col s12">
         <!-- Recipe image -->
-        <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="static/images/pasta_dish.jpg">
-        </div>
+        {% if recipe.photo_url %}
+            <img class="activator" src="{{ recipe.photo_url }}" alt="{{ recipe.recipe_name }}">
+            {% else %}
+            <img class="activator" src="static/images/stock-image.jpg" alt="Stock image">
+            {% endif %}
         <!-- Recipe Title -->
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
                 <h4>{{ recipe.recipe_name }}<i class="fa-solid fa-ellipsis right"></i></h4>
             </span>
-            <h3><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link"><bold>Click for recipe</bold></a></h3>
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fa-solid fa-xmark right"></i></span>
@@ -40,6 +41,7 @@
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn" class="btn-floating btn-large-one yellow"><i class="fa-regular fa-pen-to-square"></i></a>
             </div>
         </div>
+        <h3><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link"><bold>Click for recipe</bold></a></h3>
         <!-- Modal Trigger -->
         <a href="#modal1" id="delete-btn" class="waves-effect waves-light btn-floating btn-large-one modal-trigger"><i class="fa-solid fa-trash"></i></a>
 

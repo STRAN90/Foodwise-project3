@@ -118,6 +118,7 @@ nav ul a {
 /* Adjust button styles */
 .row-btn {
     padding-bottom: 2%;
+    margin-right: 30%;
 }
 
 #delete-btn {
@@ -191,9 +192,19 @@ nav ul a {
 }
 
 .yellow {
-    margin-right: 91%;
+    margin-right: 87%;
+    margin-top: 3%;
 }
 
+.card .card-content {
+    padding: 15px;
+    height: 10vh;
+}
+
+.activator {
+    height: 55vh;
+    width: 100%;
+}
 /* Adjust card and card-image styles */
 /* Adjust card-content styles */
 .card {
@@ -251,6 +262,7 @@ nav ul a {
     padding-left: 3%;
     padding-right: 3%;
     margin-top: 5%;
+    padding-bottom: 3%;
 }
 
 .input-field>label {
@@ -318,6 +330,14 @@ ul:not(.browser-default)>li {
 
 .modal-content {
     color: #000000;
+}
+
+.input-field .prefix {
+    position: absolute;
+    width: 3rem;
+    font-size: 2rem;
+    -webkit-transition: color .2s;
+    transition: color .2s;
 }
 
 /* Media query for tablet */

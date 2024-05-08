@@ -175,6 +175,7 @@ def add_recipe():
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
         category_name = request.form.get("category_name")
+        image_url = request.form.get("image_url")
 
         if not recipe_name or not recipe_description or not ingredients or not preparation:
             flash("All fields are required.", "error")
@@ -187,7 +188,8 @@ def add_recipe():
                 "serves": serves,
                 "cook_time": cook_time,
                 "category_name": category_name,
-                "created_by": username
+                "created_by": username,
+                "image_url": image_url
             }
 
             try:
@@ -214,6 +216,7 @@ def edit_recipe(recipe_id):
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
         category_name = request.form.get("category_name")
+        image_url: request.form.get("image_url")
 
         # Check for empty or invalid fields
         if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time,]):

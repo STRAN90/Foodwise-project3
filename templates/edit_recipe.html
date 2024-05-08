@@ -8,48 +8,49 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-pencil prefix"></i>
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipe.recipe_name }}" required>
                     <label for="recipe_name">Recipe Name</label>
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipe.recipe_name }}" required>
                 </div>
             </div>
             <!-- Recipe description -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-align-left prefix"></i>
-                    <textarea id="recipe_description" name="recipe_description" class="materialize-textarea" required>{{ recipe.recipe_description }}</textarea>
                     <label for="recipe_description">Description</label>
+                    <textarea id="recipe_description" name="recipe_description" class="materialize-textarea" required>{{ recipe.recipe_description }}</textarea>
+                    
                 </div>
             </div>
             <!-- Ingredients -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-apple-whole prefix"></i>
+                    <label for="ingredients">Ingredients</label>&nbsp;&nbsp;<small>Format: ['Ingredient 1', 'Ingredient 2', 'Ingredient 3']</small>
                     <textarea id="ingredients" name="ingredients" class="materialize-textarea" required>{{ recipe.ingredients }}</textarea>
-                    <label for="ingredients">Ingredients</label>
                 </div>
             </div>
             <!-- Preparation -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-book-open prefix"></i>
+                    <label for="preparation">Preparation</label>&nbsp;&nbsp;<small>Format:['1: Do this', '2: Do that', '3: Finish up']</small>
                     <textarea id="preparation" name="preparation" class="materialize-textarea" required>{{ recipe.preparation }}</textarea>
-                    <label for="preparation">Preparation</label>
                 </div>
             </div>
             <!-- Serve Time -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-group prefix"></i>
-                    <input id="serve" name="serve" type="number" class="validate" value="{{ recipe.serves }}" required>
                     <label for="serve">Serves (people)</label>
+                    <input id="serve" name="serve" type="number" class="validate" value="{{ recipe.serves }}" required>
                 </div>
             </div>
             <!-- Cook time -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-regular fa-clock prefix"></i>
-                    <input id="cook_time" name="cook_time" type="number" class="validate" value="{{ recipe.cook_time }}" required>
                     <label for="cook_time">Cook Time (in minutes)</label>
+                    <input id="cook_time" name="cook_time" type="number" class="validate" value="{{ recipe.cook_time }}" required>   
                 </div>
             </div>
             <!-- Category Selection -->
@@ -65,11 +66,15 @@
                     </select>            
                 </div>
             </div>
+            <!-- photo_url -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-image prefix"></i>
+                    <input id="image_url" name="image_url" type="url" class="validate" value="{{ recipe.image_url }}">
+                    <label for="image_url">Photo URL Link (optional)</label>
             <div class="row">
                 <div class="col s12 center-align">
-                    <a class="col s12 deep-red btn-large center-align" href="{{ url_for('recipes') }}">Cancel
-                        <i class="fa-solid fa-ban prefix"></i>
-                    </a>
+                    <a class="col s12 deep-red btn-large center-align" href="{{ url_for('recipes') }}">Cancel</a>
                     <button type="submit" class="col s12 btn-large green darken-3">Update Recipe</button>
                 </div>
             </div>
