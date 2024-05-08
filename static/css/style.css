@@ -22,6 +22,7 @@ h1 {
 h2 {
     font-weight: bold;
     text-decoration: underline;
+    color: #000000;
 }
 
 h4 {
@@ -137,11 +138,6 @@ nav ul a {
     padding-top: 0.7%;
 }
 
-#edit-btn {
-   
-
-}
-
 /* add_recipe.html */
 .input-field>label {
     font-size: 1.5rem;
@@ -190,6 +186,9 @@ nav ul a {
     font-size: larger;
 }
 
+.row-info  {
+
+}
 /* Adjust card and card-image styles */
 /* Adjust card-content styles */
 .card {
@@ -240,6 +239,14 @@ nav ul a {
     border-radius: 10px;
 }
 
+.radius-recipe {
+    border-radius: 10px;
+    width: 80%;
+    margin-left: 10%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
 .input-field>label {
     color: #000000;
     position: static;
@@ -267,8 +274,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .description {
-    text-align: center;
-    font-size: x-large;
+    text-align: left;
+    font-size: xxx-large;
     color: #e63253;
 }
 
@@ -283,13 +290,13 @@ ul:not(.browser-default)>li {
 
 .recipe-one {
     color: #000000;
-    font-size: large;
+    font-size: xx-large;
     text-align: left;
 
 }
 .recipe-info {
     color: #000000;
-    font-size: small;
+    font-size: xx-large;
     text-align: left;
 }
 
@@ -300,9 +307,6 @@ ul:not(.browser-default)>li {
 
 .row {
     margin: 0;
-}
-.col .s12 .m6 .l4 {
-
 }
 
 .modal-content {
