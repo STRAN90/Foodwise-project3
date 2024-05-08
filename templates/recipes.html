@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col s12 m8 offset-m2 wrapper bg-dark radius">
-    <h1>Recipes <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large green"><i class="fa-solid fa-plus"></i></a></h1>
+<div class="col s12 m8 offset-m2 bg-dark radius">
+    <h1>Recipes <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large-one green"><i class="fa-solid fa-plus"></i></a></h1>
 
     <!-- Display all available recipes -->
     {% for recipe in recipes %}
@@ -37,11 +37,11 @@
         </div>
         <div class="row-btn">
             <div class="col s3 center-align">
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn" class="btn-floating btn-large yellow"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn" class="btn-floating btn-large-one yellow"><i class="fa-regular fa-pen-to-square"></i></a>
             </div>
         </div>
         <!-- Modal Trigger -->
-        <a href="#modal1" id="delete-btn" class="waves-effect waves-light btn-floating btn-large modal-trigger"><i class="fa-solid fa-trash"></i></a>
+        <a href="#modal1" id="delete-btn" class="waves-effect waves-light btn-floating btn-large-one modal-trigger"><i class="fa-solid fa-trash"></i></a>
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
