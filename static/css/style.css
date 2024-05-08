@@ -75,6 +75,26 @@ nav ul a {
     font-size: 1.5rem;
 }
 
+/* login.html */
+.login {
+    font-size: xx-large;
+    background: #8b3747;
+}
+
+.center, .center-align {
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.reg-link {
+    color: #d163b6;
+}
+
+.card-panel {
+    background: #eee;
+}
+
 /* profile.html */
 
 #profile-info {
@@ -103,6 +123,10 @@ nav ul a {
     font-weight: 800;
     background-color: #d163b6;
     color: antiquewhite;
+}
+
+#login-button {
+    background-color: #004d40;
 }
 
 /* categories.html*/
@@ -203,6 +227,3 @@ ul:not(.browser-default)>li {
     text-align: left;
 }
 
-.card-content {
-
-}
