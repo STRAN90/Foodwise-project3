@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row col s12 m8 offset-m2 wrapper bg-dark radius" id="edit-container">
+<div class="row-edit col s12 wrapper bg-dark radius" id="edit-container">
     <h1>Edit Recipe</h1>
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
@@ -67,8 +67,10 @@
             </div>
             <div class="row">
                 <div class="col s12 center-align">
-                    <a class="col s6 deep-red btn-large center-align" href="{{ url_for('recipes') }}">Cancel</a>
-                    <button type="submit" class="col s6 btn-large green darken-3">Update Recipe</button>
+                    <a class="col s12 deep-red btn-large center-align" href="{{ url_for('recipes') }}">Cancel
+                        <i class="fa-solid fa-ban prefix"></i>
+                    </a>
+                    <button type="submit" class="col s12 btn-large green darken-3">Update Recipe</button>
                 </div>
             </div>
         </form>

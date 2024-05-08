@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col s12 m8 offset-m2 bg-dark radius">
+<div class="row-recipes">
     <h1>Recipes <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large-one green"><i class="fa-solid fa-plus"></i></a></h1>
 
     <!-- Display all available recipes -->
     {% for recipe in recipes %}
-    <div class="card col s12 m6 l4" id="recipe-card">
+    <div class="card col s12">
         <!-- Recipe image -->
         <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="static/images/pasta_dish.jpg">
