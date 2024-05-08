@@ -16,7 +16,7 @@
             <span class="card-title activator grey-text text-darken-4">
                 <h4>{{ recipe.recipe_name }}<i class="fa-solid fa-ellipsis right"></i></h4>
             </span>
-            <p><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link">Click for recipe</a></p>
+            <h3><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link"><bold>Click for recipe</bold></a></h3>
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fa-solid fa-xmark right"></i></span>

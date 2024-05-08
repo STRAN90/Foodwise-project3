@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row col s12 m8 offset-m2 card-panel grey lighten-3 radius">
+<div class="col s12 wrapper bg-dark radius-recipe">
     <h1>Add Recipe</h1>
     <form method="POST" enctype="multipart/form-data">
         <!-- Recipe Name -->
@@ -54,12 +54,9 @@
         <div class="row">
             <div class="col s12 center-align">
                 <!-- Cancel -->
-                <a class="col s6 deep-red btn-large center-align" href="{{ url_for('recipes') }}">Cancel
+                <a class="col s12 btn-large center-align" href="{{ url_for('recipes') }}">Cancel
                     <i class="fa-solid fa-ban prefix"></i></a>
-                <button type="submit" class="col s6 btn-large green darken-3">
-                    Add Recipe
-                    <i class="fa-solid fa-square-plus right"></i>
-                </button>
+                <button type="submit" class="col s12 btn-large green darken-3">Add Recipe</button>
             </div>
         </div>
     </form>

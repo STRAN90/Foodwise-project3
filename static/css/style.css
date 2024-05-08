@@ -179,16 +179,21 @@ nav ul a {
     position: relative;
 }
 
+.cat-div {
+    border-radius: 10px;
+    width: 80%;
+}
+
 /* recipes.html */
 
 .link {
     color: #e63253;
-    font-size: larger;
 }
 
-.row-info  {
-
+.yellow {
+    margin-right: 91%;
 }
+
 /* Adjust card and card-image styles */
 /* Adjust card-content styles */
 .card {
@@ -245,6 +250,7 @@ nav ul a {
     margin-left: 10%;
     padding-left: 3%;
     padding-right: 3%;
+    margin-top: 5%;
 }
 
 .input-field>label {
@@ -284,8 +290,9 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 }
 ul:not(.browser-default)>li {
-    font-size: large;
+    font-size: xx-large;
     text-align: left;
+    color: #000000;
 }
 
 .recipe-one {
