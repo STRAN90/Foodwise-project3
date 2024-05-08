@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container wrapper bg-dark radius">
+    <div class="container wrapper-cat bg-dark radius">
         <h1>Add Category</h1>
         <div class="row">
             <div class="col s12 m10 offset-m1 card-panel grey lighten-3 radius">
@@ -24,12 +24,10 @@
                     <!-- Submit button -->
                     <div class="row">
                         <!-- Cancel -->
-                        <a class="col s6 deep-red btn-large center-align" href="{{ url_for('categories') }}">Cancel
+                        <a class="col s12 btn-large " href="{{ url_for('categories') }}">Cancel
                             <i class="fa-solid fa-ban prefix"></i></a>
                         <!-- Add Category -->
-                        <button type="submit" class="col s6 amber accent-1 black-text btn-large">Add Category
-                            <i class="fa-solid fa-square-plus right"></i>
-                        </button>
+                        <button type="submit" class="col s12 amber accent-1 black-text btn-large">Add Category</button>
                     </div>
                 </form>
             </div>
