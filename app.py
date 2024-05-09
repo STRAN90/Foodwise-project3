@@ -83,36 +83,39 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if "user" in session:
+        """ Redirect to profile page if user is already signed in """
+        flash("You are already signed in.", "info")
+        return redirect(url_for("profile"))
+
     if request.method == "POST":
-        # Retrieve email and password from the form
+        """ Retrieve email and password from the form """
         email = request.form.get("email")
         password = request.form.get("password")
 
-        # Check if email exists in db
-        existing_user = mongo.db.users.find_one({"email": request.form.get("email")})
+        if not all([email, password]):
+            flash("Email and password are required.", "error")
+            return redirect(url_for("login"))
 
-        if existing_user:
-            # Ensure password matches user input
-            if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = existing_user["email"]  # Storing email for simplicity
-                flash("Welcome {} {}".format(existing_user["f_name"], existing_user["l_name"]), "success")
-                return redirect(url_for("profile"))  # Redirect to profile without passing username
+        """ Check if email exists in database """
+        existing_user = mongo.db.users.find_one({"email": email})
 
-            # Invalid password match
+        if existing_user and check_password_hash(existing_user["password"], password):
+            """ Password matches user input, log in the user """
+            session["user"] = existing_user["email"] 
+            flash(f"Welcome {existing_user['f_name']} {existing_user['l_name']}", "success")
+            return redirect(url_for("profile"))
+            """ Invalid password match """
             flash("Incorrect Email and/or Password", "error")
             return redirect(url_for("login"))
 
-        # Email doesn't exist
+        """ Email or password invalid """
         flash("Incorrect Email and/or Password", "error")
         return redirect(url_for("login"))
+        flash("Incorrect email and/or password.", "error")
+        return redirect(url_for("login"))
 
-    # Check if user is signed in
-    if "user" in session:
-        # Redirect to profile page if signed in
-        flash("You are already signed in", "info")
-        return redirect(url_for("profile"))
-
-    # Render the login page if not signed in
+    """ Render the login page for GET requests """
     return render_template("login.html")
 
 
