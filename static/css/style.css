@@ -6,7 +6,7 @@ body {
 }
 
 .text-shadow {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 2px #00000080;
 }
 
 .flashes h4 {
@@ -16,7 +16,7 @@ body {
 
 h1 {
     text-align: center;
-    color: rgb(85, 107, 47);
+    color: #556b2f;
 }
 
 h2 {
@@ -30,7 +30,7 @@ h4 {
 }
 
 h5 {
-    background-color: #8b3747e3;
+    background-color: #8b3747
     color: white;
     font-size: 1.5rem;
 }
@@ -65,7 +65,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     margin-top: 10%;
     margin-bottom: 10%;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
-
 }
 
 .hero-text {
@@ -108,7 +107,7 @@ nav ul a {
 
 .center, .center-align {
     text-align: center;
-    color: white;
+    color: #fff;
     margin: 0;
 }
 
@@ -153,7 +152,7 @@ nav ul a {
 
 .amber.accent-1 {
     background-color: #ffe57f !important;
-    border: 2px solid rgb(66 66 66);
+    border: 2px solid #424242 ;
     border-radius: 6px;
     margin: 5px;
 }
@@ -172,17 +171,17 @@ nav ul a {
 .btn-large {
     height: fit-content;
     font-size: large;
-    border: 2px solid rgb(66 66 66);
+    border: 2px solid #424242 ;
     border-radius: 6px;
     font-weight: bold;
-    background-color: red;
+    background-color: #ff0000;;
 }
 
 .btn {
     font-size: 20px;
     font-weight: 800;
     background-color: #d163b6;
-    color: antiquewhite;
+    color: #faebd7;
 }
 
 #login-button {
@@ -268,7 +267,7 @@ nav ul a {
 .wrapper {
     border: 5px solid #424242;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
-    background: lavenderblush;
+    background: #fff0f5;
     width: fit-content;
     margin: 0 auto;
 }
@@ -276,7 +275,7 @@ nav ul a {
 .wrapper-cat {
     border: 5px solid #424242;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
-    background: lavenderblush;
+    background: #fff0f5;
     width: 70%;
 }
 
@@ -300,7 +299,7 @@ nav ul a {
 }
 
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
-    background-color: white;
+    background-color: #fff;
 }
 
 /* edit_recipe.html */

@@ -62,9 +62,56 @@ For all page wireframes, please see [WIREFRAMES.md](WIREFRAMES.md) file.
   - Used 'Roboto': "light 300" font for the website as it great for accessibility.
 
 ### Colour Scheme
-[Color Palette](static/images/readme/color-palette.png)
+<p align="center">
+  <img src="static/images/readme/color-palette.png" width="50%" height="20%">
+</p>
+
+The website uses a contrast of colours, I wanted to choose colours to have good contrast and look professional. 
+
 ### DataBase Diagram
-Image of the database diagram for your project
+The project employs a non-relational database model, which implies that each collection is not interconnected in the same way as in a relational database. Consequently, when a document in one collection required referencing a document in another collection, special handling was necessary. 
+
+The project being a data-centric project, I aimed for a comprehensive planning phase concerning the data to be stored in the database, the interlinking of each document, and the user interaction on the frontend, encompassing complete CRUD operations. I documented detailed plans to guide the development of Python logic and relevant forms effectively.
+
+#### Image of the database diagram for the project:
+
+Users:
+
+```
+{
+    _id: ObjectId,
+    user_id: integer,
+    f_name: string,
+    l_name: string,
+    email: string,
+    username: string,
+    password: hashed password,
+}
+```
+
+Recipes:
+
+```
+{
+    _id: ObjectId
+    recipe_name: string,
+    recipe_description: string,
+    category_name: category_name (from categories)
+    ingredients: [
+        "Ingredient 1", 
+        "Ingredient 2",
+        "Ingredient 2",
+    ],
+    "preparations": [
+        "Step 1",
+        "Step 2", 
+        "Step 3", 
+    ],
+    "cook _time": integer,
+    "serves": Integer,
+    "created_by": "username": (from user),
+}
+```
 
 ## Features:
 Explain your features on the website,(navigation, pages, links, forms, input fields, CRUD....)
