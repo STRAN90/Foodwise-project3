@@ -2,7 +2,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url("../images/hero.jpg")
+    background-image: url("../images/hero.jpg");
+    background-position: center;
 }
 
 .text-shadow {
@@ -203,14 +204,26 @@ nav ul a {
     position: relative;
 }
 
-.cat-div {
+#cat-div {
     border-radius: 10px;
-    width: 80%;
+    background-image: url("../images/categories.jpg");
+    background-size: 100%;
+    background-blend-mode: color-burn;
 }
 
 .grey.lighten-3 {
-    background-color: #eee !important;
+    background-color: #fafafa !important;
     margin-bottom: 5%;
+    border: 5px solid #424242;
+}
+
+#all-categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 /* recipes.html */
@@ -264,11 +277,15 @@ nav ul a {
     padding: 15px; 
 }
 
+.row-one .col .s12 .col .m6 col. l4 {
+    display: ruby-base;
+
+}
+
 .wrapper {
     border: 5px solid #424242;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
-    background: #fff0f5;
-    width: fit-content;
+    background: #eee;
     margin: 0 auto;
 }
 
@@ -281,6 +298,7 @@ nav ul a {
 
 .radius {
     border-radius: 10px;
+    width: auto;
 }
 
 .radius-recipe {
@@ -349,6 +367,11 @@ ul:not(.browser-default)>li {
 
 .row-one {
     margin: 0 auto;
+}
+
+.row-one .col .s12 {
+    width: 100%;
+    display: inline-block;
 }
 
 .row {

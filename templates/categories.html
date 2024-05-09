@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="col s12 offset-m2 cat-div wrapper  radius">
+<div class="col s12 offset-m2 wrapper  radius" id="cat-div">
     <h1>Categories</h1>
     <div class="row-category">
         <!-- Add category button -->
@@ -10,10 +10,10 @@
         </div>
     </div>
     <!-- Available categories -->
-    <div class="row-one col s12">
+    <div class="row-one col s12" id="all-categories">
         {% for category in categories %}
         <div class="col s12 m6 l4">
-            <div class="card-panel grey lighten-3 radius center-align">
+            <div class="card-panel grey lighten-3 radius col s12 col m6 col l4 center-align">
                     <h4 class="card-title">{{ category.category_name }}</h4>
                     <p class="description">{{ category.category_description }}</p>
                 <!-- Delete Button with Modal Trigger -->
