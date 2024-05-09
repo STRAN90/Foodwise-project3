@@ -12,6 +12,7 @@ I have designed the website to be user friendly as its main focus. It is designe
     * [Wireframes](#wireframes)
     * [Typography](#typography)
     * [Colour Scheme](#colour-scheme)
+    * [Icons](icons)
     * [Database Diagram](#database-diagram)
     
 2. [Features](#features)
@@ -66,7 +67,14 @@ For all page wireframes, please see [WIREFRAMES.md](WIREFRAMES.md) file.
   <img src="static/images/readme/color-palette.png" width="50%" height="20%">
 </p>
 
-The website uses a contrast of colours, I wanted to choose colours to have good contrast and look professional. 
+The website uses a contrast of colours, I wanted to choose colours to have good contrast and look professional, ensuring that the content is visually manageable for users. I used coolors to design my colour palette. 
+
+### Icons
+
+I opted to integrate Font Awesome into the project to make use of the wide range of icons available. 
+
+I included a favicon in the project using Favicon
+![Favicon Screenshot](/static/images/favicon/favicon.ico)
 
 ### DataBase Diagram
 The project employs a non-relational database model, which implies that each collection is not interconnected in the same way as in a relational database. Consequently, when a document in one collection required referencing a document in another collection, special handling was necessary. 
