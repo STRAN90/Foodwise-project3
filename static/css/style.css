@@ -80,16 +80,41 @@ nav ul a {
     font-size: 1.5rem;
 }
 
+.sidenav {
+    top: auto;
+    padding-top: 2%;
+}
+
 /* login.html */
 .login {
     font-size: xx-large;
     background: #8b3747;
 }
 
+#info-log {
+    margin-left: 3%;
+    width: 94%;
+    margin-bottom: 0.5%;
+}
+
+#login-page {
+    width: 65%;
+}
+
+#reg-page {
+    margin-left: 1.5%;
+    width: 97%;
+}
+
 .center, .center-align {
     text-align: center;
     color: white;
     margin: 0;
+}
+
+.row-log {
+    margin: 0 auto;
+    padding-top: 2%;
 }
 
 .reg-link {
@@ -149,7 +174,6 @@ nav ul a {
     font-size: large;
     border: 2px solid rgb(66 66 66);
     border-radius: 6px;
-    margin: 5px;
     font-weight: bold;
     background-color: red;
 }
@@ -183,6 +207,11 @@ nav ul a {
 .cat-div {
     border-radius: 10px;
     width: 80%;
+}
+
+.grey.lighten-3 {
+    background-color: #eee !important;
+    margin-bottom: 5%;
 }
 
 /* recipes.html */
@@ -241,7 +270,7 @@ nav ul a {
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
     background: lavenderblush;
     width: fit-content;
-
+    margin: 0 auto;
 }
 
 .wrapper-cat {
@@ -321,7 +350,6 @@ ul:not(.browser-default)>li {
 
 .row-one {
     margin: 0 auto;
-    display: ruby;
 }
 
 .row {

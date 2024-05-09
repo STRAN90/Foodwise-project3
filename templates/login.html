@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="col s12 m8 offset-m2 wrapper bg-dark">
+<div class="col s12 wrapper" id="login-page">
     <h1 class="blue-grey-text darken-3 center-align rock-font">Login</h1>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
@@ -27,13 +27,13 @@
                 </div>
             </div>
         </form>
-    </div>
-</div>
-<div class="row-one">
-    <div class="login col s12">
-        <p class="info center-align">
-            New Here? <a href="{{ url_for('register') }}" class="text-darken-4">Register Account</a>
-        </p>
+        <div class="row-one">
+             <div class="login col s12" id="reg-page">
+                <p class="info center-align">
+                    New Here? <a href="{{ url_for('register') }}" class="text-darken-4">Register Account</a>
+                </p>
+             </div>
+        </div>
     </div>
 </div>
 {% endblock %}
