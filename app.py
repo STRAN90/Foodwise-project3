@@ -216,7 +216,7 @@ def edit_recipe(recipe_id):
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
         category_name = request.form.get("category_name")
-        image_url: request.form.get("image_url")
+        image_url= request.form.get("image_url")
 
         # Check for empty or invalid fields
         if not all([recipe_name, recipe_description, ingredients, preparation, serves, cook_time,]):

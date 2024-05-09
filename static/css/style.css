@@ -234,6 +234,14 @@ nav ul a {
     padding-top: 4%;
     padding-bottom: 4%;
 }
+
+.description-cat {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: #e63253;
+    text-align: center;
+}
+
 /* recipes.html */
 
 .link {
