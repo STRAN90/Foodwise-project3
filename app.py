@@ -90,7 +90,7 @@ def login():
             # Ensure password matches user input
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = existing_user["email"]  # Storing email for simplicity
-                flash("Welcome, {}".format(existing_user["email"]), "success")
+                flash("Welcome {} {}".format(existing_user["f_name"], existing_user["l_name"]), "success")
                 return redirect(url_for("profile"))  # Redirect to profile without passing username
 
             # Invalid password match

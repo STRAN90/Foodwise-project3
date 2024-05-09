@@ -74,6 +74,8 @@ The website uses a contrast of colours, I wanted to choose colours to have good 
 I opted to integrate Font Awesome into the project to make use of the wide range of icons available. 
 
 I included a favicon in the project using Favicon
+
+
 ![Favicon Screenshot](/static/images/favicon/favicon.ico)
 
 ### DataBase Diagram
