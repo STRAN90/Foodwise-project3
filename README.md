@@ -1,5 +1,5 @@
-# Food Wise
-**Food Wise**  is a website developed from the idea of my journey as a parent to children with food allergies. It was hard to come by for recipes that were allergen free and easily accessible online. 
+# FoodWise
+**FoodWise**  is a website developed from the idea of my journey as a parent to children with food allergies. It was hard to come by for recipes that were allergen free and easily accessible online. 
 Allergy Wise Food is a recipe sharing and management application where caregivers of children with food allergies can create, share, edit and delete their ideas for recipes. 
 
 I have designed the website to be user friendly as its main focus. It is designed to be fully responsive and accessible on a range of devices.  
@@ -43,17 +43,19 @@ I have designed the website to be user friendly as its main focus. It is designe
 
 #### Registered User Visitor Goals
 - As a registered user, I want to be able to add, edit and delete own recipes.  
-- As a registered user, I want to be able to uplaod images to my recipes. 
+- As a registered user, I want to be able to upload images to my recipes. 
 - As a registered user, I want to be able to add recipes based on categories. 
-- As a registered user, I want to be able to share recipes. 
+
 
 #### Site Owner Goals
-- As the site owner, I want users to quickly know what Food Wise is offering.
+- As the site owner, I want users to quickly know what FoodWise is offering.
 - As the site owner, I want have the ability to maintain editing or deleting categories. 
 - As the site owner, I want the add, edit or delete own recipes. 
 - As the site owner I want delete any recipes by other users. 
+
 ### Wireframes
-Attach wireframes in this section
+For all page wireframes, please see [WIREFRAMES.md](WIREFRAMES.md) file.
+
 ### Typography
 Explain font you've used for your project
 ### Colour Scheme
