@@ -121,11 +121,11 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # Check if "user" key exists in the session
+    """ Check if "user" key exists in the session"""
     if "user" in session:
-        # Remove user from session cookie
+        """ Remove user from session cookie """
         session.pop("user")
-        flash("You have been logged out", "info")
+        flash("You have been logged out", "sucess")
     else:
         flash("You are not logged in", "error")
 
@@ -153,15 +153,20 @@ def profile():
 
 @app.route("/recipes")
 def recipes():
+    try:
+        recipes = list(mongo.db.recipes.find())
 
-    recipes = mongo.db.recipes.find()
-    # adds current user if signed in
-    if "user" in session:
-        user = mongo.db.users.find_one({"user_id": session["user"]})
-        return render_template("recipes.html", recipes=recipes, user=user)
+        if "user" in session:
+            user = mongo.db.users.find_one({"user_id": session["user"]})
+            return render_template("recipes.html", recipes=recipes, user=user)
 
-    return render_template("recipes.html", recipes=recipes)
+        return render_template("recipes.html", recipes=recipes)
 
+    except Exception as e:
+        """ Handle database errors or other exceptions """
+        flash("Error fetching recipes. Please try again later.", "error")
+        app.logger.error(f"Error fetching recipes: {str(e)}")
+        return redirect(url_for("home"))  
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
