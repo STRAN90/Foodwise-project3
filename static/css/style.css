@@ -17,7 +17,8 @@ body {
 
 h1 {
     text-align: center;
-    color: #556b2f;
+    color: #004d40;
+    font-size: 6em;
 }
 
 h2 {
@@ -26,14 +27,18 @@ h2 {
     color: #000000;
 }
 
+h3 {
+    font-size: 2.1rem;
+}
+
 h4 {
     font-size: xxx-large;
 }
 
 h5 {
-    background-color: #8b3747
+    background-color: #8b3747;
     color: white;
-    font-size: 1.5rem;
+    font-size: x-large;
 }
 
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
@@ -73,6 +78,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     text-align: end;
     padding: 2%;
     margin-top: 1%;
+    background-color: #8b3747d9;
+    color: #fff;
 }
 
 /* navbar */
@@ -141,14 +148,10 @@ nav ul a {
 }
 
 /* Adjust button styles */
-.row-btn {
-    padding-bottom: 2%;
-    margin-right: 30%;
-}
-
 #delete-btn {
-    margin-left: 2%;
+    margin-left: 3%;
     margin-bottom: 2%;
+    background-color: red;
 }
 
 .amber.accent-1 {
@@ -161,7 +164,7 @@ nav ul a {
 .btn-large-one {
     height: 60px;
     width: 60px;
-    padding-top: 0.7%;
+    padding-top: 2%;
 }
 
 /* add_recipe.html */
@@ -214,7 +217,8 @@ nav ul a {
 .grey.lighten-3 {
     background-color: #fafafa !important;
     margin-bottom: 5%;
-    border: 5px solid #424242;
+    border: 5px solid #004d40;
+    box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
 }
 
 #all-categories {
@@ -226,6 +230,10 @@ nav ul a {
     align-items: center;
 }
 
+#edit-cat {
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
 /* recipes.html */
 
 .link {
@@ -239,13 +247,20 @@ nav ul a {
 
 .card .card-content {
     padding: 15px;
-    height: 10vh;
 }
 
 .activator {
-    height: 55vh;
     width: 100%;
 }
+
+#recipe-card {
+    width: 30%;
+    box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
+    margin-left: 2rem;
+    background-color: #f8f8ff;
+    padding-top: 1%;
+}
+
 /* Adjust card and card-image styles */
 /* Adjust card-content styles */
 .card {
@@ -267,6 +282,7 @@ nav ul a {
 
 .card-title {
     color: #8b3747;
+    font-weight: 600;
 }
 
 .card-panel {
@@ -326,10 +342,15 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     padding-left: 30px;
     background: #eee;
     padding-right: 30px;
+    align-content: space-around;
 }
 
 .row-edit {
     width:auto
+}
+
+#recipe-btn {
+    padding-bottom: 4.5%;
 }
 
 /* recipe_description.html*/
@@ -338,9 +359,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .description {
-    text-align: left;
-    font-size: xxx-large;
+    font-size: xx-large;
+    font-weight: bolder;
     color: #e63253;
+    text-align: left;
+    text-decoration: underline;
 }
 
 #text {
