@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-apple-whole prefix"></i>
-                    <label for="ingredients">Ingredients</label>&nbsp;&nbsp;<small>Format: ['Ingredient 1', 'Ingredient 2', 'Ingredient 3']</small>
+                    <label for="ingredients">Ingredients</label>&nbsp;&nbsp;<small>['Ingredient 1', 'Ingredient 2', 'Ingredient 3']</small>
                     <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
                 </div>
             </div>
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-book-open prefix"></i>
-                    <label for="preparation">Preparation Steps</label>&nbsp;&nbsp;<small>Format:['1: Do this', '2: Do that', '3: Finish up']</small>
+                    <label for="preparation">Preparation Steps&nbsp;&nbsp;<small>['1: Do this', '2: Do that', '3: Finish up']</small></label>
                     <textarea id="preparation" name="preparation" class="materialize-textarea validate" required></textarea>
                 </div>
             </div>
@@ -57,8 +57,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-folder-open prefix"></i>
-                    <label for="category_id">Category</label>
-                    <select multiple id="category_id" name="category_id" class="validate" required>
+                    <label for="category_name">Category</label>
+                    <select multiple id="category_name" name="category_name" class="validate" required>
                     <option value="" disabled selected>Select Category</option>
                         {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.category_name }}</option>

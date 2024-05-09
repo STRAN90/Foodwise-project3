@@ -7,10 +7,10 @@
     <div class="row">
         <!-- Display all available recipes -->
         {% for recipe in recipes %}
-        <div class="card col s12" id="recipe-card">
+        <div class="card col s12 col m6 col l3" id="recipe-card">
         <!-- Recipe image -->
-        {% if recipe.photo_url %}
-        <img class="activator" src="{{ recipe.photo_url }}" alt="{{ recipe.recipe_name }}">
+        {% if recipe.image_url %}
+        <img class="activator" src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
         {% else %}
         <img class="activator" src="static/images/stock-image.jpg" alt="Stock image">
         {% endif %}
@@ -18,7 +18,7 @@
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
                     <i class="fa-solid fa-ellipsis right"></i>
-                    <h3>{{ recipe.recipe_name }}</h3>
+                    <h4>{{ recipe.recipe_name }}</h4>
                 </span>
             </div>
             <div class="card-reveal">
@@ -32,8 +32,8 @@
                     <p class="recipe-info">{{ recipe.cook_time }} mins</p>
                     <h5>Category</h5>
                     {% for category in categories %}
-                    {% if category.id == recipe.category_id | int %}
-                        <p class="recipe-info">{{ category.category_name }}</p>
+                    {% if category.category_id == recipe.category_name | int %}
+                        <p class="recipe-info">{{ recipes.category_name }}</p>
                     {% endif %}
                     {% endfor %}
                 </div>

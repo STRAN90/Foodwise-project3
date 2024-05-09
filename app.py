@@ -230,7 +230,8 @@ def edit_recipe(recipe_id):
                 "preparation": preparation,
                 "serves": serves,
                 "cook_time": cook_time,
-                "category_id": category_id  
+                "category_id": category_id,
+                "image_url": image_url,
             }
 
             # Update the recipe in the database

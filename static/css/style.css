@@ -16,29 +16,35 @@ body {
 } 
 
 h1 {
+    font-weight: 600;
     text-align: center;
     color: #004d40;
-    font-size: 6em;
+    font-size: xx-large;
 }
 
 h2 {
     font-weight: bold;
     text-decoration: underline;
     color: #000000;
+    font-size: xx-large;
 }
 
 h3 {
-    font-size: 2.1rem;
+    font-size: small;
 }
 
 h4 {
-    font-size: xxx-large;
+    font-size: xx-large;
 }
 
 h5 {
     background-color: #8b3747;
     color: white;
-    font-size: x-large;
+    font-size: large;
+}
+
+h6 {
+    font-size: smaller;
 }
 
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
@@ -51,12 +57,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 /* Hero */
-.row-hero {
-    
-}
 .container {
-    margin-block: 4.5px;
-    margin-top: 2%;
     width: 100%;
     height: 100%;
 }
@@ -74,7 +75,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .hero-text {
-    font-size: xx-large;
+    font-size: x-large;
     text-align: end;
     padding: 2%;
     margin-top: 1%;
@@ -94,7 +95,7 @@ nav ul a {
 
 /* login.html */
 .login {
-    font-size: xx-large;
+    font-size: x-large;
     background: #8b3747;
 }
 
@@ -135,7 +136,7 @@ nav ul a {
 /* profile.html */
 
 #profile-info {
-    font-size: xxx-large;
+    font-size: initial;
     margin-right: 10%;
     margin-left: 10%;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
@@ -144,7 +145,8 @@ nav ul a {
 
 .teal-text.text-darken-4 {
     color: #004d40 !important;
-    font-size: 5rem;
+    font-size: xx-large;
+    padding-top: 3%;
 }
 
 /* Adjust button styles */
@@ -152,6 +154,7 @@ nav ul a {
     margin-left: 3%;
     margin-bottom: 2%;
     background-color: red;
+    margin-top: 1.1%;
 }
 
 .amber.accent-1 {
@@ -162,8 +165,6 @@ nav ul a {
 }
 
 .btn-large {
-    height: fit-content;
-    font-size: large;
     border: 2px solid #424242 ;
     border-radius: 6px;
     font-weight: bold;
@@ -192,7 +193,7 @@ nav ul a {
 
 /* add_recipe.html */
 .input-field>label {
-    font-size: 1.5rem;
+    font-size: small;
 }
 
 /* categories.html*/
@@ -211,7 +212,6 @@ nav ul a {
 }
 
 #cat-div {
-    border-radius: 10px;
     background-image: url("../images/categories.jpg");
     background-size: 100%;
     background-blend-mode: color-burn;
@@ -220,8 +220,11 @@ nav ul a {
 .grey.lighten-3 {
     background-color: #fafafa !important;
     margin-bottom: 5%;
-    border: 5px solid #004d40;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
+}
+
+#add-div {
+    width: 70%
 }
 
 #all-categories {
@@ -236,10 +239,16 @@ nav ul a {
 #edit-cat {
     padding-top: 4%;
     padding-bottom: 4%;
+    border: none;
+}
+
+.row-description {
+    margin: 0;
+    width: 99%;
 }
 
 .description-cat {
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: bolder;
     color: #e63253;
     text-align: center;
@@ -265,11 +274,14 @@ nav ul a {
 }
 
 #recipe-card {
-    width: 30%;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
-    margin-left: 2rem;
     background-color: #f8f8ff;
-    padding-top: 1%;
+    padding-top: 4%;
+    margin-left: 1%;
+}
+
+.card .col .m6 .col .l3 {
+    width: 30%
 }
 
 /* Adjust card and card-image styles */
@@ -296,10 +308,6 @@ nav ul a {
     font-weight: 600;
 }
 
-.card-panel {
-    border-radius: 30px;
-}
-
 .card .card-content {
     padding: 15px; 
 }
@@ -319,13 +327,7 @@ nav ul a {
 .wrapper-cat {
     border: 5px solid #424242;
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
-    background: #fff0f5;
     width: 70%;
-}
-
-.radius {
-    border-radius: 10px;
-    width: auto;
 }
 
 .radius-recipe {
@@ -360,10 +362,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     width:auto
 }
 
-#recipe-btn {
-    padding-bottom: 4.5%;
-}
-
 /* recipe_description.html*/
 #r-descript {
     background: #eee;
@@ -382,20 +380,20 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 }
 ul:not(.browser-default)>li {
-    font-size: xx-large;
+    font-size: x-large;
     text-align: left;
     color: #000000;
 }
 
 .recipe-one {
     color: #000000;
-    font-size: xx-large;
+    font-size: x-large;
     text-align: left;
 
 }
 .recipe-info {
     color: #000000;
-    font-size: xx-large;
+    font-size: x-large;
     text-align: left;
 }
 
