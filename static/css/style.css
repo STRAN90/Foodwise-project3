@@ -178,7 +178,8 @@ nav ul a {
     border: 2px solid #424242 ;
     border-radius: 6px;
     font-weight: bold;
-    background-color: #ff0000;;
+    background-color: #ff0000;
+    width: -webkit-fill-available;
 }
 
 .btn {
@@ -191,6 +192,11 @@ nav ul a {
 #login-button {
     background-color: #004d40;
 }
+
+.green.darken-3 {
+    background-color: #2E7D32 !important;
+    width: -webkit-fill-available;
+} 
 
 /* categories.html*/
 

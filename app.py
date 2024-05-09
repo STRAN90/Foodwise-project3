@@ -174,7 +174,7 @@ def add_recipe():
         preparation = request.form.getlist("preparation")
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
-        category_name = request.form.get("category_name")
+        category_id = request.form.get("category_id")
         image_url = request.form.get("image_url")
 
         if not recipe_name or not recipe_description or not ingredients or not preparation:
@@ -187,7 +187,7 @@ def add_recipe():
                 "preparation": preparation,
                 "serves": serves,
                 "cook_time": cook_time,
-                "category_name": category_name,
+                "category_id": category_id,
                 "created_by": username,
                 "image_url": image_url
             }
@@ -215,7 +215,7 @@ def edit_recipe(recipe_id):
         preparation = request.form.get("preparation")
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
-        category_name = request.form.get("category_name")
+        category_id = request.form.get("category_id")
         image_url= request.form.get("image_url")
 
         # Check for empty or invalid fields
@@ -230,7 +230,7 @@ def edit_recipe(recipe_id):
                 "preparation": preparation,
                 "serves": serves,
                 "cook_time": cook_time,
-                "category_name": category_name  
+                "category_id": category_id  
             }
 
             # Update the recipe in the database
@@ -279,7 +279,7 @@ def categories():
 def add_category():
     if request.method == "POST":
         category = {
-            "category_name": request.form.get("category_name"),
+            "category_id": request.form.get("category_id"),
             "category_description": request.form.get("category_description"),
         }
         mongo.db.categories.insert_one(category)
@@ -298,7 +298,7 @@ def edit_category(category_id):
     if request.method == "POST":
         # Updates the category in the db
         edit = {
-            "category_name": request.form.get("category_name"),
+            "category_id": request.form.get("category_id"),
             "category_description": request.form.get("category_description"),
             "category_color": request.form.get("category_color")
         }
