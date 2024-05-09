@@ -106,7 +106,7 @@ Recipes:
     _id: ObjectId
     recipe_name: "string",
     recipe_description: "string",
-    category_id: ObjectId (from categories)
+    category_name: "string"
     ingredients: [
         "Ingredient 1", 
         "Ingredient 2",
@@ -119,10 +119,8 @@ Recipes:
     ],
     "cook _time": Integer,
     "serves": Integer,
-    "created_by": {
-        "username": "string", 
-        "user_id": ObjectId  (from users)
-    }
+    "created_by": username
+    "image_url": "string"
 }
 ```
 
