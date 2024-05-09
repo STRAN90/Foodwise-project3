@@ -8,13 +8,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-
 
 mongo = PyMongo(app)
 
@@ -29,12 +27,11 @@ def get_user(user_id):
 @app.route("/home")
 def home():
     recipes = list(mongo.db.recipes.find())
-    # adds current user if signed in
-    if session:
-        user = mongo.db.users.find_one({"user_id": session["user"]})
-        return render_template("home.html", recipes=recipes, user=user)
-
-    return render_template("home.html", recipes=recipes)
+    """ Adds current user if signed in """
+    user = None
+    if "user" in session:
+        user = get_user(session["user"])
+    return render_template("home.html", recipes=recipes, user=user)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -51,14 +48,22 @@ def register():
         password = request.form.get("password")
         password_check = request.form.get("password_check")
 
+        """ Input validation """
+        if not all([f_name, l_name, email, username, password, password_check]):
+            flash("All fields are required.")
+            return redirect(url_for("register"))
+        elif password != password_check:
+            flash("Passwords do not match.")
+            return redirect(url_for("register"))
+
         existing_user = mongo.db.users.find_one({"username": username})
         existing_email = mongo.db.users.find_one({"email": email})
 
         if existing_user or existing_email:
-            flash("Username or email already exists")
+            flash("Username or email already exists.")
             return redirect(url_for("register")) 
         elif password != password_check:
-            flash("Passwords do not match")
+            flash("Username or email already exists.")
             return redirect(url_for("register")) 
         else:
             hashed_password = generate_password_hash(password)
