@@ -57,9 +57,12 @@ I have designed the website to be user friendly as its main focus. It is designe
 For all page wireframes, please see [WIREFRAMES.md](WIREFRAMES.md) file.
 
 ### Typography
-Explain font you've used for your project
+- [Google Fonts](https://fonts.google.com/)
+
+  - Used 'Roboto': "light 300" font for the website as it great for accessibility.
+
 ### Colour Scheme
-Screenshoot of the colour scheme for your project
+[Color Palette](static/images/readme/color-palette.png)
 ### DataBase Diagram
 Image of the database diagram for your project
 
