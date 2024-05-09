@@ -161,17 +161,6 @@ nav ul a {
     margin: 5px;
 }
 
-.btn-large-one {
-    height: 60px;
-    width: 60px;
-    padding-top: 2%;
-}
-
-/* add_recipe.html */
-.input-field>label {
-    font-size: 1.5rem;
-}
-
 .btn-large {
     height: fit-content;
     font-size: large;
@@ -179,7 +168,6 @@ nav ul a {
     border-radius: 6px;
     font-weight: bold;
     background-color: #ff0000;
-    width: -webkit-fill-available;
 }
 
 .btn {
@@ -187,6 +175,10 @@ nav ul a {
     font-weight: 800;
     background-color: #d163b6;
     color: #faebd7;
+}
+
+#red-btn {
+    width: -webkit-fill-available;
 }
 
 #login-button {
@@ -197,6 +189,11 @@ nav ul a {
     background-color: #2E7D32 !important;
     width: -webkit-fill-available;
 } 
+
+/* add_recipe.html */
+.input-field>label {
+    font-size: 1.5rem;
+}
 
 /* categories.html*/
 

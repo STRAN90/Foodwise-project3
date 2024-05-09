@@ -91,11 +91,11 @@ Users:
 {
     _id: ObjectId,
     user_id: integer,
-    f_name: string,
-    l_name: string,
-    email: string,
-    username: string,
-    password: hashed password,
+    f_name: "string",
+    l_name: "string",
+    email: "string",
+    username: "string",
+    password: "hashed password",
 }
 ```
 
@@ -104,9 +104,9 @@ Recipes:
 ```
 {
     _id: ObjectId
-    recipe_name: string,
-    recipe_description: string,
-    category_name: category_name (from categories)
+    recipe_name: "string",
+    recipe_description: "string",
+    category_id: ObjectId (from categories)
     ingredients: [
         "Ingredient 1", 
         "Ingredient 2",
@@ -117,11 +117,25 @@ Recipes:
         "Step 2", 
         "Step 3", 
     ],
-    "cook _time": integer,
+    "cook _time": Integer,
     "serves": Integer,
-    "created_by": "username": (from user),
+    "created_by": {
+        "username": "string", 
+        "user_id": ObjectId  (from users)
+    }
 }
 ```
+
+Categories:
+
+```
+{
+    "_id": ObjectId,
+    "category_name": "string",
+    "category_description": "string"
+}
+```
+
 
 ## Features:
 Explain your features on the website,(navigation, pages, links, forms, input fields, CRUD....)
