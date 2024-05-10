@@ -203,7 +203,7 @@ def add_recipe():
                 "serves": serves,
                 "cook_time": cook_time,
                 "category_id": category_id,
-                "created_by": username,
+                "created_by": user_email,
                 "image_url": image_url
             }
 
@@ -217,12 +217,26 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
+
+
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if "user" not in session:
+        flash("You need to be logged in to edit a recipe", "error")
+        return redirect(url_for("login"))
+
+    user_email = session["user"]
+
     try:
         recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         if not recipe:
-            flash("Recipe not found.", "error")
+            flash("Recipe not found for editing", "error")
+            return redirect(url_for("recipes"))
+
+        created_by = recipe.get("created_by")
+
+        if created_by != user_email:
+            flash("You are not authorized to edit this recipe", "error")
             return redirect(url_for("recipes"))
             
         categories = mongo.db.categories.find()
@@ -267,11 +281,29 @@ def edit_recipe(recipe_id):
     except Exception as e:
         flash(f"An error occurred: {e}", "error")
         return redirect(url_for("recipes"))
-
+        
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    if "user" not in session:
+        flash("You need to be logged in to delete a recipe", "error")
+        return redirect(url_for("login"))
+
+    user_email = session["user"]
+
     try:
+        # Find the recipe and its creator
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        if not recipe:
+            flash("Recipe not found for deletion", "error")
+            return redirect(url_for("recipes"))
+
+        created_by = recipe.get("created_by")
+
+        if created_by != user_email:
+            flash("You are not authorized to delete this recipe", "error")
+            return redirect(url_for("recipes"))
+
         # Attempt to delete the recipe
         result = mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
         if result.deleted_count == 1:
