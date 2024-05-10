@@ -301,7 +301,6 @@ div.register.card-panel.form {
 }
 
 .row .col.s12 {
-    width: 100%;
     margin-left: auto;
     padding-top: 1%;
 }
@@ -326,7 +325,7 @@ div.register.card-panel.form {
 
 .yellow {
     margin-right: 87%;
-    margin-top: 3%;
+    margin-top: 6%;
 }
 
 .card .card-content {
@@ -342,7 +341,10 @@ div.register.card-panel.form {
     background-color: #f8f8ff;
     padding-top: 4%;
     margin-left: 1%;
+    min-width: auto;
+    margin-right: 7.3%;
 }
+
 
 .card .col .m6 .col .l3 {
     width: 30%

@@ -7,7 +7,7 @@
     <div class="row">
         <!-- Display all available recipes -->
         {% for recipe in recipes %}
-        <div class="card col s12 col m6 col l3" id="recipe-card">
+        <div class="card col s12 col l3" id="recipe-card">
             <!-- Recipe image -->
             {% if recipe.image_url %}
             <img class="activator" src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">

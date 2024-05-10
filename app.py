@@ -190,7 +190,7 @@ def recipes():
         return render_template("recipes.html", recipes=recipes)
 
     except Exception as e:
-        """ Handle database errors or other exceptions """
+        # Handle database errors or other exceptions 
         flash("Error fetching recipes. Please try again later.", "error")
         app.logger.error(f"Error fetching recipes: {str(e)}")
         return redirect(url_for("home"))  
