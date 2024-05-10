@@ -422,6 +422,10 @@ ul:not(.browser-default)>li {
     transition: color .2s;
 }
 
+.page-footer {
+    background-color: #424242;
+}
+
 /* Media query for tablet */
 @media(min-width: 601px) and (max-width: 992px){
     .container {width: 90%}
