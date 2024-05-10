@@ -13,13 +13,13 @@
     <div class="row-one col s12" id="all-categories">
         {% for category in categories %}
         <div class="col s12 m6 l4">
-            <div class="card-panel grey lighten-3 radius col s12 col m6 col l4 center-align">
+            <div class="card-panel grey lighten-3 radius col s12 col m6 col l4 center-align" id="category-card">
                     <h4 class="card-title">{{ category.category_name }}</h4>
                     <p class="description-cat">{{ category.category_description }}</p>
                 <!-- Delete Button with Modal Trigger -->
                 <div class="card-action">
                     <a href="{{ url_for('edit_category', category_id=category._id) }}" class="pink accent-2 waves-effect waves-green white-text btn-large">Edit</a>
-                    <a class="pink accent-2 waves-effect waves-green black-text btn-large modal-trigger" href="#deleteModal{{ category._id }}">Delete</a>
+                    <a class="red waves-effect waves-green black-text btn-large modal-trigger" href="#deleteModal{{ category._id }}">Delete</a>
                 </div>
 
                 <!-- Modal Structure -->
