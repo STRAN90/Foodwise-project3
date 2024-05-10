@@ -231,7 +231,7 @@ def add_recipe():
         preparation = request.form.getlist("preparation")
         serves = int(request.form.get("serve"))
         cook_time = int(request.form.get("cook_time"))
-        category_id = request.form.get("category_id")
+        category_name = request.form.get("category_name")
         image_url = request.form.get("image_url")
 
         if (
@@ -249,7 +249,7 @@ def add_recipe():
                 "preparation": preparation,
                 "serves": serves,
                 "cook_time": cook_time,
-                "category_id": category_id,
+                "category_name": category_name,
                 "created_by": user_email,
                 "image_url": image_url,
             }
@@ -298,7 +298,7 @@ def edit_recipe(recipe_id):
             preparation = request.form.get("preparation")
             serves = int(request.form.get("serve"))
             cook_time = int(request.form.get("cook_time"))
-            category_id = request.form.get("category_id")
+            category_name = request.form.get("category_name")
             image_url = request.form.get("image_url")
 
             """ Check for empty or invalid fields """
@@ -387,9 +387,13 @@ def recipe_description(recipe_id):
     for the session.
     """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
     if "user" in session:
         user = mongo.db.users.find_one({"user_id": session["user"]})
         return render_template("recipe_description.html", recipe=recipe, user=user)
+    else:
+        flash("Please log in to view this page", "error")
+        return redirect(url_for("login"))
 
 
 @app.route("/categories")
@@ -417,7 +421,7 @@ def add_category():
     """
     if request.method == "POST":
         category = {
-            "category_name": request.form.get("category_id"),
+            "category_name": request.form.get("category_name"),
             "category_description": request.form.get("category_description"),
         }
         mongo.db.categories.insert_one(category)
@@ -427,6 +431,9 @@ def add_category():
     if "user" in session:
         user = get_user(session["user"])
         return render_template("add_category.html", user=user)
+    else:
+        flash("Please log in to view this page", "error")
+        return redirect(url_for("login"))
 
     return render_template("add_category.html")
 
@@ -467,6 +474,9 @@ def edit_category(category_id):
         user = get_user(session["user"])
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
         return render_template("edit_category.html", category=category, user=user)
+    else:
+        flash("Please log in to view this page", "error")
+        return redirect(url_for("login"))
 
     return render_template("edit_category.html")
 
@@ -477,6 +487,10 @@ def delete_category(category_id):
     to delete an existing category from the database. Deletes the
     category based on the provided category ID.
     """
+    if "user" not in session:
+        flash("You need to be logged in to delete a category", "error")
+        return redirect(url_for("login"))
+
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
 
     flash("Category successfully deleted", "success")
