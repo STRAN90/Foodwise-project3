@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="col s12 offset-m2 wrapper  radius" id="cat-div">
-    <h1>Categories</h1>
+    <h1 class="title">Categories</h1>
     <div class="row-category">
         <!-- Add category button -->
         <div class="col s12 center-align">
@@ -19,7 +19,7 @@
                 <!-- Delete Button with Modal Trigger -->
                 <div class="card-action">
                     <a href="{{ url_for('edit_category', category_id=category._id) }}" class="pink accent-2 waves-effect waves-green white-text btn-large">Edit</a>
-                    <a class="red waves-effect waves-green black-text btn-large modal-trigger" href="#deleteModal{{ category._id }}">Delete</a>
+                    <a class="red darken-1 waves-effect waves-green white-text btn-large modal-trigger" href="#deleteModal{{ category._id }}">Delete</a>
                 </div>
 
                 <!-- Modal Structure -->
