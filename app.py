@@ -28,16 +28,22 @@ def get_user(user_id):
 @app.route("/")
 @app.route("/home")
 def home():
-    recipes = list(mongo.db.recipes.find())
-    """ Adds current user if signed in """
+    """Route function for the home page. Retrieves the current user if signed in and 
+    renders the home page.
+    """
     user = None
     if "user" in session:
         user = get_user(session["user"])
-    return render_template("home.html", recipes=recipes, user=user)
+    return render_template("home.html", user=user)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """Route function for the register page. Handles user registration. Handles both displaying 
+    and processing user registration forms, ensuring valid user information by checking for 
+    existing usernames and emails in the users' collection and verifying password matches. 
+    Displays appropriate flashed messages and reloads the page until all user information is validated.
+    """
     if "user" in session:
         flash("You are already registered and signed in.")
         return redirect(url_for("profile"))
@@ -85,13 +91,19 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """Route function for user login. Manages both displaying and processing user login forms. 
+    Checks if the user is already signed in, retrieves email and password from the form,
+    checks for existing email in the database, and verifies password matches.
+    Logs in the user if credentials are correct and redirects to the profile page.
+    Displays appropriate flashed messages for success or failure.
+    """
     if "user" in session:
-        """ Redirect to profile page if user is already signed in """
+        # Redirect to profile page if user is already signed in 
         flash("You are already signed in.", "info")
         return redirect(url_for("profile"))
 
     if request.method == "POST":
-        """ Retrieve email and password from the form """
+        # Retrieve email and password from the form 
         email = request.form.get("email")
         password = request.form.get("password")
 
@@ -117,15 +129,19 @@ def login():
         flash("Incorrect email and/or password.", "error")
         return redirect(url_for("login"))
 
-    """ Render the login page for GET requests """
+    # Render the login page for GET requests
     return render_template("login.html")
 
 
 @app.route("/logout")
 def logout():
-    """ Check if "user" key exists in the session"""
+    """Route function for user logout. Checks if the user is logged in by verifying the presence 
+    of the "user" key in the session. Removes the user from the session cookie upon logout and 
+    displays an appropriate flashed message. Redirects to the login page after logout.
+    """
+    # Check if "user" key exists in the session
     if "user" in session:
-        """ Remove user from session cookie """
+        # Remove user from session cookie 
         session.pop("user")
         flash("You have been logged out", "sucess")
     else:
@@ -136,6 +152,12 @@ def logout():
 
 @app.route("/profile")
 def profile():
+    """Route function for user profile page. Checks if the user is logged in by verifying the 
+    presence of the "user" key in the session. Retrieves user data from the database based on 
+    the email stored in the session. Renders the profile template with the user data if the 
+    user is found. Displays appropriate flashed messages and redirects to the login page if 
+    authentication fails.
+    """
     # Check if "user" key exists in the session
     if "user" in session:
         # Get user data from the database based on the email stored in the session
@@ -155,6 +177,9 @@ def profile():
 
 @app.route("/recipes")
 def recipes():
+    """Route function to display recipes. Retrieves recipes from the database and renders 
+    the recipes page. If a user is logged in, also retrieves user information for the session
+    """
     try:
         recipes = list(mongo.db.recipes.find())
 
@@ -172,6 +197,10 @@ def recipes():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    """Route function to add a new recipe. Allows logged-in users to add a new recipe, 
+    validates input data, and saves the recipe to the database. If the user is not logged in, 
+    redirects to the login page with an error message.
+    """
     if "user" not in session:
         flash("You need to be logged in to add a recipe", "error")
         return redirect(url_for("login"))
@@ -219,6 +248,9 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    """Route function to edit a recipe. Allows logged-in users to edit their own recipes. 
+    Checks authentication, verifies recipe ownership, and updates recipe details in the database.
+    """
     if "user" not in session:
         flash("You need to be logged in to edit a recipe", "error")
         return redirect(url_for("login"))
@@ -283,6 +315,10 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    """Route function to delete a recipe. Allows logged-in users to delete their own 
+    recipes. Checks authentication, verifies recipe ownership, and deletes the recipe 
+    from the database.
+    """
     if "user" not in session:
         flash("You need to be logged in to delete a recipe", "error")
         return redirect(url_for("login"))
@@ -315,6 +351,10 @@ def delete_recipe(recipe_id):
     
 @app.route("/recipe_description/<recipe_id>", methods=["GET", "POST"])
 def recipe_description(recipe_id):
+    """Route function to display recipe details. Retrieves the details of a specific recipe 
+    from the database based on its ID. If a user is logged in, also retrieves user information 
+    for the session.
+    """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     if "user" in session:
         user = mongo.db.users.find_one({"user_id": session["user"]})
@@ -322,6 +362,10 @@ def recipe_description(recipe_id):
 
 @app.route("/categories")
 def categories():
+    """Route function to display categories. Retrieves categories from the database and 
+    renders the categories page. If a user is logged in, retrieves user information for 
+    the session.
+    """
     categories = mongo.db.categories.find()
     if "user" in session:
         user = get_user(session["user"])
@@ -333,6 +377,10 @@ def categories():
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """Route function to add a new category. Allows logged-in users to add a new category 
+    to the database. Retrieves form data for category creation and inserts the new category 
+    into the database.
+    """
     if request.method == "POST":
         category = {
             "category_name": request.form.get("category_id"),
@@ -351,6 +399,11 @@ def add_category():
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
+    """Route function to edit a category. Allows logged-in users to edit an existing 
+    category in the database. Retrieves form data for category editing and updates 
+    the category details in the database. Also updates the category details in all 
+    applicable recipes in the recipes database.
+    """
     if request.method == "POST":
         # Updates the category in the db
         edit = {
@@ -386,14 +439,20 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>", methods=["GET", "POST"])
 def delete_category(category_id):
+    """Route function to delete a category. Allows logged-in users to delete an existing 
+    category from the database. Deletes the category based on the provided category ID.
+    """
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
 
     flash("Category successfully deleted", "success")
-    return redirect(url_for("categories"))  # Redirect to categories list page
+    return redirect(url_for("categories"))  
 
 
 @app.errorhandler(404)
 def page_not_found(e):
+    """Error handler for 404 Not Found. Renders a custom 404 error page when a page is 4
+    not found.
+    """
     return render_template("404.html"), 404
 
 
