@@ -305,7 +305,7 @@ def categories():
 def add_category():
     if request.method == "POST":
         category = {
-            "category_id": request.form.get("category_id"),
+            "category_name": request.form.get("category_id"),
             "category_description": request.form.get("category_description"),
         }
         mongo.db.categories.insert_one(category)
@@ -324,7 +324,7 @@ def edit_category(category_id):
     if request.method == "POST":
         # Updates the category in the db
         edit = {
-            "category_id": request.form.get("category_id"),
+            "category_name": request.form.get("category_name"),
             "category_description": request.form.get("category_description"),
             "category_color": request.form.get("category_color")
         }
