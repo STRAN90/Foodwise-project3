@@ -59,7 +59,7 @@
                     <i class="fa-solid fa-folder-open prefix"></i>
                     <label for="category_name">Category</label>
                     <select multiple id="category_name" name="category_name" class="validate" required>
-                    <option value="" disabled selected>Select Category</option>
+                    <option value="" disabled selected></option>
                         {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.category_name }}</option>
                         {% endfor %}
