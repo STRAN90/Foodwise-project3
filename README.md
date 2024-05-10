@@ -1,6 +1,5 @@
 # FoodWise
-**FoodWise**  is a website developed from the idea of my journey as a parent to children with food allergies. It was hard to come by for recipes that were allergen free and easily accessible online. 
-Allergy Wise Food is a recipe sharing and management application where caregivers of children with food allergies can create, share, edit and delete their ideas for recipes. 
+**FoodWise**  is a website developed from the idea of my journey as a parent to having to plan mealtimes that are heathly and tasty and been tested on families. FoodWise is a recipe sharing and management application where caregivers of children can create, share, edit and delete their ideas for recipes. 
 
 I have designed the website to be user friendly as its main focus. It is designed to be fully responsive and accessible on a range of devices.  
 
@@ -73,7 +72,7 @@ The website uses a contrast of colours, I wanted to choose colours to have good 
 
 I opted to integrate Font Awesome into the project to make use of the wide range of icons available. 
 
-I included a favicon in the project using Favicon
+I included a favicon in the project using Favicon.
 
 
 ![Favicon Screenshot](/static/images/favicon/favicon.ico)

@@ -396,15 +396,16 @@ def recipe_description(recipe_id):
 def categories():
     """Route function to display categories. Retrieves categories
     from the database and renders the categories page. If a user is
-    logged in, retrieves user information for the session.
+    logged in, retrieves user information for the session. Otherwise,
+    redirects to the login page.
     """
+    if "user" not in session:
+        # Redirect non-logged-in users to the login page
+        return redirect(url_for("login"))
+
     categories = mongo.db.categories.find()
-    if "user" in session:
-        user = get_user(session["user"])
-        return render_template("categories.html", categories=categories, user=user)
-    else:
-        # Handle case where user is not logged in
-        return render_template("categories.html", categories=categories, user=None)
+    user = get_user(session["user"])
+    return render_template("categories.html", categories=categories, user=user)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
