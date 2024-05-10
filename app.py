@@ -217,8 +217,6 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
-
-
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if "user" not in session:
@@ -265,7 +263,7 @@ def edit_recipe(recipe_id):
                     "preparation": preparation,
                     "serves": serves,
                     "cook_time": cook_time,
-                    "category_id": category_id,
+                    "created_by": user_email,
                     "image_url": image_url,
                 }
 
@@ -281,7 +279,7 @@ def edit_recipe(recipe_id):
     except Exception as e:
         flash(f"An error occurred: {e}", "error")
         return redirect(url_for("recipes"))
-        
+
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
