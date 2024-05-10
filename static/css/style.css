@@ -6,6 +6,21 @@ body {
     background-position: center;
 }
 
+html, body {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page-header, .page-footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .page-body {
+    flex-grow: 1;
+  }
+
 .text-shadow {
     text-shadow: 2px 2px 2px #00000080;
 }
@@ -66,7 +81,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     background-image: url("../images/hero.jpg");
     background-repeat: no-repeat;
     background-size: cover; 
-    height: 100vh;
+    height: 100%;
     margin-right: 10%;
     margin-left: 10%;
     margin-top: 10%;
@@ -322,6 +337,9 @@ nav ul a {
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
     background: #eee;
     margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .wrapper-cat {
@@ -422,9 +440,16 @@ ul:not(.browser-default)>li {
     transition: color .2s;
 }
 
+/* Sticky footer */
+
+main {
+    flex: 1 0 auto;
+}
+
 .page-footer {
     background-color: #424242;
 }
+
 
 /* Media query for tablet */
 @media(min-width: 601px) and (max-width: 992px){
