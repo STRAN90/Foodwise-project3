@@ -234,42 +234,40 @@ def add_recipe():
         category_name = request.form.get("category_name")
         image_url = request.form.get("image_url")
 
-        if (
-            not recipe_name
-            or not recipe_description
-            or not ingredients
-            or not preparation
-        ):
+        if not (recipe_name and recipe_description and ingredients and preparation):
             flash("All fields are required.", "error")
         else:
-            recipe = {
-                "recipe_name": recipe_name,
-                "recipe_description": recipe_description,
-                "ingredients": ingredients,
-                "preparation": preparation,
-                "serves": serves,
-                "cook_time": cook_time,
-                "category_name": category_name,
-                "created_by": user_email,
-                "image_url": image_url,
-            }
+            # Check if the selected category name exists in the categories collection
+            category = mongo.db.categories.find_one({"category_name": category_name})
 
-            try:
-                mongo.db.recipes.insert_one(recipe)
-                flash("Recipe added successfully.", "success")
-                return redirect(url_for("recipes"))
-            except Exception as e:
-                flash(f"An error occurred: {e}", "error")
+            if category:
+                recipe = {
+                    "recipe_name": recipe_name,
+                    "recipe_description": recipe_description,
+                    "ingredients": ingredients,
+                    "preparation": preparation,
+                    "serves": serves,
+                    "cook_time": cook_time,
+                    "category_name": category_name,
+                    "created_by": user_email,
+                    "image_url": image_url,
+                }
+
+                try:
+                    mongo.db.recipes.insert_one(recipe)
+                    flash("Recipe added successfully.", "success")
+                    return redirect(url_for("recipes"))
+                except Exception as e:
+                    flash(f"An error occurred: {e}", "error")
+            else:
+                flash("Invalid category selected.", "error")
 
     return render_template("add_recipe.html", categories=categories)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-    """Route function to edit a recipe. Allows logged-in users to
-    edit their own recipes. Checks authentication, verifies recipe
-    ownership, and updates recipe details in the database.
-    """
+    """Route function to edit a recipe."""
     if "user" not in session:
         flash("You need to be logged in to edit a recipe", "error")
         return redirect(url_for("login"))
@@ -291,55 +289,39 @@ def edit_recipe(recipe_id):
         categories = mongo.db.categories.find()
 
         if request.method == "POST":
-            """Get form data"""
-            recipe_name = request.form.get("recipe_name")
-            recipe_description = request.form.get("recipe_description")
-            ingredients = request.form.get("ingredients")
-            preparation = request.form.get("preparation")
-            serves = int(request.form.get("serve"))
-            cook_time = int(request.form.get("cook_time"))
-            category_name = request.form.get("category_name")
-            image_url = request.form.get("image_url")
+            # Retrieve form data
+            recipe_data = {
+                "recipe_name": request.form.get("recipe_name"),
+                "recipe_description": request.form.get("recipe_description"),
+                "ingredients": request.form.get("ingredients"),
+                "preparation": request.form.get("preparation"),
+                "serves": int(request.form.get("serve")),
+                "cook_time": int(request.form.get("cook_time")),
+                "category_name": request.form.get("category_name"),  # Updated category name
+                "image_url": request.form.get("image_url"),
+                "created_by": user_email,  # Ensure ownership remains unchanged
+            }
 
-            """ Check for empty or invalid fields """
-            if not all(
-                [
-                    recipe_name,
-                    recipe_description,
-                    ingredients,
-                    preparation,
-                    serves,
-                    cook_time,
-                ]
-            ):
+            # Check for empty or invalid fields
+            if not all(recipe_data.values()):
                 flash("All fields are required.", "error")
             else:
-                """Update recipe object"""
-                updated_recipe = {
-                    "recipe_name": recipe_name,
-                    "recipe_description": recipe_description,
-                    "ingredients": ingredients,
-                    "preparation": preparation,
-                    "serves": serves,
-                    "cook_time": cook_time,
-                    "created_by": user_email,
-                    "image_url": image_url,
-                }
-
-                """ Update the recipe in the database """
+                # Update the recipe in the database
                 mongo.db.recipes.update_one(
-                    {"_id": ObjectId(recipe_id)}, {"$set": updated_recipe}
+                    {"_id": ObjectId(recipe_id)},
+                    {"$set": recipe_data}
                 )
                 flash("Recipe updated successfully.", "success")
                 return redirect(url_for("recipes"))
 
         return render_template("edit_recipe.html", categories=categories, recipe=recipe)
-    except InvalidId:
-        flash("Invalid recipe ID.", "error")
-        return redirect(url_for("recipes"))
+    except (InvalidId, ValueError):
+        flash("Invalid recipe ID or invalid data.", "error")
     except Exception as e:
         flash(f"An error occurred: {e}", "error")
-        return redirect(url_for("recipes"))
+
+    return redirect(url_for("recipes"))
+
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -451,7 +433,6 @@ def edit_category(category_id):
         edit = {
             "category_name": request.form.get("category_name"),
             "category_description": request.form.get("category_description"),
-            "category_color": request.form.get("category_color"),
         }
         mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": edit})
         # Updates the category on all applicable recipes in recipe db

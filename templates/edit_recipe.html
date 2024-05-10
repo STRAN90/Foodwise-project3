@@ -61,7 +61,7 @@
                     <select multiple id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled></option>
                         {% for category in categories %}
-                            <option value="{{ category._id }}" {% if category._id == recipe.category_name %}selected{% endif %}>{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}" {% if category._id == recipe.category_name %}selected{% endif %}>{{ category.category_name }}</option>
                         {% endfor %}
                     </select>            
                 </div>
