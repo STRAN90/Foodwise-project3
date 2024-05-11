@@ -13,21 +13,17 @@ I have designed the website to be user friendly as its main focus. It is designe
     * [Colour Scheme](#colour-scheme)
     * [Icons](icons)
     * [Database Diagram](#database-diagram)
-    
-2. [Features](#features)
-    * [Navigation](#Navigation-bar)
-    * [Footer](#footer)
-    * [Home page](#home-page)
-    * [add your pages](#)
-   
+    * [Features](#features)
+    * [Future Implementations](#future-implementations)
+    * [Accessabilty](#accesabilty)
 
-3. [Technologies Used](#technologies-used)
-4. [Libraries](#libraries-used)
-5. [Testing](#testing)
-6. [Bugs](#bugs)
-7. [Deployment](#deployment)
-8. [Credits](#credits)
-9. [Acknowledgment](#acknowledgment)
+2. [Technologies and Libraries Used](#technologies-used)
+
+3. [Testing](#testing)
+4. [Bugs](#bugs)
+5. [Deployment](#deployment)
+6. [Credits](#credits)
+7. [Acknowledgment](#acknowledgment)
 
 ## Design & Planning:
 
@@ -133,7 +129,7 @@ Categories:
 }
 ```
 
-## Features:
+### Features:
 The website is composed of 6 pages that is accessible from the navigation menu if user is signed in (home page, profile, categories, recipes, add recipes and logout page). The website also has a register, recipe description and 404 error page.
 
 All pages on the website have:
@@ -181,53 +177,147 @@ All pages on the website have:
 
   * Add admin function so only admin can add/edit/delete categories and only admin have option to delete any recipe.  
   * Improve profile page, user can upload an image. 
+  * Add latest recipes to the home page. 
   * Add a search function on the navbar. 
   * Comments section or like, users can interact with each other.
   * Make this site an allergy friendly, filter option to filter recipes that linked to the filtered allergens choosen. 
   * Direct photo upload from user, using cloudinary or similar technology. 
 
+### Accessibility 
+
+I have been mindful during coding to ensure the website is as accessible friendly as possible. I have achieved this by:
+
+* Using semantic HTML.
+* Using descriptive alt attributes on images on the site. 
+* Ensuring there are sufficient colour contrast throughout the site.
+* Using font style with good accessibility.
+
+
 ## Technologies Used
-List of technologies used for your project (Languages, Tools...)
+### Including Frameworks, Libraries & Programs Used
+The table below displays the technologies and programming languages utilized in this project, along with their respective purposes within the project.
+
+
+| Language/Technology | Use                                                                                                                                                                                                                |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML                | Used to build templates for all pages on site                                                                                                                                                                                          |
+| CSS                 | Used to customise styling on all elements                                                                                                                                                                                  |
+| Python              | Used for processing data between database and front end                                                                                                                                                     |
+| MongoDB             | Data storage  users                                                                                                                                                                                                          |
+| Flask               |  Micro web framework for Python that allows you to build web applications. logic                                                                                                                                                               |
+| Jinja               | Templating engine for Pythons                                                                                                                                         |
+| Werkzeug            | WSGI (Web Server Gateway Interface) utility library for Python present                                                                                                                                                                      |
+| Gitpod        | Used as the main development environment                                                                                                                                                                                                                                                                                                                  |
+| Git        | Used for version control within development environment                                                                                                                                                                      |
+| GitHub        | Hosting service for software development and version control using Git, to save and store files for the website.  repo                                                                                                                                                                      |
+| Balsamiq            | Used to create wireframes.dates                                                                                                                                        |
+| Heroku              | Used to deploy the live site                                                                                                                                                                                                           |
+| Materialize         | The Framework for the website. Code used for additional CSS styling was also implemented in style.css. 
+| Google Fonts        | Used for site fonts; Courgette and Nunito                                                                                                                                                                                              |
+| Am I Responsive?        | An online tool to check how responsive the website is on different devices. Screenshot generated by the tool is presented in about section of the README file.                                                                                                                                                                                  |
+| FontAwesome        | Iconography on the website                                                                                                                                                                                                |
+| Google Dev Tools             | To troubleshoot and test features, solve issues with responsiveness and styling. 
+
+| Favicon              | Used for site favicon                                                                                                                                                                                                            |
+| Code Institute Python Linter         | Used to test the app.py file for Pep8 compliance |
+
+| W3 HTML Validator       | Used to test all HTML files                                                                                                                                                                                              |
+| W3 CSS Validator        | Used to test CSS file                                                                                                                                                                                  |
+| Font Awesome        | Used for icons within the menu element                                                                                                                                                                                                 |
+       |      
+|Code Institute Python Linter | Used to test the app.py file for Pep8 compliance |
+| Lighthouse (Chrome)           | Used to audit the site for performance, quality, best practices and SEO. site                                                                                                                                                                                                           |
 ## Testing
-Important part of your README!!!
-### Google's Lighthouse Performance
-Screenshots of certain pages and scores (mobile and desktop)
-### Browser Compatibility
-Check compatability with different browsers (Firefox, Edge, Chrome)
-### Responsiveness
-Screenshots of the responsivness, pick few devices
-### Code Validation
-Validate your code HTML, CSS, JS & Python - display screenshots
-### Manual Testing user stories
-Test all your user stories, you an create table 
-User Story |  Test | Pass
---- | --- | :---:
-paste here you user story | what is visible to the user and what action they should perform | &check;
-- attach screenshot
-### Manual Testing features
-Test all your features, you can use the same approach 
-| Status | feature
-|:-------:|:--------|
-| &check; | description
-- attach screenshot
+
+For all manual user testing, lighthouse performance testing and code validation, please see [TESTING.md](TESTING.md) file.
+
+
 ## Bugs
-List of bugs and how did you fix them, you can create simple table
-| Bug | Fix
-|:-------:|:--------|
-|   |    |
+During the development process, I used Google Chrome Devtools to manually test the features myself as I added them, following the user stories as I built the site and keeping a list of the bugs and their fixes along the way.
+
+#### Fixed bugs
+
+1. If user already signed in, redirects
+        if "user" in session:
+        flash("You are already signed in")
+        return redirect(url_for("profile"))
+
+User
+File "/workspace/Foodwise-project3/app.py", line 126
+    return redirect(url_for("profile"))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: 'return' outside function.
+
+
+
+2. Logout function immediately redirects to the login page, regardless of whether the user was logged in or not.
+
+    - Fixed by modify the logout function to first check if the user is logged in before performing the logout actions. 
+
+3. Bug where encrypted user ID in database was seen instead of username posted recipe card. 
+
+    - changed session["user"] to username. 
+
+4. Bug found where users could edit or delete other users recipes from the liked recipe section of their profile page.
+
+    - Fixed by adding in the missing jinja if statement around the edit and delete buttons.
+
+7. Bug found where category selection was not rendering categories from database. 
+
+    - Fixed by changing the route link category_name instead of category_Id
+
+8. Bug found when the user can look at the categories page edit/delete on the page when not logged in. 
+
+    - Added functionality for if 'user' not session to edit, add category and categories routes.
+
+9. Bug found, categoty selection not updating or being added to the recipe. 
+
+    - ensuring all routes and links corresponded to the database collection and name needed. Checked for wrong given expressions in app.py and htmls.
+
 ## Deployment
-This website is deployed to Heroku from a GitHub repository, the following steps were taken:
+This website is deployed to Heroku from a GitHub repository.
 
 #### Creating Repository on GitHub
-- First make sure you are signed into [Github](https://github.com/) and go to the code institutes template, which can be found [here](https://github.com/Code-Institute-Org/gitpod-full-template).
-- Then click on **use this template** and select **Create a new repository** from the drop-down. Enter the name for the repository and click **Create repository from template**.
-- Once the repository was created, I clicked the green **gitpod** button to create a workspace in gitpod so that I could write the code for the site.
+* Log into GitHub and locate the repository.
+* At the top locate the settings option. 
+* Scroll towards the bottom of the page and locate GitHub Pages
+* Click on the link "Check it out here!"
+* Under 'Source' dropdown, click 'Master' from the options.
+* Click the save button.
+* The site is now published, it may not be available immediately.
+* The site URL is visible on the green bar under the "Github Pages".
+
+#### Gitpod
+For website deployment I have decided to go with [Gitpod](https://gitpod.io) because it provides fast website load speeds, simple configuration setup and very easy deployment process.
+
+- From the dashboard create new "Project",
+- Login with GitHub,
+- Import desired git repository,
+- Configure project,
+- Type "python3 app.py" into terminal 
+- Select 'Open in new browser' when pop up appears. 
+- Website deployed!
+
   
 #### Making a Local Clone
-- write steps
+To clone the FoodWise repository:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, https://github.com/STRAN90/Foodwise-project3.git
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+### Local deployment 
 
 #### Forking the Github Repository 
-- write steps
+To fork this repo, follow the below step by step instructions:
+
+1. Navigate to the [GitHub Repository](https://github.com/STRAN90/Foodwise-project3.git) for this project.
+2. Click `Fork` button in top right under main navigation bar.
+3. A copy of this repo should now exist in your GitHub account. for this project.
+2. Click `Fork` button in top right under main navigation bar.
+3. A copy of this repo should now exist in your GitHub account.
 
 #### Creating an app on Heroku
 - After creating the repository on GitHub, head over to [heroku](https://www.heroku.com/) and sign in.
@@ -235,13 +325,21 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 - Give the app a name(this must be unique) and select a **region** I chose **Europe** as I am in Europe, Then click **Create app**.
 
 #### Deploying to Heroku.
-- In GitPod CLI, the root directory of the project, run: pip3 freeze --local > requirements.txt to create a requirements.txt file containing project dependencies.
-- In the Gitpod project workspace root directory, create a new file called Procfile, with capital 'P'. Open the Procfile. - Inside the file, check that web: python3 app.py has been added when creating the file Save the file.
-- Push the 2 new files to the GitHub repository
-- Login to Heroku, select Create new app, add the name for your app and choose your closest region.
-- Navigate to the Deploy tab on Heroku dashboard and select Github, search for your repository and click 'connect'.
-- Navigate to the settings tab, click reveal config vars and input the following:
 
+To deploy your app on [Heroku](https://www.heroku.com/platform), these are the steps to follow: 
+
+1. Register for an account on Heroku to begin.
+2. Click on the "New" button and choose "Create New App."
+3. Pick a unique name for your app.
+4. Select a region for deployment and click on "Create App."
+5. Choose your preferred connection method.
+6. Ensure your GitHub profile is visible and search for your repository. You might need to link your GitHub account if not done during registration.
+7. Once your repository is located, click on "Connect."
+8. Go to the "Settings" tab and select "Reveal Config Vars."
+9. Add each variable from your env.py file as key-value pairs here without quotes. For example, key = PORT and value = 5000.
+10. After adding all config vars, return to the "Deploy" tab and enable "Automatic Deploys." 
+11. Choose the branch to deploy and click "Deploy."
+12. Once deployment is complete, click "Open App" to view your live site.
 
 | Key | Value
 |:-------:|:--------|
@@ -251,7 +349,18 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 |  SECRET_KEY   |     |
 
 Actual Enviroment variables not disclosed for security
+
 ## Credits
-List of used resources for your website (text, images, snippets of code, projects....), add links and description
-## Acknowledgment
-Mention people who helped you with your project(mentor, colleagues...)
+
+- Tesco for their supply of recipes to use on this site when developing [Tesco Real Food](https://realfood.tesco.com/recipes)
+- [Code insitute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+NRDB_L5+2/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/) Mini walkthrough project. 
+
+###  Media
+
+- [Freepik](https://www.freepik.com/) - was used for background image and stock image used for recipe.  
+- [Coolors](https://coolors.co/) - for colour palette used in this README.md
+
+### Acknowledgments
+
+- My mentor Rohit Sharma for his knowledge and helpful advice. 
+- Google search engine for limitless resources about web development. 

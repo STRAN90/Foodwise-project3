@@ -1,5 +1,26 @@
 # Testing
 
+### Google's Lighthouse Performance
+Screenshots of certain pages and scores (mobile and desktop)
+### Browser Compatibility
+Check compatability with different browsers (Firefox, Edge, Chrome)
+### Responsiveness
+Screenshots of the responsivness, pick few devices
+### Code Validation
+Validate your code HTML, CSS, JS & Python - display screenshots
+### Manual Testing user stories
+Test all your user stories, you an create table 
+User Story |  Test | Pass
+--- | --- | :---:
+paste here you user story | what is visible to the user and what action they should perform | &check;
+- attach screenshot
+### Manual Testing features
+Test all your features, you can use the same approach 
+| Status | feature
+|:-------:|:--------|
+| &check; | description
+- attach screenshot
+
 ## Manual Testing
 
 
