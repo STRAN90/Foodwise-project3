@@ -55,7 +55,7 @@ h3 {
     font-size: small;
 }
 
-h4 {
+.heading {
     font-size: xx-large;
 }
 
@@ -333,7 +333,7 @@ div.row-reg {
     width: 100%;
 }
 
-#recipe-card {
+div.card.col.s12.l3.recipe-card {
     box-shadow: 0.5rem 0.5rem 0.5rem #bcbfc2, 0.5rem 0.5rem 0.5rem #fff;
     background-color: #f8f8ff;
     padding-top: 4%;
