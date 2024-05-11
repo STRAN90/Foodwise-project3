@@ -141,10 +141,6 @@ div#info-log.login.col.s12 {
     margin-left: 5%;
 }
 
-div.row-reg {
-    margin-bottom: 15%;
-}
-
 .center, .center-align {
     text-align: center;
     color: #fff;
@@ -154,10 +150,6 @@ div.row-reg {
 .row-log {
     margin: 0 auto;
     padding-top: 2%;
-}
-
-.row-reg {
-    padding-bottom: 2%;
 }
 
 .reg-link {

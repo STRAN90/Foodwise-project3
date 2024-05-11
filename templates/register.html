@@ -59,12 +59,14 @@
         </div>
         <div class="row-reg">
           <!-- Cancel -->
-          <a class="col s6 deep-red btn-large center-align" href="{{ url_for('home') }}">
+          <a class="col s6 deep-red btn-large center-align" id="cancel-btn" href="{{ url_for('home') }}">
             Cancel
             <i class="fa-solid fa-ban prefix"></i>
           </a>
-          <!-- Register -->
-          <button type="submit" class="col s6 btn-large green darken-2 text-shadow">
+        </div>
+        <div>
+        <!-- Register -->
+          <button type="submit" class="col s6 col l6 btn-large green darken-2 text-shadow">
             Register
             <i class="fas fa-sign-in-alt"></i>
           </button>
@@ -73,11 +75,12 @@
     </form>
   </div>
   <div class="row">
-    <div class="login col s12" id="info-log">
+    <div class="login col s12 col l6" id="info-log">
       <p class="info center-align">
         Already Registered?
         <a href="{{ url_for('login') }}" class="text-darken-4">Log In</a>
       </p>
     </div>
   </div>
+</div>
 {% endblock %}
