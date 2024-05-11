@@ -18,11 +18,11 @@
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
                     <i class="fa-solid fa-ellipsis right"></i>
-                    <h4>{{ recipe.recipe_name }}</h4>
+                    {{ recipe.recipe_name }}
                 </span>
             </div>
             <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><h3>{{ recipe.recipe_name }}</h3><i class="fa-solid fa-xmark right"></i></span>
+                <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fa-solid fa-xmark right"></i></span>
                 <h6>Posted by: {{ recipe.created_by }}</h6>
                 <h5>Description</h5>
                 <p class="recipe-info">{{ recipe.recipe_description }}</p>
@@ -39,11 +39,11 @@
                 <!-- Modal Trigger -->
                 <a href="#modal{{ recipe._id }}" id="delete-btn" class="waves-effect waves-light btn-floating btn-large-one modal-trigger"><i class="fa-solid fa-trash"></i></a>
                 {% endif %}
-                <h3><a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link"><bold>Click for recipe</bold></a></h3>
+                <a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link"><bold>Click for recipe</bold></a>
                 <!-- Modal Structure -->
                 <div id="modal{{ recipe._id }}" class="modal">
                     <div class="modal-content">
-                        <h4>Deleting Recipe</h4>
+                        Deleting Recipe
                         <p>Please confirm you are sure you want to delete "{{ recipe.recipe_name }}"? This action cannot be undone.</p>
                     </div>
                     <div class="modal-footer">

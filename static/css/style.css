@@ -525,6 +525,10 @@ main {
     font-size: xxx-large;
 }
 
+.name {
+    font-size: x-small;
+}
+
 /* Media query for tablet */
 @media(min-width: 601px) and (max-width: 992px){
     .container {width: 90%}
