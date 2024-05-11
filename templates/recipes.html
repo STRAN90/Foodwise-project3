@@ -39,7 +39,7 @@
                 <!-- Modal Trigger -->
                 <a href="#modal{{ recipe._id }}" id="delete-btn" class="waves-effect waves-light btn-floating btn-large-one modal-trigger"><i class="fa-solid fa-trash"></i></a>
                 {% endif %}
-                <a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link"><bold>Click for recipe</bold></a>
+                <a href="{{ url_for('recipe_description', recipe_id=recipe._id) }}" class="link">Click for recipe</a>
                 <!-- Modal Structure -->
                 <div id="modal{{ recipe._id }}" class="modal">
                     <div class="modal-content">
