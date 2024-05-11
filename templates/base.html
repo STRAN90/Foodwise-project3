@@ -18,7 +18,9 @@
         <!-- top navbar -->
 		<nav class="nav-extended text-shadow grey darken-3">
 			<div class="nav-wrapper">
-				<img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo logo-fork"> </a>
+				<a href="#" class="brand-logo logo-fork">
+                    <img src="/static/images/logo.png" alt="Foodwise Logo" class="brand-logo logo-fork">
+                </a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{ url_for('home') }}">Home</a></li>
