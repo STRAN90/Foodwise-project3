@@ -10,17 +10,9 @@
                     <p class="description"><strong>Description:</strong></p>
                     <p class="recipe-one"> {{ recipe.recipe_description }} </p>
                     <p class="description"><strong>Ingredients:</strong></p>
-                    <ul>
-                        {% for ingredient in recipe.ingredients %}
-                        <li>{{ ingredient }}</li>
-                        {% endfor %}
-                    </ul>
+                    <p class="recipe-one"> {{ recipe.ingredients }} </p>
                     <p class="description"><strong>Preparation:</strong></p>
-                    <ol>
-                        {% for step in recipe.preparation %}
-                        <li class="recipe-one">{{ step }}</li>
-                        {% endfor %}
-                    </ol>
+                    <p class="recipe-one"> {{ recipe.preparation }} </p>
                     <p class="description"><strong>Serves:</strong></p>
                     <p class="recipe-info"> {{ recipe.serves }}</p>
                     <p class="description"><strong>Cooking Time:</strong></p>
