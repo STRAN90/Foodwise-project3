@@ -44,6 +44,10 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
   <img src="static/images/readme/testing/home_(iPhone SE).png" width="30%" height="20%">
 </p>
 
+<p align="center">
+  <img src="static/images/readme/testing/home_(iPhone SE).png" width="30%" height="20%">
+</p>
+
 - As a first time user I can see with the information in the homepage what the site is about. Home, login and register links can be seen in the navigation bar. 
 - The mobile view, the navigation bar is changed to 3 small bars for better user experience. 
 
@@ -96,6 +100,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 </p>
 
 - When the user logins with the correct creditials, the user is directed to their profile page. Their first name, last name, email and username are stored here by the site. 
+- More nav bar tabs can be seen as the user is signed in to have access to these. 
 
 * Categories Page 
 
@@ -138,10 +143,10 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 * Recipes Page
 <p align="center">
-  <img src="static/images/readme/testing/recipes(Desktop).png.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/recipe(Desktop).jpg" width="30%" height="30%>
 </p>
 
-- When the user locates to the recipe page, recipe cards can be seen. An image is seen on the recipe and the stock image that is rendered if user does not paste a URL link can be seen on two recipe cards.  
+- When the user locates to the recipe page, recipe cards can be seen. An image is seen on the recipe and the stock image that is rendered if user does not paste a URL link can be seen on 2nd recipe card.  
 - The user can not see and edit or delete buttons on the recipe cards as they do not have access to edit/delete recipes that have not been posted by them. 
 
 - Use can see basic recipe info such as description, serves and cooking time, who posted it. This is see if the image or three dots are clicked on. 
@@ -150,29 +155,88 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
   <img src="static/images/readme/testing/card_reveal_recipes(Desktop).png" width="30%" height="30%>
 </p>
 
-* Add Recipe
+-If user clicks on the link "click for recipe" they will be redirected to the recipe decription page, where the full details of the recipe can be seen. As seen below. 
 
+<p align="center">
+  <img src="static/images/readme/testing/recipe_description(Desktop).png" width="30%" height="30%>
+</p>
 
+* Add Recipe - accessed by the tab "Add recipe" or green floating button by recipes title
 
+<p align="center">
+  <img src="static/images/readme/testing/add_recipe(Desktop).png" width="30%" height="30%>
+</p>
 
-### Manual Testing features
-Test all your features, you can use the same approach 
-| Status | feature
-|:-------:|:--------|
-| &check; | description
-- attach screenshot
+<p align="center">
+  <img src="static/images/readme/testing/recipename_add_recipe(Desktop).png" width="30%" height="30%>
+</p>
 
-## Manual Testing
+<p align="center">
+  <img src="static/images/readme/testing/description_add_recipe(Desktop).png" width="30%" height="30%>
+</p>
 
+<p align="center">
+  <img src="static/images/readme/testing/ingredients_add_recipe(Desktop).png" width="30%" height="30%>
+</p>
 
-## User Stories
+<p align="center">
+  <img src="static/images/readme/testing/preparation_add_recipe(Desktop).png" width="30%" height="30%>
+</p>
 
+<p align="center">
+  <img src="static/images/readme/testing/serves_add_recipe(Desktop).png" width="30%" height="30%>
+</p>
 
-### First time user
+<p align="center">
+  <img src="static/images/readme/testing/cooktime_add_recipe(Desktop).png" width="30%" height="30%>
+</p>
 
+- From the images as you can see, a tooltip can be seen in the add recipe form if a input field is missing from the user. The recipe will not be added if the fields are not filled in. However the image is optional. 
+-The user will not choose to put an image so we can see the loading of the stock image. 
 
-### Registered user
-|
+<p align="center">
+  <img src="static/images/readme/testing/add_success_recipes(Desktop).png" width="30%" height="30%>
+</p>
+
+- When the form is submitted, the recipe is seen to be added to the recipes page. The edit/delete floating buttons can now be visible to the user on their recipe card they have created but not the others recipes. A flask message will appear to confirm successful recipe added. 
+- Stock image can be seen on the recipe made by the test user. Which shows that the path url works as it should. 
+
+- If the user proceeds to edit their recipe the button directs the user to the edit recipe page. When a similar form to the add recipe is seen, but filled in with the data the user had inputted. 
+
+<p align="center">
+  <img src="static/images/readme/testing/own_edit_recipe(Desktop).png" width="30%" height="30%>
+</p>
+
+- The user has the option to update the recipe or cancel which will render the user back to the recipes page. 
+
+- If the user decides to delete their recipe, they will be prompted to confirm deletion again for extra percaution. 
+
+<p align="center">
+  <img src="static/images/readme/testing/delete_confirm_recipes(Desktop).png" width="30%" height="30%>
+</p>
+
+- If user proceeds with the deletion, they are redirected to the recipes page where there recipe they created has now been removed from the site. Flask message will appear to confirm deletion. 
+
+<p align="center">
+  <img src="static/images/readme/testing/delete_success_recipes(Desktop).png" width="30%" height="30%>
+</p>
+
+* Logout 
+
+- The user can click on the logout tab in the navigation bar. It will log them out and render them back to the login page. A flask message to confirm logout is seen. 
+
+<p align="center">
+  <img src="static/images/readme/testing/logout(Desktop).png width="30%" height="30%>
+</p>
+
+* Mobile Nav Bar 
+
+<p align="center">
+  <img src="static/images/readme/testing/mobile_navbar.png" width="30%" height="30%>
+</p>
+
+- Functional mobile nav bar can be seen. 
+
 
 ## Code Validators
 
