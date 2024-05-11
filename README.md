@@ -1,9 +1,14 @@
 # FoodWise
+
+<p align="center">
+  <img src="static/images/readme/testing/ami.png" width="100%" height="100%">
+</p>
+
 **FoodWise**  is a website developed from the idea of my journey as a parent to having to plan mealtimes that are heathly and tasty and been tested on families. FoodWise is a recipe sharing and management application where caregivers of children can create, share, edit and delete their ideas for recipes. 
 
 I have designed the website to be user friendly as its main focus. It is designed to be fully responsive and accessible on a range of devices.  
 
-**Link to website** [here](https://stran90.github.io/).
+**Link to website** [here](https://foodwise-e2114489895d.herokuapp.com/).
 
 ## Table Of Contents:
 1. [Design & Planning](#design-&-planning)
