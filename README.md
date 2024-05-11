@@ -29,12 +29,11 @@ I have designed the website to be user friendly as its main focus. It is designe
 
 ### User Stories
 
-- A parent/care giver looking for recipes not containing one or more of the top 14 common food allergens to cook for their family. 
-- Any one looking for inspiration for a recipe to cook, that are free from top one or more of the top 14 food allergens. 
+- A parent/care giver looking for recipes that are healthy and wholesome to cook for their family. 
+- Any one looking for inspiration for a recipe to cook. 
 
 #### First-time Visitor Goals 
 - As a first time user, I want to see short information about the main purpose of the site, how to use the site. 
-- As a first time user, I want to look through recipes. 
 - As a first time user, I want to be able create/login an user account. 
 
 #### Registered User Visitor Goals
