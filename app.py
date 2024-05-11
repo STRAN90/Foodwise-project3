@@ -297,7 +297,9 @@ def edit_recipe(recipe_id):
                 "preparation": request.form.get("preparation"),
                 "serves": int(request.form.get("serve")),
                 "cook_time": int(request.form.get("cook_time")),
-                "category_name": request.form.get("category_name"),  # Updated category name
+                "category_name": request.form.get(
+                    "category_name"
+                ),  # Updated category name
                 "image_url": request.form.get("image_url"),
                 "created_by": user_email,  # Ensure ownership remains unchanged
             }
@@ -308,8 +310,7 @@ def edit_recipe(recipe_id):
             else:
                 # Update the recipe in the database
                 mongo.db.recipes.update_one(
-                    {"_id": ObjectId(recipe_id)},
-                    {"$set": recipe_data}
+                    {"_id": ObjectId(recipe_id)}, {"$set": recipe_data}
                 )
                 flash("Recipe updated successfully.", "success")
                 return redirect(url_for("recipes"))
@@ -321,7 +322,6 @@ def edit_recipe(recipe_id):
         flash(f"An error occurred: {e}", "error")
 
     return redirect(url_for("recipes"))
-
 
 
 @app.route("/delete_recipe/<recipe_id>")

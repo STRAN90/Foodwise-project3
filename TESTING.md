@@ -1,13 +1,35 @@
 # Testing
+I conducted manual testing throughout the project development, ensuring that each component was thoroughly tested as it was implemented. To inspect code and its effect on the rendered site simultaneously, I utilized Google Chrome DevTools in the browser.
 
 ### Google's Lighthouse Performance
-Screenshots of certain pages and scores (mobile and desktop)
+-Desktop
+<p>
+  <img src="static/images/readme/testing/lighthouse.png" width="30%" height="30%">
+</p>
+
+-Mobile
+<p>
+  <img src="static/images/readme/testing/lighthouse-mob.png" width="30%" height="30%">
+</p>
+
 ### Browser Compatibility
-Check compatability with different browsers (Firefox, Edge, Chrome)
+
+I've personally tested the website on Android and Windows laptops, and everything is displaying correctly. Additionally, I've asked friends and family to access it on Macs and other devices, and they have confirmed that it works well for them too.
+
 ### Responsiveness
-Screenshots of the responsivness, pick few devices
+Website is fully responsive, with use of 4 breakpoints:
+
+- 375px - mobile size,
+- 768px - tablet size,
+- 1440px - desktop size,
+- 1950px - desktop large size.
+
 ### Code Validation
-Validate your code HTML, CSS, JS & Python - display screenshots
+
+### HTML
+
+I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files by URI, pasting each page into the address bar and checking to ensure no errors were found. After changing one section element to a div and removing the trailing / from an img tag, all sites received no errors.
+
 ### Manual Testing user stories
 Test all your user stories, you an create table 
 User Story |  Test | Pass
