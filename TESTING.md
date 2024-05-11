@@ -4,13 +4,13 @@ I conducted manual testing throughout the project development, ensuring that eac
 ### Google's Lighthouse Performance
 Google Chrome Dev Tools Lighthouse function to check the performance, accessibility and search engine optimization with scores documented below.
 
--Desktop
-<p>
+#### Desktop
+<p align="center">
   <img src="static/images/readme/testing/lighthouse.png" width="30%" height="30%">
 </p>
 
--Mobile
-<p>
+#### Mobile
+<p align="center">
   <img src="static/images/readme/testing/lighthouse-mob.png" width="30%" height="30%">
 </p>
 
@@ -34,12 +34,100 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 ### Manual Testing user stories
 
-* Home Page
-<p>
-  <img src="static/images/readme/testing/homescreen(Desktop).png" width="30%" height="30%">
+* Home Page Desktop view
+<p align="center">
+  <img src="static/images/readme/testing/homescreen(Desktop).png" width="30%" height="30%>
 </p>
 
-- 
+* Home Page Mobile view
+<p align="center">
+  <img src="static/images/readme/testing/home_(iPhone SE).png" width="30%" height="20%">
+</p>
+
+- As a first time user I can see with the information in the homepage what the site is about. Home, login and register links can be seen in the navigation bar. 
+- The mobile view, the navigation bar is changed to 3 small bars for better user experience. 
+
+* Register Page 
+
+<p align="center">
+  <img src="static/images/readme/testing/register(Desktop).png" width="30%" height="30%">
+</p>
+
+- A form is present to sign up to the site. First name, last name, email, username, and password inputs are seen. As well with a cancel and register button. 
+- Below the buttons is a link for the user if they have mistaken the wrong click and is already registers they can click on to the link to be redirected to the login page. 
+
+<p align="center">
+  <img src="static/images/readme/testing/f_name_register(Desktop).png" width="30%" height="30%>
+</p>
+
+<p align="center">
+  <img src="static/images/readme/testing/l_name_register(Desktop).png" width="30%" height="30%>
+</p>
+
+<p align="center">
+  <img src="static/images/readme/testing/email_register(Desktop).png" width="30%" height="30%>
+</p>
+
+<p align="center">
+  <img src="static/images/readme/testing/password_one_register(Desktop).png" width="30%" height="30%>
+</p>
+
+<p align="center">
+  <img src="static/images/readme/testing/error_password_register(Desktop).png(Desktop).png" width="30%" height="30%>
+</p>
+
+<p align="center">
+  <img src="static/images/readme/testing/user_exists_register(Desktop).png" width="30%" height="30%>
+</p>
+
+- When filling the form, the above images show the tooltip working as it should, if a input field is not filled in, the field is let known to the user. 
+- If username or email have been used, the user is alerted with a flask messge of "Username or email already exists". 
+
+-When form is filled correctly, the user is registered and redirected to the login page as seen below with a Flask message "Registration successful". 
+
+<p align="center">
+  <img src="static/images/readme/testing/reg_success_login(Desktop).png" width="30%" height="30%>
+</p>
+
+* Profile Page 
+
+<p align="center">
+  <img src="static/images/readme/testing/loggedin_profile(Desktop).png" width="30%" height="30%>
+</p>
+
+- When the user logins with the correct creditials, the user is directed to their profile page. Their first name, last name, email and username are stored here by the site. 
+
+* Categories Page 
+
+<p align="center">
+  <img src="static/images/readme/testing/categories(Desktop).png" width="30%" height="30%>
+</p>
+
+- Card panels of added categories can be seen. With edit/delete button and the name and decription of the category is seen. 
+
+<p align="center">
+  <img src="static/images/readme/testing/add_category(Desktop).png" width="30%" height="30%>
+</p>
+
+- A form is seen when category name and decription input field is provided for the user. Along with a cancel and add category buttons. 
+
+<p align="center">
+  <img src="static/images/readme/testing/add_success_categories(Desktop).png" width="30%" height="30%>
+</p>
+
+- When user clicks add category, they are redirected to the categories page and will see that their category had been made and appears on the page. 
+
+<p align="center">
+  <img src="static/images/readme/testing/edit(Desktop).png" width="30%" height="30%>
+</p>
+
+- If the user chooses to edit a category they just click on the edit button and get redirected to the edit category page. Where there is a update or cancel button. 
+
+
+
+
+
+
 
 ### Manual Testing features
 Test all your features, you can use the same approach 
