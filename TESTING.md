@@ -121,10 +121,36 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
   <img src="static/images/readme/testing/edit(Desktop).png" width="30%" height="30%>
 </p>
 
-- If the user chooses to edit a category they just click on the edit button and get redirected to the edit category page. Where there is a update or cancel button. 
+- If the user chooses to edit a category they just click on the edit button and get redirected to the edit category page. Where there is a edit category button. 
+- If user goes and edits the description and clicks on the button, the site will redirect the user to the categories page and with the updated description seen in the category Vegetables.  
 
+<p align="center">
+  <img src="static/images/readme/testing/edit_success_categories(Desktop).png" width="30%" height="30%>
+</p>
 
+<p align="center">
+  <img src="static/images/readme/testing/confirm_del_categories(Desktop).png" width="30%" height="30%>
+</p>
 
+- If user wanted to delete category, a confirmation to delete it will come up when the user clicks on delete. This helps with accidental clicks. 
+
+- If the user does want to continue with deletion, then the category is deleted from the site, user is redirected with the updated categories page. Where they will see the category is no longer there. 
+
+* Recipes Page
+<p align="center">
+  <img src="static/images/readme/testing/recipes(Desktop).png.png" width="30%" height="30%>
+</p>
+
+- When the user locates to the recipe page, recipe cards can be seen. An image is seen on the recipe and the stock image that is rendered if user does not paste a URL link can be seen on two recipe cards.  
+- The user can not see and edit or delete buttons on the recipe cards as they do not have access to edit/delete recipes that have not been posted by them. 
+
+- Use can see basic recipe info such as description, serves and cooking time, who posted it. This is see if the image or three dots are clicked on. 
+
+<p align="center">
+  <img src="static/images/readme/testing/card_reveal_recipes(Desktop).png" width="30%" height="30%>
+</p>
+
+* Add Recipe
 
 
 
