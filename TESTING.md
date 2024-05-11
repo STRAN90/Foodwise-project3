@@ -36,7 +36,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 * Home Page Desktop view
 <p align="center">
-  <img src="static/images/readme/testing/homescreen(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/homescreen(Desktop).png" width="100%" height="100%>
 </p>
 
 * Home Page Mobile view
@@ -51,7 +51,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 #### Register Page 
 
 <p align="center">
-  <img src="static/images/readme/testing/register(Desktop).png" width="30%" height="30%">
+  <img src="static/images/readme/testing/register(Desktop).png" width="100%" height="100%>
 </p>
 
 - A form is present to sign up to the site. First name, last name, email, username, and password inputs are seen. As well with a cancel and register button. 
@@ -59,29 +59,29 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - Below the buttons is a link for the user if they have mistaken the wrong click and is already registers they can click on to the link to be redirected to the login page. 
 
 <p align="center">
-  <img src="static/images/readme/testing/f_name_register(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/f_name_register(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/l_name_register(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/l_name_register(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/email_register(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/email_register(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/password_one_register(Desktop).png" width="30%" height="30%>
-</p>
-
-
-<p align="center">
-  <img src="static/images/readme/testing/error_password_register(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/password_one_register(Desktop).png" width="100%" height="100%>
 </p>
 
 
 <p align="center">
-  <img src="static/images/readme/testing/user_exists_register(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/error_password_register(Desktop).png" width="100%" height="100%>
+</p>
+
+
+<p align="center">
+  <img src="static/images/readme/testing/user_exists_register(Desktop).png" width="100%" height="100%>
 </p>
 
 
@@ -95,7 +95,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - When form is filled correctly, the user is registered and redirected to the login page as seen below with a Flask message "Registration successful". 
 
 <p align="center">
-  <img src="static/images/readme/testing/reg_success_login(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/reg_success_login(Desktop).png" width="100%" height="100%>
 </p>
 
 #### 
@@ -108,7 +108,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/loggedin_profile(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/loggedin_profile(Desktop).png" width="100%" height="100%>
 </p>
 
 ####
@@ -117,7 +117,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - Card panels of added categories can be seen. With edit/delete button and the name and decription of the category is seen. 
 
 <p align="center">
-  <img src="static/images/readme/testing/categories(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/categories(Desktop).png" wwidth="100%" height="100%>
 </p>
 
 
@@ -125,7 +125,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/add_category(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/add_category(Desktop).png" width="100%" height="100%>
 </p>
 
 
@@ -133,27 +133,27 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/add_success_categories(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/add_success_categories(Desktop).png" width="100%" height="100%>
 </p>
 
 
 - If the user chooses to edit a category they just click on the edit button and get redirected to the edit category page. Where there is a edit category button.
 
 <p align="center">
-  <img src="static/images/readme/testing/edit(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/edit(Desktop).png" width="100%" height="100%>
 </p>
 
 
 - If user goes and edits the description and clicks on the button, the site will redirect the user to the categories page and with the updated description seen in the category Vegetables.  
 
 <p align="center">
-  <img src="static/images/readme/testing/edit_success_categories(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/edit_success_categories(Desktop).png" width="100%" height="100%>
 </p>
 
 - If user wanted to delete category, a confirmation to delete it will come up when the user clicks on delete. This helps with accidental clicks. 
 
 <p align="center">
-  <img src="static/images/readme/testing/confirm_del_categories(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/confirm_del_categories(Desktop).png" width="100%" height="100%>
 </p>
 
 ####
@@ -169,13 +169,13 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - User can see basic recipe info such as description, serves and cooking time, who posted it. This is see if the image or three dots are clicked on. 
 
 <p align="center">
-  <img src="static/images/readme/testing/recipe(Desktop).jpg" width="30%" height="30%>
+  <img src="static/images/readme/testing/recipe(Desktop).jpg" width="100%" height="100%>
 </p>
 
 - If user clicks on the link "click for recipe" they will be redirected to the recipe decription page, where the full details of the recipe can be seen. As seen below. 
 
 <p align="center">
-  <img src="static/images/readme/testing/card_reveal_recipes(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/card_reveal_recipes(Desktop).png" width="100%" height="100%>
 </p>
 
 
@@ -184,7 +184,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/recipe_description(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/recipe_description(Desktop).png" width="100%" height="100%>
 </p>
 
 - From the images as you can see, a tooltip can be seen in the add recipe form if a input field is missing from the user. The recipe will not be added if the fields are not filled in. However the image is optional. 
@@ -192,31 +192,31 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - The user will not choose to put an image so we can see the loading of the stock image. 
 
 <p align="center">
-  <img src="static/images/readme/testing/add_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/add_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/recipename_add_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/recipename_add_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/description_add_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/description_add_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/ingredients_add_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/ingredients_add_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/preparation_add_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/preparation_add_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/serves_add_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/serves_add_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/cooktime_add_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/cooktime_add_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 ####
@@ -225,7 +225,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - Stock image can be seen on the recipe made by the test user. Which shows that the path url works as it should. 
 
 <p align="center">
-  <img src="static/images/readme/testing/add_success_recipes(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/add_success_recipes(Desktop).png" width="100%" height="100%>
 </p>
 
 
@@ -233,7 +233,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/own_edit_recipe(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/own_edit_recipe(Desktop).png" width="100%" height="100%>
 </p>
 
 - The user has the option to update the recipe or cancel which will render the user back to the recipes page. 
@@ -242,7 +242,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/delete_confirm_recipes(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/delete_confirm_recipes(Desktop).png" width="100%" height="100%>
 </p>
 
 
@@ -250,7 +250,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/delete_success_recipes(Desktop).png" width="30%" height="30%>
+  <img src="static/images/readme/testing/delete_success_recipes(Desktop).png" width="100%" height="100%>
 </p>
 
 #### Logout 
@@ -258,7 +258,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - The user can click on the logout tab in the navigation bar. It will log them out and render them back to the login page. A flask message to confirm logout is seen. 
 
 <p align="center">
-  <img src="static/images/readme/testing/logout(Desktop).png width="30%" height="30%>
+  <img src="static/images/readme/testing/logout(Desktop).png width=" width="100%" height="100%>
 </p>
 
 ### 404 Error Page 
@@ -266,7 +266,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 - This works great. 
 
 <p align="center">
-  <img src="static/images/readme/testing/404.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/404.png" width="100%" height="100%>
 </p>
 
 ####
@@ -274,7 +274,7 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 
 
 <p align="center">
-  <img src="static/images/readme/testing/mobile_navbar.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/mobile_navbar.png" width="100%" height="100%>
 </p>
 
 
@@ -288,35 +288,35 @@ I used [W3 HTML Validator](https://validator.w3.org/) to validate all HTML files
 W3 HTML Validator (https://validator.w3.org/) to validate all HTML files by URI, 
 
 <p align="center">
-  <img src="static/images/readme/testing/home_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/home_html.png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/register_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/register_html.png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/login_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/login_html.png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/catergories_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/catergories_html.png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/register_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/register_html.png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/profile_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/profile_html.png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/add_rec_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/add_rec_html.png" width="100%" height="100%>
 </p>
 
 <p align="center">
-  <img src="static/images/readme/testing/app_html.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/app_html.png" width="100%" height="100%>
 </p>
 
 ####
@@ -326,7 +326,7 @@ W3 HTML Validator (https://validator.w3.org/) to validate all HTML files by URI,
 W3 CSS Validator (https://jigsaw.w3.org/css-validator/validator) to validate the style.css file. 
 
 <p align="center">
-  <img src="static/images/readme/testing/w3_css.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/w3_css.png" width="100%" height="100%>
 </p>
 
 ####
@@ -336,7 +336,7 @@ W3 CSS Validator (https://jigsaw.w3.org/css-validator/validator) to validate the
 Code Institue Python Linter (https://pep8ci.herokuapp.com/)
 
 <p align="center">
-  <img src="static/images/readme/testing/python.png" width="30%" height="30%>
+  <img src="static/images/readme/testing/python.png" width="100%" height="100%>
 </p>
 
 [Back to README](README.md)
