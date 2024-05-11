@@ -133,9 +133,59 @@ Categories:
 }
 ```
 
-
 ## Features:
-Explain your features on the website,(navigation, pages, links, forms, input fields, CRUD....)
+The website is composed of 6 pages that is accessible from the navigation menu if user is signed in (home page, profile, categories, recipes, add recipes and logout page). The website also has a register, recipe description and 404 error page.
+
+All pages on the website have:
+
+-A responsive navigation bar at the top which allows the user to navigate through the site. 
+
+-A footer
+
+* Home Page. 
+  * Hero Section. 
+  The hero shows an image of fresh fruit and vegetables indicating health and wellness. 
+
+* Profile Page. 
+  * Card Section
+  This gives users information the site has stored like first name, last name, email, and username. 
+
+* Categories Page. 
+  * This section gives user abilty to add/edit/delete categories. 
+ 
+* Recipes Page. 
+  * Recipe cards
+  This section shows card panels of recipes that have been created by the user and others that have been added to the site. Users can view all recipes that have been added onto the site, including theirs. More information revealed by clicking on more (three vertical dots) icon on recipe card. A link to the full recipe page for user to view full information.  
+  * Floating buttons. 
+  Users have only the abilty to edit/delete their recipe card, floating button of edit/delete will be seen on the recipe card created by the user. There is also a floating button by the title page for user to add a recipe from the page.  
+
+* Add Recipe Page. 
+  * Add Recipe Form
+  This section shows a from to fill in to add a recipe on the site. The form contains fields for the recipe name, description, ingredients, preparation, serves, cook time, category and optional upload of an image by user. The user submits the form using the submit button. Users must fill in the input fields to be able to submit the form. If they don't a tooltip will guide them to fill in any information they have missed. Ability to add an image if user wanter, however a stock image will be used. This page gives quick access to add a recipe rather than going through the recipes page. 
+
+* Registration Page
+  * Registration From 
+  This section shows a from for the user to fill in, in order to use the website. The form consists of input fields for the users first name, last name, email, username, and choosen password and retype password field. There is a cancel button that redirects the user to the homepage, and a submit button to register. Flask message will appear if username and email have been used. Flask message seen if registration was successful and directs users to the login page. 
+  
+* Login Page. 
+  * Log in Form
+  This section shows a from to fill in login to the website. It contains email and password input fields. Flask messages will appear if email and password are incorrect. If correct email and password are entered the user is directed to the profile page and a welcome message of the user's name is shown. 
+
+* Recipe Page. 
+  * This shows full details of the recipe the user has choosen to view. Recipe name, description, ingredients, preparation, serves, cook time, category and who it was posted by can be seen.
+
+* 404 Page. 
+  * Found if the user navigates to a page that doesn't exist within the site 
+
+### Future Implementations.
+
+  * Add admin function so only admin can add/edit/delete categories and only admin have option to delete any recipe.  
+  * Improve profile page, user can upload an image. 
+  * Add a search function on the navbar. 
+  * Comments section or like, users can interact with each other.
+  * Make this site an allergy friendly, filter option to filter recipes that linked to the filtered allergens choosen. 
+  * Direct photo upload from user, using cloudinary or similar technology. 
+
 ## Technologies Used
 List of technologies used for your project (Languages, Tools...)
 ## Testing
